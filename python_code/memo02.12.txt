@@ -1,0 +1,25 @@
+参考サイト：
+    ・https://analytics-note.xyz/programming/python-kana-list/
+    ・https://analytics-note.xyz/programming/python-chr-ord/
+
+
+
+
+・ひらがな・かたかなlistを作成する
+
+hiragana = [chr(i) for i in range(ord("ぁ"), ord("ゖ")+1)]
+print("".join(hiragana))
+# ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんゔゕゖ
+katakana = [chr(i) for i in range(ord("ァ"), ord("ヺ")+1)]
+print("".join(katakana))
+# ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶヷヸヹヺ
+
+
+
+・文字コードの互換性
+ordとchrを使った文字と文字コードの変換
+
+print(ord("a"))  # 97
+print(ord("あ"))   # 12354
+print(chr(97))   # a
+print(chr(12354))   # あ
