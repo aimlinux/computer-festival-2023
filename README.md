@@ -1,2 +1,1 @@
-# computer-festival-2023-yonago.k
-#
+# computer-festival-2023

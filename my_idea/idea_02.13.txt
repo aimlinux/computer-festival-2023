@@ -1,0 +1,20 @@
+一次関数の相関図のイメージで、（y = a x + b）
+aとbの値が変異値
+
+pip install scikit-learn
+
+
+扱うデータのまとまり
+➡データセット
+NumPyを使うと良い
+
+
+
+csvデータから数値表として利用することが多い。
+csvファイルを読み込むのはpandasを使う。
+
+import pandas as pd
+df = pd.read_csv("iris.csv")
+
+参考動画url：https://www.youtube.com/watch?v=oJdG7srNDKU&t=1458s
+
