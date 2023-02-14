@@ -5,8 +5,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 
-filepath = 'csv\list.csv'
-filepath = 'csv\list_2.csv'
+#filepath = 'csv\csv_file\list.csv'
+filepath = 'csv\csv_file\list_2".csv'
 df = pd.read_csv(filepath)
 print(df)
 

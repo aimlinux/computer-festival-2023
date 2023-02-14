@@ -1,7 +1,7 @@
 import pandas as pd
 from pathlib import Path
 
-filepath = 'csv\list.csv'
+filepath = 'csv\csv_file\list.csv'
 print(Path(filepath).read_text())
 
 print("///////////////////////")

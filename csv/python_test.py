@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
-filepath = 'csv\list_2.csv'
+filepath = 'csv\csv_file\list_2.csv'
 df = pd.read_csv(filepath)
 print(df)
 
