@@ -4,15 +4,15 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 
-filepath = 'csv\csv_file\iris.csv'
+filepath = 'csv\csv_file\iris_cp.csv'
 df = pd.read_csv(filepath)
 print(df)
 
 
-X = df[['Sepal.Length', 'Sepal.Width', 
-        'Petal.Length', 'Petal.Width']]
+X = df[['First', 'Second', 
+        'Third', 'Fourth']]
 
-Y = df['Species']
+Y = df['Looking']
 
 X_train, X_test, Y_train, Y_test = train_test_split(
     X, Y, test_size=0.2, random_state=77    
