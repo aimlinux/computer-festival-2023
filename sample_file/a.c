@@ -5,15 +5,6 @@
 int main(){
     int a,n;
     char c[40],ca[]={-126,-96};//printf("%s",ca);
-    /*char cc[330];
-    cc[0]=-126;
-    cc[1]=-96;
-    for(n=0;n<160;n+=2){
-        cc[n+2]=cc[n];
-        cc[n+3]=cc[n+1]+1;
-    }
-    cc[n+2]='\0';
-    printf("%s",cc);*/
     srand((unsigned)time(NULL));
     scanf("%s",c);//printf("%d %d %d %d",ca[0],ca[1],ca[2],c[3]);
     for(n=0;c[n] != '\0';n+=1);printf("%d\n",n);

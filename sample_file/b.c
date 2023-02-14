@@ -18,7 +18,7 @@ int main(){
     srand((unsigned)time(NULL));
     scanf("%s",c);//printf("%d %d %d %d",c[0],c[1],c[2],c[3]);
     for(n=0;c[n] != '\0';n+=1);//printf("%d\n",n);
-    a=rand()%(n/2+1)*2;
+    a=rand()%(n/3)*2;
     //printf("%d %d",ca[0],ca[1]);
     ca[1]=ca[1]+rand()%82;
     //printf(" %d %s\n",ca[1],ca);
