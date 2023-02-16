@@ -66,7 +66,7 @@ Y = df['Ans']
 #--------評価用に振り分けられた割合 : test_size ---------
 #--------残りの割り当てられたデータが学習用の割合--------
 X_train, X_test, Y_train, Y_test = train_test_split(
-    X, Y, test_size=0.8, random_state=77    
+    X, Y, test_size=0.999, random_state=77    
 )
 
 print(len(X_train))
