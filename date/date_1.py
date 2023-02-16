@@ -4,18 +4,23 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
 
 
-filepath = 'csv_file\data12.csv'
+
+filepath = 'C:/Users/kxiyt/Documents/GitHub/computer-festival-2023-yonago.k/date/csv_file/data122.csv'
 df = pd.read_csv(filepath)
 print(df)
 
 
-X = df[['1th','2th','3th','4th','5th','6th','7th','8th','9th','10th','11th','12th','13th'
-        ,'14th','15th','16th','17th','18th','19th','20th','21th','22th','23th']]
+
+
+X = df[['1th','2th','3th','4th','5th','6th','7th','8th','9th','10th','11th','12th','13th','14th','15th','16th','17th','18th','19th','20th','21th','22th','23th'
+        ]]
 
 Y = df['Ans']
 
+#--------評価用に振り分けられた割合 : test_size ---------
+#--------残りの割り当てられたデータが学習用の割合--------
 X_train, X_test, Y_train, Y_test = train_test_split(
-    X, Y, test_size=0.2, random_state=77    
+    X, Y, test_size=0.2, random_state=77
 )
 
 print(len(X_train))
