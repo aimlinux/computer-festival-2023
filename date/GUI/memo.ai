@@ -1,0 +1,8 @@
+02/20~
+PySimpleGuiを用いたGUIアプリ
+
+メインプログラム：pysimplegui/main.py
+
+GUIのテーマ一覧：pysimplegui/test/Theme_change.py
+    main.pyのプログラムの「sg.theme」を書き換えることで,
+    テーマ変更ができる.
