@@ -1,6 +1,5 @@
 
 import PySimpleGUI as sg
-from gtts import gTTS
 import random as rand
 
 def gui():
