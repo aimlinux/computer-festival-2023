@@ -1,8 +1,14 @@
 02/20~
 PySimpleGuiを用いたGUIアプリ
 
-メインプログラム：pysimplegui/main.py
+    メインプログラム：main.py
 
-GUIのテーマ一覧：pysimplegui/test/Theme_change.py
-    main.pyのプログラムの「sg.theme」を書き換えることで,
-    テーマ変更ができる.
+    GUIのテーマ一覧：test/Theme_change.py
+        main.pyのプログラムの「sg.theme」を書き換えることで,
+        テーマ変更ができる.
+
+
+02/21:
+    
+    プログラム：main_2.py
+        作成された単語を機械音声で読み上げるプログラムの追加
