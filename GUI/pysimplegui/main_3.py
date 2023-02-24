@@ -26,28 +26,11 @@ def make_sub1():
                 [sg.Spin(['ひらがなのみ', 'ひらがな・カタカナ'], size=(30,1), initial_value='ひらがな・カタカナ', key='-language-')], 
                 [sg.Button('アプリケーションを終了する', key='-ok-')],
     ]    
-    return sg.window('サブウィンドウ1', sub1_layout, finalize=True)
     
-    
-#最初に表示するウィンドウを指定する
-window = make_main()
-
-while True:
-    # ウィンドウを表示
-    event, values = window.read()
-    
-    
-    if event == sg.WIN_CLOSED:
-        break
-    
-    elif event == '-sub1-':
-        window.close()
-        window = make_sub1()
-
     while True:
         # ウィンドウを表示
         event, values = window.read()
-        
+
         if event == '-generate-':
             c = list (values['sentence'])
             a = rand.randint(0,len(c))
@@ -62,31 +45,49 @@ while True:
             for i in range(len(c)-a):
                 cc.append(c[i+a])
             cc = ''.join(cc)
-            print(cc) 
-            
+            print(cc)
             # --ランダムに生成--
             # print(rand.choice(cc, k=len(cc)))
-            
             #----新単語を読み上げる----
             engine = pyttsx3.init()
             engine.say(cc)
             engine.runAndWait()
-        
+    
         # --ボタンを押したら繰り返し再生--
         if event == '-speak-':
             engine = pyttsx3.init()
             engine.say(cc)
             engine.runAndWait()
-
+            
         if event == '-ok-':
             break
         
-        # window右上の×印を押して閉じたとき
+        # window右上のx印を押して閉じたとき
         if event == sg.WIN_CLOSED: 
             break
 
     # 画面から削除して終了
-    window.close()  # ウィンドウを閉じる
+    window.close() 
+    
+    return sg.window('サブウィンドウ1', sub1_layout, finalize=True)
+    
+    
+    
+    
+    
+#最初に表示するウィンドウを指定する
+window = make_main()
+
+while True:
+    event, values = window.read()
+    
+    if event == sg.WIN_CLOSED:
+        break
+    
+    elif event == '-sub1-':
+        window.close()
+        window = make_sub1()
+
     
 window.close()
 
