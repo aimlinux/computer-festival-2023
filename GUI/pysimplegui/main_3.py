@@ -56,7 +56,7 @@ def make_sub1():
         # --ボタンを押したら繰り返し再生--
         if event == '-speak-':
             engine = pyttsx3.init()
-            engine.say(cc)
+            engine.say(cc) 
             engine.runAndWait()
             
         if event == '-ok-':
