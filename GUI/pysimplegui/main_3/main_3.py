@@ -1,9 +1,18 @@
 #サイトURL : https://www.teru2teru.com/python/pysimplegui/screen_transition/
+#----[pip install pysimplegui]----
+#----[pip install pyttsx3]----
+#----[pip install pyautogui]----
 
 import PySimpleGUI as sg
 import random as rand
 import pyttsx3
 import numpy as np
+from msilib.schema import Upgrade
+from re import U
+from turtle import update
+import pyautogui
+
+pyautogui.confirm("アプリケーションを起動しますか？")
 
 # ウィンドウのテーマ
 #sg.theme('python')
@@ -72,6 +81,9 @@ def make_sub4():
 def make_sub5():
     # ------------ サブ５ウィンドウ作成 ------------
     sub5_layout = [  [sg.Text('ひらがなで名前をランダムに生成するよ！！')],
+                [sg.Button('新単語生成', key='-generate_5-')],
+                [sg.Button('新単語を読み上げる', key='-speak_5-')],
+                [sg.Output(size=(60, 8))],
                 [sg.Text('実は機械学習を使ってるんだよね！！')],  
                 [sg.Button('メニュー選択画面に戻る', size=(60, 1), key='-back-')],
     ]    
@@ -86,6 +98,7 @@ while True:
 
     if event == sg.WIN_CLOSED:
         break
+
 
 
 #--------sub1ボタンが押された場合--------
@@ -187,8 +200,6 @@ while True:
     # window右上のx印を押して閉じたとき
     if event == sg.WIN_CLOSED: 
         break
-
-
 
 
 
@@ -307,14 +318,61 @@ while True:
         
         
         
-        
-        
 #--------sub5ボタンが押された場合--------
     elif event == '-sub5-':
         # メインウィンドウを閉じて、サブ５ウィンドウを作成して表示する
         window.close()
         window = make_sub5()
-
+        
+        
+#--------サブ5のウィンドウについての設定--------    
+    if event == '-generate_5-':
+        #--------各環境で相対パスを変更しよう！！--------
+        f_sub5=open("GUI/pysimplegui/main_3/sample_code/Data_Rand/human/human.bin","rb")
+        sum_sub5=[0]*85
+        a_sub5=[]
+        for i_sub5 in range(85):
+            aa_sub5=[]
+            for j_sub5 in range(85):
+                b_sub5=f_sub5.read(2)
+                aaa_sub5=b_sub5[0]*256+b_sub5[1]
+                aa_sub5=aa_sub5+[aaa_sub5]
+                sum_sub5[i_sub5]=sum_sub5[i_sub5]+aaa_sub5
+            a_sub5=a_sub5+[aa_sub5]
+        f_sub5.close
+        #print(a_sub5)
+        c_sub5=[]
+        front_sub5=0
+        while True:
+            r_sub5=rand.randint(1,sum_sub5[front_sub5])
+            count_sub5=0
+            i_sub5=-1
+            while count_sub5<r_sub5:
+                i_sub5=i_sub5+1
+                count_sub5=count_sub5+a_sub5[front_sub5][i_sub5]
+            #print(i_sub5)
+            if i_sub5==0:
+                break
+            #c_sub5=c_sub5+[i_sub5+(227*256+130)*256+160+(i_sub5>32)*192]
+            c_sub5=c_sub5+[227,129+(i_sub5>63),i_sub5+128-(i_sub5>63)*64]
+            front_sub5=i_sub5
+        #print(c_sub5)
+        cc_sub5=bytes(c_sub5).decode("utf-8")
+        print(cc_sub5)
+        #----新単語を読み上げる----
+        engine = pyttsx3.init()
+        engine.say(cc_sub5)
+        engine.runAndWait()
+        
+    # --ボタンを押したら繰り返し再生--
+    if event == '-speak_5-':
+        engine = pyttsx3.init()
+        engine.say(cc_sub5) 
+        engine.runAndWait()
+            
+    # window右上のx印を押して閉じたとき
+    if event == sg.WIN_CLOSED: 
+        break
 
 
     # 「メニュー選択画面に戻る」ボタンが押された場合
@@ -327,6 +385,7 @@ while True:
     #「アプリケーションを終了する」ボタンが押された場合
     elif event == '-exit-':
         # メインウィンドウを閉じて、アプリケーションを終了する
+        pyautogui.confirm("本当に終了しますか？")
         window.close()
 
 
