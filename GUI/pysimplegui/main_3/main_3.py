@@ -10,47 +10,58 @@ import numpy as np
 from msilib.schema import Upgrade
 from re import U
 from turtle import update
-import pyautogui
+import pyautogui as pg
 
-pyautogui.confirm("アプリケーションを起動しますか？")
+#pg.confirm("アプリケーションを起動しますか？")
 
 # ウィンドウのテーマ
-#sg.theme('python')
+sg.theme('python')
+sg.theme('LightBlue3')
+#sg.theme('SystemDefault8')
+#--------メインテーマ候補--------
+# [LightGreen2, DarkTeal5, LightBlue3]
 
+
+#--------各ウィンドウのオブジェクト定義--------
 def make_main():
     # ------------ メインウィンドウ作成 ------------
-    main_layout = [ [sg.Text('ユニークな新単語を生成するアプリケーション', size=(50,3))], 
-                    [sg.Text('メニューを選択してください', size=(50, 2))], 
-                    [sg.Button('sub1', size=(20, 2), key='-sub1-')],
-                    [sg.Button('sub2', size=(20, 2), key='-sub2-')],
-                    [sg.Button('sub3', size=(20, 2), key='-sub3-')],
-                    [sg.Button('sub4', size=(20, 2), key='-sub4-')],
-                    [sg.Button('sub5', size=(20, 2), key='-sub5-')],
-                    [sg.Button('アプリケーションを終了する', size=(30, 2), key='-exit-')]
+    main_layout = [ [sg.Text('ユニークな新単語を生成するアプリケーション', font=('Arial', 25),
+                    text_color='#c71585', size=(50,2))], 
+                    [sg.Text('メニューを選択してください', font=('Noto Serif CJK JP', 20),
+                    text_color='#191970', size=(50, 2))], 
+                    [sg.Button('入力された文字からユニークな新単語を生成するモード', font=('Arial'), size=(50, 2), key='-sub1-')],
+                    [sg.Button('ひらがなでランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub2-')],
+                    [sg.Button('カタカナでランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub3-')],
+                    [sg.Button('ローマ字でランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub4-')],
+                    [sg.Button('ひらがなで名前をランダムに生成するモード', font=('Arial'), size=(50, 2), key='-sub5-')],
+                    [sg.Text('', size=(80, 2))],
+                    [sg.Button('アプリケーションを終了する', font=('Arial', 13), size=(30, 2), key='-exit-')]
     ]
     return sg.Window("main_layout", main_layout, finalize=True)
 
 def make_sub1():
     # ------------ サブ１ウィンドウ作成 ------------
-    sub1_layout = [  [sg.Text('入力された文字から創造性のあふれるユニークな新単語を生成するよ！！')],     # テキスト設置
-                [sg.Multiline('文字を入力してください', size=(80, 20), key='sentence_1')], # 文章入力欄を設置
-                [sg.Button('新単語生成', key='-generate_1-')], 
-                [sg.Button('新単語を読み上げる', key='-speak_1-')],
-                [sg.Output(size=(60, 8))], 
-                [sg.Text('言語設定')],
-                [sg.Spin(['ひらがなのみ', 'ひらがな・カタカナ'], size=(30,1), initial_value='ひらがな・カタカナ', key='-language-')], 
-                [sg.Button('メニュー選択画面に戻る', size=(60, 1), key='-back-')],
+    sub1_layout = [  [sg.Text('入力された文字から創造性のあふれるユニークな新単語を生成するよ！！', font=('Arial', 20))],
+                # 文章入力欄を設置
+                [sg.Multiline('文字を入力してください', font=('Arial'), text_color='#191970', size=(80, 20), key='sentence_1')],
+                [sg.Button('新単語生成', font=('Arial'), key='-generate_1-')], 
+                [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_1-')],
+                [sg.Output(size=(60, 8), font=('Arial'), text_color='#191970', )], 
+                [sg.Text('言語設定', font=('Arial'))],
+                [sg.Spin(['ひらがなのみ', 'ひらがな・カタカナ'], font=('Arial'), 
+                size=(30,1), initial_value='ひらがな・カタカナ', key='-language-')], 
+                [sg.Button('メニュー選択画面に戻る',  font=('Arial'), size=(60, 1), key='-back-')],
     ]    
     return sg.Window("sub1_layout", sub1_layout, finalize=True)
 
 
 def make_sub2():
     # ------------ サブ２ウィンドウ作成 ------------
-    sub2_layout = [  [sg.Text('ひらがなでランダムに文字を生成するよ！！')],     
-                [sg.Button('新単語生成', key='-generate_2-')],
-                [sg.Button('新単語を読み上げる', key='-speak_2-')],
-                [sg.Output(size=(60, 8))],
-                [sg.Button('メニュー選択画面に戻る', size=(60, 1), key='-back-')],
+    sub2_layout = [  [sg.Text('ひらがなでランダムに文字を生成するよ！！', font=('Arial'))],     
+                [sg.Button('新単語生成', font=('Arial'), key='-generate_2-')],
+                [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_2-')],
+                [sg.Output(size=(60, 8), font=('Arial'))],
+                [sg.Button('メニュー選択画面に戻る', font=('Arial'), size=(60, 1), key='-back-')],
 
     ]    
     return sg.Window('sub2_layout', sub2_layout, finalize=True)
@@ -58,36 +69,37 @@ def make_sub2():
 
 def make_sub3():
     # ------------ サブ３ウィンドウ作成 ------------
-    sub3_layout = [  [sg.Text('カタカナでランダムに文字を生成するよ！！')],     
-                [sg.Button('新単語生成', key='-generate_3-')],
-                [sg.Button('新単語を読み上げる', key='-speak_3-')],
-                [sg.Output(size=(60, 8))],
-                [sg.Button('メニュー選択画面に戻る', size=(60, 1), key='-back-')],
+    sub3_layout = [  [sg.Text('カタカナでランダムに文字を生成するよ！！', font=('Arial'))],     
+                [sg.Button('新単語生成', font=('Arial'), key='-generate_3-')],
+                [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_3-')],
+                [sg.Output(size=(60, 8), font=('Arial'))],
+                [sg.Button('メニュー選択画面に戻る', font=('Arial'), size=(60, 1), key='-back-')],
     ]    
     return sg.Window('sub3_layout', sub3_layout, finalize=True)
 
 
 def make_sub4():
     # ------------ サブ４ウィンドウ作成 ------------
-    sub4_layout = [  [sg.Text('ローマ字でランダムに文字を生成するよ！！')],     
-                [sg.Button('新単語生成', key='-generate_4-')],
-                [sg.Button('新単語を読み上げる', key='-speak_4-')],
-                [sg.Output(size=(60, 8))],
-                [sg.Button('メニュー選択画面に戻る', size=(60, 1), key='-back-')],
+    sub4_layout = [  [sg.Text('ローマ字でランダムに文字を生成するよ！！', font=('Arial'))],     
+                [sg.Button('新単語生成', font=('Arial'), key='-generate_4-')],
+                [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_4-')],
+                [sg.Output(size=(60, 8), font=('Arial'))],
+                [sg.Button('メニュー選択画面に戻る', font=('Arial'), size=(60, 1), key='-back-')],
     ]    
     return sg.Window('sub4_layout', sub4_layout, finalize=True)
 
 
 def make_sub5():
     # ------------ サブ５ウィンドウ作成 ------------
-    sub5_layout = [  [sg.Text('ひらがなで名前をランダムに生成するよ！！')],
-                [sg.Button('新単語生成', key='-generate_5-')],
-                [sg.Button('新単語を読み上げる', key='-speak_5-')],
-                [sg.Output(size=(60, 8))],
-                [sg.Text('実は機械学習を使ってるんだよね！！')],  
-                [sg.Button('メニュー選択画面に戻る', size=(60, 1), key='-back-')],
+    sub5_layout = [  [sg.Text('ひらがなで名前をランダムに生成するよ！！', font=('Arial'))],
+                [sg.Button('新単語生成', font=('Arial'), key='-generate_5-')],
+                [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_5-')],
+                [sg.Output(size=(60, 8), font=('Arial'))],
+                [sg.Text('実は機械学習を使ってるんだよね！！', font=('Arial'))],  
+                [sg.Button('メニュー選択画面に戻る', font=('Arial'), size=(60, 1), key='-back-')],
     ]    
     return sg.Window('sub5_layout', sub5_layout, finalize=True)
+
 
 
 # 最初に表示するウィンドウを指定する。
@@ -385,7 +397,7 @@ while True:
     #「アプリケーションを終了する」ボタンが押された場合
     elif event == '-exit-':
         # メインウィンドウを閉じて、アプリケーションを終了する
-        pyautogui.confirm("本当に終了しますか？")
+        pg.confirm("本当に終了しますか？")
         window.close()
 
 
