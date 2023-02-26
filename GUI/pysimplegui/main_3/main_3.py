@@ -25,28 +25,31 @@ sg.theme('LightBlue3')
 #--------各ウィンドウのオブジェクト定義--------
 def make_main():
     # ------------ メインウィンドウ作成 ------------
-    main_layout = [ [sg.Text('ユニークな新単語を生成するアプリケーション', font=('Arial', 25),
-                    text_color='#c71585', size=(50,2))], 
-                    [sg.Text('メニューを選択してください', font=('Noto Serif CJK JP', 20),
-                    text_color='#191970', size=(50, 2))], 
-                    [sg.Button('入力された文字からユニークな新単語を生成するモード', font=('Arial'), size=(50, 2), key='-sub1-')],
-                    [sg.Button('ひらがなでランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub2-')],
-                    [sg.Button('カタカナでランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub3-')],
-                    [sg.Button('ローマ字でランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub4-')],
-                    [sg.Button('ひらがなで名前をランダムに生成するモード', font=('Arial'), size=(50, 2), key='-sub5-')],
-                    [sg.Text('', size=(80, 2))],
-                    [sg.Button('アプリケーションを終了する', font=('Arial', 13), size=(30, 2), key='-exit-')]
+    main_layout = [ [sg.Text('', size=(80, 1))], 
+                [sg.Text('ユニークな新単語を生成するアプリケーション', font=('Arial', 25),
+                text_color='#ff1493', size=(50,2))], 
+                [sg.Text('メニューを選択してください', font=('Noto Serif CJK JP', 20),
+                text_color='#191970', size=(50, 2))], 
+                [sg.Button('入力された文字からユニークな新単語を生成するモード', font=('Arial'), size=(50, 2), key='-sub1-')],
+                [sg.Button('ひらがなでランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub2-')],
+                [sg.Button('カタカナでランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub3-')],
+                [sg.Button('ローマ字でランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub4-')],
+                [sg.Button('ひらがなで名前をランダムに生成するモード', font=('Arial'), size=(50, 2), key='-sub5-')],
+                [sg.Text('', size=(80, 2))],
+                [sg.Button('アプリケーションを終了する', font=('Arial', 13), size=(30, 2), key='-exit-')]
     ]
     return sg.Window("main_layout", main_layout, finalize=True)
 
 def make_sub1():
     # ------------ サブ１ウィンドウ作成 ------------
-    sub1_layout = [  [sg.Text('入力された文字から創造性のあふれるユニークな新単語を生成するよ！！', font=('Arial', 20))],
+    sub1_layout = [ [sg.Text('', size=(80, 1))],  
+                [sg.Text('入力された文字から創造性のあふれるユニークな新単語を生成するよ！！', text_color='#191970', font=('Arial', 18))],
+                [sg.Text('', size=(80, 1))],
                 # 文章入力欄を設置
                 [sg.Multiline('文字を入力してください', font=('Arial'), text_color='#191970', size=(80, 20), key='sentence_1')],
                 [sg.Button('新単語生成', font=('Arial'), key='-generate_1-')], 
                 [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_1-')],
-                [sg.Output(size=(60, 8), font=('Arial'), text_color='#191970', )], 
+                [sg.Output(size=(60, 8), font=('Arial'))], 
                 [sg.Text('言語設定', font=('Arial'))],
                 [sg.Spin(['ひらがなのみ', 'ひらがな・カタカナ'], font=('Arial'), 
                 size=(30,1), initial_value='ひらがな・カタカナ', key='-language-')], 
@@ -57,7 +60,9 @@ def make_sub1():
 
 def make_sub2():
     # ------------ サブ２ウィンドウ作成 ------------
-    sub2_layout = [  [sg.Text('ひらがなでランダムに文字を生成するよ！！', font=('Arial'))],     
+    sub2_layout = [ [sg.Text('', size=(80, 1))],  
+                [sg.Text('ひらがなでランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
+                [sg.Text('', size=(80, 2))],
                 [sg.Button('新単語生成', font=('Arial'), key='-generate_2-')],
                 [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_2-')],
                 [sg.Output(size=(60, 8), font=('Arial'))],
@@ -69,7 +74,9 @@ def make_sub2():
 
 def make_sub3():
     # ------------ サブ３ウィンドウ作成 ------------
-    sub3_layout = [  [sg.Text('カタカナでランダムに文字を生成するよ！！', font=('Arial'))],     
+    sub3_layout = [ [sg.Text('', size=(80, 1))],  
+                [sg.Text('カタカナでランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
+                [sg.Text('', size=(80, 2))],
                 [sg.Button('新単語生成', font=('Arial'), key='-generate_3-')],
                 [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_3-')],
                 [sg.Output(size=(60, 8), font=('Arial'))],
@@ -80,7 +87,9 @@ def make_sub3():
 
 def make_sub4():
     # ------------ サブ４ウィンドウ作成 ------------
-    sub4_layout = [  [sg.Text('ローマ字でランダムに文字を生成するよ！！', font=('Arial'))],     
+    sub4_layout = [ [sg.Text('', size=(80, 1))],  
+                [sg.Text('ローマ字でランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
+                [sg.Text('', size=(80, 2))],
                 [sg.Button('新単語生成', font=('Arial'), key='-generate_4-')],
                 [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_4-')],
                 [sg.Output(size=(60, 8), font=('Arial'))],
@@ -91,7 +100,9 @@ def make_sub4():
 
 def make_sub5():
     # ------------ サブ５ウィンドウ作成 ------------
-    sub5_layout = [  [sg.Text('ひらがなで名前をランダムに生成するよ！！', font=('Arial'))],
+    sub5_layout = [ [sg.Text('', size=(80, 1))],  
+                [sg.Text('ひらがなで名前をランダムに生成するよ！！', font=('Arial', 18), text_color='#191970')],
+                [sg.Text('', size=(80, 2))],
                 [sg.Button('新単語生成', font=('Arial'), key='-generate_5-')],
                 [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_5-')],
                 [sg.Output(size=(60, 8), font=('Arial'))],
