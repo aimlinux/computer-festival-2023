@@ -28,15 +28,17 @@ def make_main():
     main_layout = [ [sg.Text('', size=(80, 1))], 
                 [sg.Text('ユニークな新単語を生成するアプリケーション', font=('Arial', 25),
                 text_color='#ff1493', size=(50,2))], 
-                [sg.Text('メニューを選択してください', font=('Noto Serif CJK JP', 20),
+                [sg.Text('モードを選択してください', font=('Noto Serif CJK JP', 20),
                 text_color='#191970', size=(50, 2))], 
                 [sg.Button('入力された文字からユニークな新単語を生成するモード', font=('Arial'), size=(50, 2), key='-sub1-')],
                 [sg.Button('ひらがなでランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub2-')],
                 [sg.Button('カタカナでランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub3-')],
                 [sg.Button('ローマ字でランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub4-')],
                 [sg.Button('ひらがなで名前をランダムに生成するモード', font=('Arial'), size=(50, 2), key='-sub5-')],
-                [sg.Text('', size=(80, 2))],
-                [sg.Button('アプリケーションを終了する', font=('Arial', 13), size=(30, 2), key='-exit-')]
+                [sg.Text('', size=(80, 1))],
+                [sg.Checkbox('音声OFF', font=('Arial', 16))],
+                [sg.Text('', size=(80, 1))],
+                [sg.Button('アプリケーションを終了する', font=('Meiryo UI', 13), size=(30, 2), key='-exit-')]
     ]
     return sg.Window("main_layout", main_layout, finalize=True)
 
@@ -50,10 +52,11 @@ def make_sub1():
                 [sg.Button('新単語生成', font=('Arial'), key='-generate_1-')], 
                 [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_1-')],
                 [sg.Output(size=(60, 8), font=('Arial'))], 
-                [sg.Text('言語設定', font=('Arial'))],
+                [sg.Text('言語設定', font=('Arial', 13), text_color='#191970')],
                 [sg.Spin(['ひらがなのみ', 'ひらがな・カタカナ'], font=('Arial'), 
                 size=(30,1), initial_value='ひらがな・カタカナ', key='-language-')], 
-                [sg.Button('メニュー選択画面に戻る',  font=('Arial'), size=(60, 1), key='-back-')],
+                [sg.Text('', size=(80, 2))],
+                [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
     return sg.Window("sub1_layout", sub1_layout, finalize=True)
 
@@ -66,7 +69,8 @@ def make_sub2():
                 [sg.Button('新単語生成', font=('Arial'), key='-generate_2-')],
                 [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_2-')],
                 [sg.Output(size=(60, 8), font=('Arial'))],
-                [sg.Button('メニュー選択画面に戻る', font=('Arial'), size=(60, 1), key='-back-')],
+                [sg.Text('', size=(80, 2))],
+                [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
 
     ]    
     return sg.Window('sub2_layout', sub2_layout, finalize=True)
@@ -80,7 +84,8 @@ def make_sub3():
                 [sg.Button('新単語生成', font=('Arial'), key='-generate_3-')],
                 [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_3-')],
                 [sg.Output(size=(60, 8), font=('Arial'))],
-                [sg.Button('メニュー選択画面に戻る', font=('Arial'), size=(60, 1), key='-back-')],
+                [sg.Text('', size=(80, 2))],
+                [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
     return sg.Window('sub3_layout', sub3_layout, finalize=True)
 
@@ -93,7 +98,8 @@ def make_sub4():
                 [sg.Button('新単語生成', font=('Arial'), key='-generate_4-')],
                 [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_4-')],
                 [sg.Output(size=(60, 8), font=('Arial'))],
-                [sg.Button('メニュー選択画面に戻る', font=('Arial'), size=(60, 1), key='-back-')],
+                [sg.Text('', size=(80, 2))],
+                [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
     return sg.Window('sub4_layout', sub4_layout, finalize=True)
 
@@ -106,8 +112,10 @@ def make_sub5():
                 [sg.Button('新単語生成', font=('Arial'), key='-generate_5-')],
                 [sg.Button('新単語を読み上げる', font=('Arial'), key='-speak_5-')],
                 [sg.Output(size=(60, 8), font=('Arial'))],
-                [sg.Text('実は機械学習を使ってるんだよね！！', font=('Arial'))],  
-                [sg.Button('メニュー選択画面に戻る', font=('Arial'), size=(60, 1), key='-back-')],
+                [sg.Text('', size=(80, 1))],
+                [sg.Text('実は機械学習を使ってるんだよね！！', font=('Arial', 16), text_color='#191970')],  
+                [sg.Text('', size=(80, 2))],
+                [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
     return sg.Window('sub5_layout', sub5_layout, finalize=True)
 
