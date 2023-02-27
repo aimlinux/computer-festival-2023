@@ -14,11 +14,12 @@ import pyautogui as pg
 
 #pg.confirm("アプリケーションを起動しますか？")
 
-# ウィンドウのテーマ
+#--------ウィンドウのテーマ--------
 sg.theme('python')
 sg.theme('LightBlue3')
+#ランダムにテーマを変える
 #sg.theme('SystemDefault8')
-#--------メインテーマ候補--------
+#メインテーマ候補
 # [LightGreen2, DarkTeal5, LightBlue3]
 
 
