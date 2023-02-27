@@ -7,7 +7,8 @@
 #----[pip install pyttsx3]----
 #----[pip install pyautogui]----
 #----[pip install screeninfo]----
-#----[pip install cv2]----
+#----[pip install opencv-python]----
+#----[pip install opencv-contrib-python]----
 
 import PySimpleGUI as sg
 import random as rand
