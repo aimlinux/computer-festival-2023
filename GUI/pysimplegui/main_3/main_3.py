@@ -7,6 +7,7 @@
 #----[pip install pyttsx3]----
 #----[pip install pyautogui]----
 #----[pip install screeninfo]----
+#----[pip install cv2]----
 
 import PySimpleGUI as sg
 import random as rand
@@ -19,9 +20,9 @@ import pyautogui as pg
 import time
 
 #--------アニメーション関係--------
-from PIL import Image
+#from PIL import Image
 import cv2 as cv
-import io
+#import io
 
 #--------モニターの解像度を取得--------
 from screeninfo import get_monitors as gm
