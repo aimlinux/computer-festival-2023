@@ -1,7 +1,12 @@
-#サイトURL : https://www.teru2teru.com/python/pysimplegui/screen_transition/
+# https://github.com/PySimpleGUI/PySimpleGUI
+# https://github.com/aimlinux/computer-festival-2023/blob/main/GUI/pysimplegui/main_3/main_3.py
+
+# -*- coding: utf-8 -*-
+
 #----[pip install pysimplegui]----
 #----[pip install pyttsx3]----
 #----[pip install pyautogui]----
+#----[pip install screeninfo]----
 
 import PySimpleGUI as sg
 import random as rand
@@ -11,6 +16,19 @@ from msilib.schema import Upgrade
 from re import U
 from turtle import update
 import pyautogui as pg
+import time
+
+#--------アニメーション関係--------
+from PIL import Image
+import cv2 as cv
+import io
+
+#--------モニターの解像度を取得--------
+from screeninfo import get_monitors as gm
+monitor = gm()[0]
+window_size = (monitor.width, monitor.height)
+
+
 
 #pg.confirm("アプリケーションを起動しますか？")
 
@@ -19,8 +37,48 @@ sg.theme('python')
 sg.theme('LightBlue3')
 #ランダムにテーマを変える
 #sg.theme('SystemDefault8')
-#メインテーマ候補
-# [LightGreen2, DarkTeal5, LightBlue3]
+#メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
+
+
+#-------アニメーション作成---------
+def animation():
+    filename = sg.popup_get_file('')
+    #取得したファイルがNoneなら終了
+    if filename is None:
+        return
+    
+    vidFile = cv.VideoCapture(filename) 
+    
+    #動画ファイルのプロパティを取得
+    num_frame = vidFile.get(cv.CAP_PROP_FRAME_COUNT)
+    fps = vidFile.get(cv.CAP_PROP_FPS)
+    
+    #--------アニメーションウィンドウ作成---------
+    animation_layout = [
+        [sg.Image(filename='', key='-image-')],
+    ]
+    return sg.Window('animation_layout', animation_layout, finalize=True, size=(1300, 820))
+
+#----cv2での動画再生----
+start = time.time()
+
+#----相対パスは各環境ごとに変更しよう----
+cap = cv.VideoCapture(r'GUI\pysimplegui\main_3\count.mp4')
+size = (1080, 720)
+if (cap.isOpened()== False):  
+    print("Error") 
+    
+while(cap.isOpened()):
+    ret, frame = cap.read()
+    if ret == True:
+        cv.imshow("main_layout", frame)
+        if cv.waitKey(25) & 0xFF == ord('q'): 
+            break    
+    else:
+        break
+cap.release()
+
+cv.destroyAllWindows()
 
 
 #--------各ウィンドウのオブジェクト定義--------
@@ -42,6 +100,7 @@ def make_main():
                 [sg.Button('アプリケーションを終了する', font=('Arial'), size=(30, 2), key='-exit-')]
     ]
     return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 820))
+
 
 def make_sub1():
     # ------------ サブ１ウィンドウ作成 ------------
@@ -119,6 +178,9 @@ def make_sub5():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
     return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1080, 820))
+
+
+
 
 
 
