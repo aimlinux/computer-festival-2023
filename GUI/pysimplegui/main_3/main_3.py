@@ -22,7 +22,7 @@ import time
 
 #--------アニメーション関係--------
 #from PIL import Image
-import cv2 as cv
+#import cv2 as cv
 #import io
 
 #--------モニターの解像度を取得--------
@@ -31,56 +31,14 @@ monitor = gm()[0]
 window_size = (monitor.width, monitor.height)
 
 
-
 #pg.confirm("アプリケーションを起動しますか？")
 
 #--------ウィンドウのテーマ--------
 sg.theme('python')
 sg.theme('LightBlue3')
-#ランダムにテーマを変える
-#sg.theme('SystemDefault8')
+#ランダムにテーマを変える : sg.theme('SystemDefault8')
 #メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
 
-
-#-------アニメーション作成---------
-def animation():
-    filename = sg.popup_get_file('')
-    #取得したファイルがNoneなら終了
-    if filename is None:
-        return
-    
-    vidFile = cv.VideoCapture(filename) 
-    
-    #動画ファイルのプロパティを取得
-    num_frame = vidFile.get(cv.CAP_PROP_FRAME_COUNT)
-    fps = vidFile.get(cv.CAP_PROP_FPS)
-    
-    #--------アニメーションウィンドウ作成---------
-    animation_layout = [
-        [sg.Image(filename='', key='-image-')],
-    ]
-    return sg.Window('animation_layout', animation_layout, finalize=True, size=(1300, 820))
-
-#----cv2での動画再生----
-start = time.time()
-
-#----相対パスは各環境ごとに変更しよう----
-cap = cv.VideoCapture(r'GUI\pysimplegui\main_3\count.mp4')
-size = (1080, 720)
-if (cap.isOpened()== False):  
-    print("Error") 
-    
-while(cap.isOpened()):
-    ret, frame = cap.read()
-    if ret == True:
-        cv.imshow("main_layout", frame)
-        if cv.waitKey(25) & 0xFF == ord('q'): 
-            break    
-    else:
-        break
-cap.release()
-
-cv.destroyAllWindows()
 
 
 #--------各ウィンドウのオブジェクト定義--------
@@ -183,7 +141,46 @@ def make_sub5():
 
 
 
+'''
+#-------アニメーション定義---------
+def animation():
+    filename = sg.popup_get_file('')
+    #取得したファイルがNoneなら終了
+    if filename is None:
+        return
+    
+    vidFile = cv.VideoCapture(filename) 
+    
+    #動画ファイルのプロパティを取得
+    num_frame = vidFile.get(cv.CAP_PROP_FRAME_COUNT)
+    fps = vidFile.get(cv.CAP_PROP_FPS)
+    
+    #--------アニメーションウィンドウ作成---------
+    animation_layout = [
+        [sg.Image(filename='', key='-image-')],
+    ]
+    return sg.Window('animation_layout', animation_layout, finalize=True, size=(1300, 820))
 
+start = time.time()
+
+#----相対パスは各環境ごとに変更しよう----
+cap = cv.VideoCapture(r'')
+size = (1080, 720)
+if (cap.isOpened()== False):  
+    print("Error") 
+    
+while(cap.isOpened()):
+    ret, frame = cap.read()
+    if ret == True:
+        cv.imshow("main_layout", frame)
+        if cv.waitKey(25) & 0xFF == ord('q'): 
+            break    
+    else:
+        break
+cap.release()
+
+cv.destroyAllWindows()
+'''
 
 
 # 最初に表示するウィンドウを指定する。
@@ -487,3 +484,6 @@ while True:
 
 # ウィンドウを終了する
 window.close()
+
+if __name__ == 'main':
+    exit()
