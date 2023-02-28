@@ -248,7 +248,7 @@ while True:
 #--------サブ２のウィンドウについての設定--------    
     if event == '-generate_2-':
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub2=open("GUI/pysimplegui/main_3/sample_code/Data_Rand/hiragana/hira.bin","rb")
+        f_sub2=open("main_folder/sample_code/hiragana/hira.bin","rb")
         sum_sub2=[0]*85
         a_sub2=[]
         for i_sub2 in range(85):
@@ -307,7 +307,7 @@ while True:
 #--------サブ３のウィンドウについての設定--------    
     if event == '-generate_3-':
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub3=open("GUI\pysimplegui\main_3\sample_code\Data_Rand\katakana\kata.bin","rb")
+        f_sub3=open("main_folder\sample_code\katakana\kata.bin","rb")
         sum_sub3=[0]*93
         a_sub3=[]
         for i_sub3 in range(93):
@@ -363,7 +363,7 @@ while True:
 #--------サブ４のウィンドウについての設定--------    
     if event == '-generate_4-':
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub4=open("GUI/pysimplegui/main_3/sample_code/Data_Rand/alpha/alp.bin","rb")
+        f_sub4=open("main_folder/sample_code/alpha/alp.bin","rb")
         sum_sub4=[0]*27
         a_sub4=[]
         for i_sub4 in range(27):
@@ -421,7 +421,7 @@ while True:
 #--------サブ5のウィンドウについての設定--------    
     if event == '-generate_5-':
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub5=open("GUI/pysimplegui/main_3/sample_code/Data_Rand/human/human.bin","rb")
+        f_sub5=open("main_folder\sample_code\human\human.bin","rb")
         sum_sub5=[0]*85
         a_sub5=[]
         for i_sub5 in range(85):
