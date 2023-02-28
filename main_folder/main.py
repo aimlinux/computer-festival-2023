@@ -31,7 +31,7 @@ monitor = gm()[0]
 window_size = (monitor.width, monitor.height)
 
 
-#pg.confirm("アプリケーションを起動しますか？")
+pg.confirm("アプリケーションを起動します。")
 
 #--------ウィンドウのテーマ--------
 sg.theme('python')
@@ -49,15 +49,15 @@ def make_main():
                 text_color='#ff1493', size=(45,2))], 
                 [sg.Text('モードを選択してください', font=('Noto Serif CJK JP', 20),
                 text_color='#191970', size=(45, 2))], 
-                [sg.Button('入力された文字からユニークな新単語を生成するモード', font=('Arial'), size=(50, 2), key='-sub1-')],
-                [sg.Button('ひらがなでランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub2-')],
-                [sg.Button('カタカナでランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub3-')],
-                [sg.Button('ローマ字でランダムに文字を生成するモード', font=('Arial'), size=(50, 2), key='-sub4-')],
-                [sg.Button('ひらがなで名前をランダムに生成するモード', font=('Arial'), size=(50, 2), key='-sub5-')],
+                [sg.Button('入力された文字からユニークな新単語を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub1-')],
+                [sg.Button('ひらがなでランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub2-')],
+                [sg.Button('カタカナでランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub3-')],
+                [sg.Button('ローマ字でランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub4-')],
+                [sg.Button('ひらがなで名前をランダムに生成するモード', font=('Arial', 11), size=(50, 2), key='-sub5-')],
                 [sg.Text('', size=(70, 1))],
                 [sg.Checkbox('音声OFF', font=('Arial', 16))],
                 [sg.Text('', size=(70, 1))],
-                [sg.Button('アプリケーションを終了する', font=('Arial'), size=(30, 2), key='-exit-')]
+                [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
     return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 820))
 
