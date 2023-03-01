@@ -64,7 +64,7 @@ def make_main():
 
 def make_sub1():
     # ------------ サブ１ウィンドウ作成 ------------
-    sub1_layout = [ [sg.Text('', size=(80, 1))],  
+    sub1_layout = [ #[sg.Text('', size=(80, 1))],  
                 [sg.Text('入力された文字から創造性のあふれるユニークな新単語を生成するよ！！', text_color='#191970', font=('Arial', 18))],
                 [sg.Text('', size=(80, 1))],
                 # 文章入力欄を設置
@@ -86,7 +86,7 @@ def make_sub1():
 col2 = [
     [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
     sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970')],
-    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
     [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_2-'), 
     sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_2-')], 
 ]
@@ -94,7 +94,7 @@ col2 = [
 col3 = [
     [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
     sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
     [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_3-'), 
     sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_3-')], 
 ]
@@ -102,7 +102,7 @@ col3 = [
 col4 = [
     [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
     sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
     [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_4-'), 
     sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_4-')], 
 ]
@@ -110,7 +110,7 @@ col4 = [
 col5 = [
     [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
     sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
     [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
     sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_5-')], 
 ]
@@ -121,77 +121,79 @@ def make_sub2():
     # ------------ サブ２ウィンドウ作成 ------------
     col2 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970')],
-                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_2-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_2-')], 
     ]
-    sub2_layout = [ [sg.Text('', size=(80, 1))],  
+    sub2_layout = [ #[sg.Text('', size=(80, 1))],  
                 [sg.Text('ひらがなでランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
-                [sg.Text('', size=(80, 2))],
+                [sg.Text('', size=(80, 1))],
                 [sg.Column(col2)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_2-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_2-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13))],
                 [sg.Text('', size=(80, 2))],
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
-
+                [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1080,760))
+    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,960))
 
 
 def make_sub3():
     # ------------ サブ３ウィンドウ作成 ------------
     col3 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_3-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_3-')], 
     ]
-    sub3_layout = [ [sg.Text('', size=(80, 1))],  
+    sub3_layout = [ #[sg.Text('', size=(80, 1))],  
                 [sg.Text('カタカナでランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
-                [sg.Text('', size=(80, 2))],
+                [sg.Text('', size=(80, 1))],
                 [sg.Column(col3)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_3-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_3-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13))],
                 [sg.Text('', size=(80, 2))],
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
+                [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1080, 760))
+    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 960))
 
 
 def make_sub4():
     # ------------ サブ４ウィンドウ作成 ------------
     col4 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_4-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_4-')], 
     ]
-    sub4_layout = [ [sg.Text('', size=(80, 1))],  
+    sub4_layout = [ #[sg.Text('', size=(80, 1))],  
                 [sg.Text('ローマ字でランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
-                [sg.Text('', size=(80, 2))],
+                [sg.Text('', size=(80, 1))],
                 [sg.Column(col4)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_4-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_4-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13))],
                 [sg.Text('', size=(80, 2))],
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
+                [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1080, 760))
+    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 960))
 
 
 def make_sub5():
     # ------------ サブ５ウィンドウ作成 ------------
     col5 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_5-')], 
     ]  
-    sub5_layout = [ [sg.Text('', size=(80, 1))],  
+    sub5_layout = [ #[sg.Text('', size=(80, 1))],  
                 [sg.Text('ひらがなで名前をランダムに生成するよ！！', font=('Arial', 18), text_color='#191970')],
-                [sg.Text('', size=(80, 2))],                
+                [sg.Text('', size=(80, 1))],                
                 [sg.Column(col5)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_5-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_5-')],
@@ -200,8 +202,9 @@ def make_sub5():
                 [sg.Text('実は機械学習を使ってるんだよね！！', font=('Arial', 16), text_color='#191970')],  
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
+                [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1080, 820))
+    return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 960))
 
 
 
