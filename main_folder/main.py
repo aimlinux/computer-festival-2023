@@ -10,6 +10,7 @@
 #----[pip install opencv-python]----
 #----[pip install opencv-contrib-python]----
 
+import os
 import PySimpleGUI as sg
 import random as rand
 import pyttsx3
@@ -31,14 +32,16 @@ monitor = gm()[0]
 window_size = (monitor.width, monitor.height)
 
 
-pg.confirm("アプリケーションを起動します。")
-
 #--------ウィンドウのテーマ--------
 sg.theme('python')
 sg.theme('LightBlue3')
 #ランダムにテーマを変える : sg.theme('SystemDefault8')
 #メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
 
+
+
+sg.popup_ok('アプリケーションを起動します。')
+#pg.confirm('本当に起動しますか？')
 
 
 #--------各ウィンドウのオブジェクト定義--------
@@ -55,7 +58,7 @@ def make_main():
                 [sg.Button('ローマ字でランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub4-')],
                 [sg.Button('ひらがなで名前をランダムに生成するモード', font=('Arial', 11), size=(50, 2), key='-sub5-')],
                 [sg.Text('', size=(70, 1))],
-                [sg.Checkbox('音声OFF', font=('Arial', 16))],
+                [sg.Checkbox('音声OFF', default=None, font=('Arial', 16), key='-volume-')],
                 [sg.Text('', size=(70, 1))],
                 [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
@@ -207,6 +210,17 @@ def make_sub5():
     return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 960))
 
 
+def end_window():
+    col_end = [
+        [sg.Button('終了', font=('Arial', 10), text_color='red', key='-TheEnd-'), 
+        sg.Button('まだ続けるYO', font=('Arial', 10), text_color='red', key='-continue-')], 
+    ]
+    end_layout = [
+        [sg.Text('本当にアプリケーションを終了する？？？？？？？', font=('Arial', 10), text_color='red')],
+        [sg.Column(col_end)], 
+    ]
+    return sg.window('end_layout', end_layout, finalize=True, size=(300, 50))
+
 
 '''
 #-------アニメーション定義---------
@@ -250,15 +264,34 @@ cv.destroyAllWindows()
 '''
 
 
-# 最初に表示するウィンドウを指定する。
+# --------最初に表示するウィンドウを指定する--------
 window = make_main()
 
+#--------ウィンドウを繰り返し表示する--------
 while True:
     event, values = window.read()
 
+#-------ウィンドウが閉じたとき--------
     if event == sg.WIN_CLOSED:
-        break
+        window.close()
+        window = end_window()
+        while True:
+            event, values = window.read()
+            sg.popup_ok('アプリケーションを終了します。')
+            #break
 
+
+#-------音声読み上げ機能の変更---------
+    #elif event == values['-volume-']:
+        #スピーチのレートを変更
+        rate = engine.getProperty('rate')
+        engine.setProperty('rate', rate-100)
+        #スピーチのボリュームを変更
+        volume = engine.getProperty('volume')
+        engine.setProperty('volume', volume-1.00)
+        #スピーチの声を変える(0が男性, 1が女性の声)
+        voices = engine.getProperty('voices')
+        engine.setProperty('voice', voices[0].id)
 
 
 #--------sub1ボタンが押された場合--------
@@ -286,12 +319,12 @@ while True:
         print(cc_sub1)
         # --ランダムに生成--
         # print(rand.choice(cc_sub1, k=len(cc_sub1)))
-        
+
         #----新単語を読み上げる----
         engine = pyttsx3.init()
         engine.say(cc_sub1)
         engine.runAndWait()
-    
+
     # --ボタンを押したら繰り返し再生--
     if event == '-speak_1-':
         engine = pyttsx3.init()
@@ -571,7 +604,7 @@ while True:
     #「アプリケーションを終了する」ボタンが押された場合
     elif event == '-exit-':
         # メインウィンドウを閉じて、アプリケーションを終了する
-        pg.confirm("本当に終了しますか？")
+        #pg.confirm("本当に終了しますか？")
         window.close()
 
 
