@@ -40,7 +40,7 @@ sg.theme('LightBlue3')
 
 
 
-sg.popup_ok('アプリケーションを起動します。')
+sg.popup_ok('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
 #pg.confirm('本当に起動しますか？')
 
 
@@ -210,16 +210,17 @@ def make_sub5():
     return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 960))
 
 
-def end_window():
-    col_end = [
-        [sg.Button('終了', font=('Arial', 10), text_color='red', key='-TheEnd-'), 
-        sg.Button('まだ続けるYO', font=('Arial', 10), text_color='red', key='-continue-')], 
+#def end_window():
+    # ---------エンドウィンドウ作成--------
+    col_end = [        
+        [sg.Button('終了', font=('Arial', 12), key='-TheEnd-'), 
+        sg.Button('続ける', font=('Arial', 12), key='-continue-')], 
     ]
     end_layout = [
-        [sg.Text('本当にアプリケーションを終了する？？？？？？？', font=('Arial', 10), text_color='red')],
-        [sg.Column(col_end)], 
+        [sg.Text('本当にアプリケーションを終了する？？？？？？？', font=('Arial', 10), text_color='#191970')],
+        [sg.Column(col_end)]
     ]
-    return sg.window('end_layout', end_layout, finalize=True, size=(300, 50))
+    return sg.Window('end_layout', end_layout, finalize=True, size=(400, 100))
 
 
 '''
@@ -273,25 +274,23 @@ while True:
 
 #-------ウィンドウが閉じたとき--------
     if event == sg.WIN_CLOSED:
+        sg.popup_ok_cancel('アプリケーションを終了するよ', font=('Arial', 12), text_color='#ff1493')
         window.close()
-        window = end_window()
-        while True:
-            event, values = window.read()
-            sg.popup_ok('アプリケーションを終了します。')
-            #break
+        break
+
 
 
 #-------音声読み上げ機能の変更---------
-    #elif event == values['-volume-']:
+    #if event == values['-volume-']:
         #スピーチのレートを変更
-        rate = engine.getProperty('rate')
-        engine.setProperty('rate', rate-100)
+        #rate = engine.getProperty('rate')
+        #engine.setProperty('rate', rate-100)
         #スピーチのボリュームを変更
-        volume = engine.getProperty('volume')
-        engine.setProperty('volume', volume-1.00)
+        #volume = engine.getProperty('volume')
+        #engine.setProperty('volume', volume-1.00)
         #スピーチの声を変える(0が男性, 1が女性の声)
-        voices = engine.getProperty('voices')
-        engine.setProperty('voice', voices[0].id)
+        #voices = engine.getProperty('voices')
+        #engine.setProperty('voice', voices[0].id)
 
 
 #--------sub1ボタンが押された場合--------
