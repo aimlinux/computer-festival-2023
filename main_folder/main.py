@@ -68,7 +68,7 @@ def make_sub1():
                 [sg.Text('入力された文字から創造性のあふれるユニークな新単語を生成するよ！！', text_color='#191970', font=('Arial', 18))],
                 [sg.Text('', size=(80, 1))],
                 # 文章入力欄を設置
-                [sg.Multiline('文字を入力してください', font=('Arial', 13), text_color='#191970', size=(60, 6), key='sentence_1')],
+                [sg.Multiline('文字を入力してください', font=('Arial', 13), text_color='#191970', size=(60, 6), key='-sentence_1-')],
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_1-')], 
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_1-')],
                 [sg.Output(size=(70, 10), font=('Arial', 13))], 
@@ -81,11 +81,54 @@ def make_sub1():
     return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 960))
 
 
+#--------Colum layout の定義--------
+    
+col2 = [
+    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+    sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970')],
+    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+    [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_2-'), 
+    sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_2-')], 
+]
+
+col3 = [
+    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+    sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
+    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+    [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_3-'), 
+    sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_3-')], 
+]
+
+col4 = [
+    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+    sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
+    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+    [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_4-'), 
+    sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_4-')], 
+]
+
+col5 = [
+    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+    sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
+    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+    [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
+    sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_5-')], 
+]
+
+
+
 def make_sub2():
     # ------------ サブ２ウィンドウ作成 ------------
+    col2 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970')],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+                [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_2-'), 
+                sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_2-')], 
+    ]
     sub2_layout = [ [sg.Text('', size=(80, 1))],  
                 [sg.Text('ひらがなでランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
                 [sg.Text('', size=(80, 2))],
+                [sg.Column(col2)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_2-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_2-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13))],
@@ -98,9 +141,16 @@ def make_sub2():
 
 def make_sub3():
     # ------------ サブ３ウィンドウ作成 ------------
+    col3 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+                [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_3-'), 
+                sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_3-')], 
+    ]
     sub3_layout = [ [sg.Text('', size=(80, 1))],  
                 [sg.Text('カタカナでランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
                 [sg.Text('', size=(80, 2))],
+                [sg.Column(col3)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_3-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_3-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13))],
@@ -112,9 +162,16 @@ def make_sub3():
 
 def make_sub4():
     # ------------ サブ４ウィンドウ作成 ------------
+    col4 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+                [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_4-'), 
+                sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_4-')], 
+    ]
     sub4_layout = [ [sg.Text('', size=(80, 1))],  
                 [sg.Text('ローマ字でランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
                 [sg.Text('', size=(80, 2))],
+                [sg.Column(col4)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_4-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_4-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13))],
@@ -126,9 +183,16 @@ def make_sub4():
 
 def make_sub5():
     # ------------ サブ５ウィンドウ作成 ------------
+    col5 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちるよ！！', font=('Arial', 10), text_color='#191970')],
+                [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
+                sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_5-')], 
+    ]  
     sub5_layout = [ [sg.Text('', size=(80, 1))],  
                 [sg.Text('ひらがなで名前をランダムに生成するよ！！', font=('Arial', 18), text_color='#191970')],
-                [sg.Text('', size=(80, 2))],
+                [sg.Text('', size=(80, 2))],                
+                [sg.Column(col5)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_5-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_5-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13))],
@@ -203,38 +267,37 @@ while True:
         
 #--------サブ１のウィンドウについての設定--------    
     if event == '-generate_1-':
-        c = list (values['sentence_1'])
-        a = rand.randint(0,len(c))
+        c_sub1 = list (values['-sentence_1-'])
+        a_sub1 = rand.randint(0,len(c_sub1))
         while True:
-            ca = rand.randint(12353,12540)
-            if 12438 > ca or ca > 12449 or ca == 12387 or ca == 12540:
-            #if ca == 12387 or ca == 12540:   ////----「ー」「っ」のみ表示----
+            ca_sub1 = rand.randint(12353,12540)
+            if 12438 > ca_sub1 or ca_sub1 > 12449 or ca_sub1 == 12387 or ca_sub1 == 12540:
+            #if ca_sub1 == 12387 or ca_sub1 == 12540:   ////----「ー」「っ」のみ表示----
                 break; 
-        cc = c[:a]
-        cc.append(chr(ca))
-        i = a
-        for i in range(len(c)-a):
-            cc.append(c[i+a])
-        cc = ''.join(cc)
-        print(cc)
+        cc_sub1 = c_sub1[:a_sub1]
+        cc_sub1.append(chr(ca_sub1))
+        i_sub1 = a_sub1
+        for i_sub1 in range(len(c_sub1)-a_sub1):
+            cc_sub1.append(c_sub1[i_sub1+a_sub1])
+        cc_sub1 = ''.join(cc_sub1)
+        print(cc_sub1)
         # --ランダムに生成--
-        # print(rand.choice(cc, k=len(cc)))
+        # print(rand.choice(cc_sub1, k=len(cc_sub1)))
+        
         #----新単語を読み上げる----
         engine = pyttsx3.init()
-        engine.say(cc)
+        engine.say(cc_sub1)
         engine.runAndWait()
     
     # --ボタンを押したら繰り返し再生--
     if event == '-speak_1-':
         engine = pyttsx3.init()
-        engine.say(cc) 
+        engine.say(cc_sub1) 
         engine.runAndWait()
             
     # window右上のx印を押して閉じたとき
     if event == sg.WIN_CLOSED: 
         break
-        
-        
         
         
         
@@ -247,8 +310,11 @@ while True:
     
 #--------サブ２のウィンドウについての設定--------    
     if event == '-generate_2-':
+        #03.01修正箇所は最後にコメント
+        kagen_sub2 = int(values['-kag_2-'])#
+        jogen_sub2 = int(values['-jog_2-'])#
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub2=open("sample_code/hiragana/hira.bin","rb")
+        f_sub2=open("main_folder/hira.bin","rb")
         sum_sub2=[0]*85
         a_sub2=[]
         for i_sub2 in range(85):
@@ -260,11 +326,13 @@ while True:
                 sum_sub2[i_sub2]=sum_sub2[i_sub2]+aaa_sub2
             a_sub2=a_sub2+[aa_sub2]
         f_sub2.close
+        
         #print(a)
         c_sub2=[]
+        n_sub2 = 0#
         front_sub2=0
-        while True:
-            r_sub2=rand.randint(1,sum_sub2[front_sub2])
+        while n_sub2 < jogen_sub2:#
+            r_sub2=rand.randint(1+(n_sub2<kagen_sub2)*a_sub2[front_sub2][0],sum_sub2[front_sub2])#
             count_sub2=0
             i_sub2=-1
             while count_sub2<r_sub2:
@@ -276,9 +344,11 @@ while True:
             #c_sub2=c_sub2+[i_sub2+(227*256+130)*256+160+(i_sub2>32)*192]
             c_sub2=c_sub2+[227,129+(i_sub2>63),i_sub2+128-(i_sub2>63)*64]
             front_sub2=i_sub2
+            n_sub2 = n_sub2 + 1#
         #print
         cc_sub2=bytes(c_sub2).decode("utf-8")
         print(cc_sub2)
+        
         #----新単語を読み上げる----
         engine = pyttsx3.init()
         engine.say(cc_sub2)
@@ -296,18 +366,19 @@ while True:
 
 
 
-
-
 #--------sub3ボタンが押された場合--------
     elif event == '-sub3-':
         # メインウィンドウを閉じて、サブ３ウィンドウを作成して表示する
         window.close()
         window = make_sub3()
 
+
 #--------サブ３のウィンドウについての設定--------    
     if event == '-generate_3-':
+        kagen_sub3 = int(values['-kag_3-'])#
+        jogen_sub3 = int(values['-jog_3-'])#
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub3=open("sample_code\katakana\kata.bin","rb")
+        f_sub3=open("main_folder/kata.bin","rb")
         sum_sub3=[0]*93
         a_sub3=[]
         for i_sub3 in range(93):
@@ -320,10 +391,12 @@ while True:
             a_sub3=a_sub3+[aa_sub3]
         f_sub3.close
         #print(a_sub3)
+        
         c_sub3=[]
+        n_sub3 = 0
         front_sub3=0
-        while True:
-            r_sub3=rand.randint(1,sum_sub3[front_sub3])
+        while n_sub3 < jogen_sub3:
+            r_sub3=rand.randint(1+(n_sub3<kagen_sub3)*a_sub3[front_sub3][0],sum_sub3[front_sub3])#
             count_sub3=0
             i_sub3=-1
             while count_sub3<r_sub3:
@@ -335,9 +408,11 @@ while True:
             #c_sub3=c_sub3+[i_sub3+(227*256+130)*256+160+(i_sub3>32)*192]
             c_sub3=c_sub3+[227,130+(i_sub3>31),i_sub3+160-(i_sub3>31)*64]
             front_sub3=i_sub3
+            n_sub3 = n_sub3 + 1#
         #print(c_sub3)
         cc_sub3=bytes(c_sub3).decode("utf-8")
         print(cc_sub3)
+        
         #----新単語を読み上げる----
         engine = pyttsx3.init()
         engine.say(cc_sub3)
@@ -354,16 +429,20 @@ while True:
         break
 
 
+
 #--------sub4ボタンが押された場合--------
     elif event == '-sub4-':
         # メインウィンドウを閉じて、サブ４ウィンドウを作成して表示する
         window.close()
         window = make_sub4()
         
+        
 #--------サブ４のウィンドウについての設定--------    
     if event == '-generate_4-':
+        kagen_sub4 = int(values['-kag_4-'])#
+        jogen_sub4 = int(values['-jog_4-'])#
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub4=open("sample_code/alpha/alp.bin","rb")
+        f_sub4=open("main_folder/alp.bin","rb")
         sum_sub4=[0]*27
         a_sub4=[]
         for i_sub4 in range(27):
@@ -376,10 +455,12 @@ while True:
             a_sub4=a_sub4+[aa_sub4]
         f_sub4.close
         #print(a_sub4)
+        
         c_sub4=[]
+        n_sub4 = 0#
         front_sub4=0
-        while True:
-            r_sub4=rand.randint(1,sum_sub4[front_sub4])
+        while n_sub4 < jogen_sub4:#
+            r_sub4=rand.randint(1+(n_sub4<kagen_sub4)*a_sub4[front_sub4][0],sum_sub4[front_sub4])#
             count_sub4=0
             i_sub4=-1
             while count_sub4<r_sub4:
@@ -391,9 +472,11 @@ while True:
             #c_sub4=c_sub4+[i_sub4+(227*256+130)*256+160+(i_sub4>32)*192]
             c_sub4=c_sub4+[i_sub4+96]
             front_sub4=i_sub4
+            n_sub4 = n_sub4 + 1#
         #print(c_sub4)
         cc_sub4=bytes(c_sub4).decode("utf-8")
         print(cc_sub4)
+        
         #----新単語を読み上げる----
         engine = pyttsx3.init()
         engine.say(cc_sub4)
@@ -420,8 +503,10 @@ while True:
         
 #--------サブ5のウィンドウについての設定--------    
     if event == '-generate_5-':
+        kagen_sub5 = int(values['-kag_5-'])#
+        jogen_sub5 = int(values['-jog_5-'])#
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub5=open("sample_code\human\human.bin","rb")
+        f_sub5=open("main_folder/human.bin","rb")
         sum_sub5=[0]*85
         a_sub5=[]
         for i_sub5 in range(85):
@@ -434,10 +519,12 @@ while True:
             a_sub5=a_sub5+[aa_sub5]
         f_sub5.close
         #print(a_sub5)
+        
         c_sub5=[]
+        n_sub5 = 0#
         front_sub5=0
-        while True:
-            r_sub5=rand.randint(1,sum_sub5[front_sub5])
+        while n_sub5 < jogen_sub5:
+            r_sub5=rand.randint(1+(n_sub5<jogen_sub5)*a_sub5[front_sub5][0],sum_sub5[front_sub5])#
             count_sub5=0
             i_sub5=-1
             while count_sub5<r_sub5:
@@ -449,9 +536,11 @@ while True:
             #c_sub5=c_sub5+[i_sub5+(227*256+130)*256+160+(i_sub5>32)*192]
             c_sub5=c_sub5+[227,129+(i_sub5>63),i_sub5+128-(i_sub5>63)*64]
             front_sub5=i_sub5
+            n_sub5 = n_sub5 + 1#
         #print(c_sub5)
         cc_sub5=bytes(c_sub5).decode("utf-8")
         print(cc_sub5)
+        
         #----新単語を読み上げる----
         engine = pyttsx3.init()
         engine.say(cc_sub5)
@@ -468,6 +557,7 @@ while True:
         break
 
 
+
     # 「メニュー選択画面に戻る」ボタンが押された場合
     elif event == "-back-":
         # サブウィンドウを閉じて、メインウィンドウを作成して表示する
@@ -480,6 +570,7 @@ while True:
         # メインウィンドウを閉じて、アプリケーションを終了する
         pg.confirm("本当に終了しますか？")
         window.close()
+
 
 
 # ウィンドウを終了する

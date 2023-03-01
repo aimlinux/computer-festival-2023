@@ -1,6 +1,6 @@
 import random as rnd
 
-f=open("text.bin","rb")
+f=open("main_folder/hira.bin","rb")
 a=[]
 for i in range(93):
     aa=[]
