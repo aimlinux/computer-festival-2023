@@ -44,6 +44,7 @@ sg.popup_ok('アプリケーションを起動します。', font=('Arial', 12),
 #pg.confirm('本当に起動しますか？')
 
 
+
 #--------各ウィンドウのオブジェクト定義--------
 def make_main():
     # ------------ メインウィンドウ作成 ------------
@@ -223,6 +224,7 @@ def make_sub5():
     return sg.Window('end_layout', end_layout, finalize=True, size=(400, 100))
 
 
+
 '''
 #-------アニメーション定義---------
 def animation():
@@ -265,13 +267,33 @@ cv.destroyAllWindows()
 '''
 
 
+def anime1_window():
+    #-------起動アニメーション作成---------
+    anime1_layout = [
+        [sg.Image(source='main_folder/yuuyake.gif', key='-anime_1-')], 
+    ]
+    return sg.Window('anime1_layout', anime1_layout, finalize=True, size=(400, 100))
+
+
+
+
+
 # --------最初に表示するウィンドウを指定する--------
-window = make_main()
+window = anime1_window()
+
+t = time.time()
 
 #--------ウィンドウを繰り返し表示する--------
 while True:
     event, values = window.read()
 
+
+    
+window.close()
+window = make_main()
+
+while True:
+    event, values = window.read()
 #-------ウィンドウが閉じたとき--------
     if event == sg.WIN_CLOSED:
         sg.popup_ok_cancel('アプリケーションを終了するよ', font=('Arial', 12), text_color='#ff1493')
