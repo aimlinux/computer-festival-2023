@@ -3,12 +3,12 @@
 
 # -*- coding: utf-8 -*-
 
-#----[pip install pysimplegui]----
-#----[pip install pyttsx3]----
-#----[pip install pyautogui]----
-#----[pip install screeninfo]----
-#----[pip install opencv-python]----
-#----[pip install opencv-contrib-python]----
+#----[pip install pysimplegui]-----
+#----[pip install pyttsx3]-----
+#----[pip install pyautogui]-----
+#----[pip install screeninfo]-----
+#----[pip install opencv-python]-----
+#----[pip install opencv-contrib-python]-----
 
 import os
 import PySimpleGUI as sg
