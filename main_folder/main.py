@@ -299,7 +299,7 @@ while True:
 
 
 #-------音声読み上げ機能の変更---------
-    if event == values['-volume-']:
+    #if event == values['-volume-']:
         #スピーチのレートを変更
         rate = engine.getProperty('rate')
         engine.setProperty('rate', rate-100)
