@@ -218,7 +218,7 @@ def make_sub5():
         sg.Button('続ける', font=('Arial', 12), key='-continue-')], 
     ]
     end_layout = [
-        [sg.Text('本当にアプリケーションを終了する？？？？？？？', font=('Arial', 10), text_color='#191970')],
+        [sg.Text('本当にアプリケーションを終了する？', font=('Arial', 10), text_color='#191970')],
         [sg.Column(col_end)]
     ]
     return sg.Window('end_layout', end_layout, finalize=True, size=(400, 100))
@@ -267,56 +267,52 @@ cv.destroyAllWindows()
 '''
 
 
+'''
 def anime1_window():
     #-------起動アニメーション作成---------
     anime1_layout = [
         [sg.Image(source='main_folder/yuuyake.gif', key='-anime_1-')], 
     ]
     return sg.Window('anime1_layout', anime1_layout, finalize=True, size=(400, 100))
+'''
 
 
 
 
 
 # --------最初に表示するウィンドウを指定する--------
-window = anime1_window()
-
-t = time.time()
+window = make_main()
 
 #--------ウィンドウを繰り返し表示する--------
 while True:
     event, values = window.read()
+            
+            
 
-
-    
-window.close()
-window = make_main()
-
-while True:
-    event, values = window.read()
 #-------ウィンドウが閉じたとき--------
     if event == sg.WIN_CLOSED:
-        sg.popup_ok_cancel('アプリケーションを終了するよ', font=('Arial', 12), text_color='#ff1493')
+        pg.confirm('本当に終了するの...？')
+        sg.popup_ok_cancel('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
         window.close()
         break
 
 
 
 #-------音声読み上げ機能の変更---------
-    #if event == values['-volume-']:
+    if event == values['-volume-']:
         #スピーチのレートを変更
-        #rate = engine.getProperty('rate')
-        #engine.setProperty('rate', rate-100)
+        rate = engine.getProperty('rate')
+        engine.setProperty('rate', rate-100)
         #スピーチのボリュームを変更
-        #volume = engine.getProperty('volume')
-        #engine.setProperty('volume', volume-1.00)
+        volume = engine.getProperty('volume')
+        engine.setProperty('volume', volume-1.00)
         #スピーチの声を変える(0が男性, 1が女性の声)
-        #voices = engine.getProperty('voices')
-        #engine.setProperty('voice', voices[0].id)
+        voices = engine.getProperty('voices')
+        engine.setProperty('voice', voices[0].id)
 
 
 #--------sub1ボタンが押された場合--------
-    elif event == "-sub1-":
+    if event == "-sub1-":
         # メインウィンドウを閉じて、サブ１ウィンドウを作成して表示する
         window.close()
         window = make_sub1()
