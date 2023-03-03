@@ -1,8 +1,11 @@
 import pandas as pd
 import pickle
+from sklearn.model_selection import KFold
+from sklearn.preprocessing import MultiLabelBinarizer
+from sklearn import svm
 
 # ファイル読み込み
-df = pd.read_csv('namelist.csv',sep=",")
+df = pd.read_csv('sample_file/learn_02.28/namelist.csv',sep=",")
 
 
 df = df[['name', 'label']].drop_duplicates()
@@ -14,7 +17,7 @@ def bigram(text):
 
 df['bi_yomi'] = df.name.apply(bigram)
 
-from sklearn.preprocessing import MultiLabelBinarizer
+
 mlb = MultiLabelBinarizer()
 mlb.fit(df.bi_yomi)
 with open('mld.pickle', mode = 'wb') as f:
@@ -22,7 +25,6 @@ with open('mld.pickle', mode = 'wb') as f:
 
 mlb.classes_
 
-from sklearn.model_selection import KFold
 
 # 渡されたscikit-learnのclassifierに対して学習して評価する
 # probabilityが0.6以上だったら判定できたことにする
@@ -57,7 +59,6 @@ def train_and_test(classifier, df, mlb, threshold=0.6):
         print('{}: all={}, predictable={}, precision={:.03f}, recall={:.03f}'.format(
                 class_name, all_len, predictable, tp / predictable, tp / all_len))
     print(test_df)
-    import pickle
 
     with open('model.pickle', mode='wb') as f:
         pickle.dump(classifier,f)
@@ -68,7 +69,7 @@ def train_and_test(classifier, df, mlb, threshold=0.6):
 # train_and_test(classifier, df, mlb)
 
 # svm
-from sklearn import svm
+
 classifier = svm.SVC(probability=True, C=0.1)
 train_and_test(classifier, df, mlb)
 
