@@ -39,7 +39,7 @@ sg.theme('LightBlue3')
 #メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
 
 
-
+time.sleep(0.2)
 sg.popup_ok('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
 #pg.confirm('本当に起動しますか？')
 
@@ -267,16 +267,55 @@ cv.destroyAllWindows()
 '''
 
 
-'''
-def anime1_window():
-    #-------起動アニメーション作成---------
-    anime1_layout = [
-        [sg.Image(source='main_folder/yuuyake.gif', key='-anime_1-')], 
-    ]
-    return sg.Window('anime1_layout', anime1_layout, finalize=True, size=(400, 100))
-'''
+img_1_layout = [
+    [sg.Image(filename='main_folder/img/img_1.png')]
+]
+window = sg.Window('img_1', img_1_layout, size=(130, 82))
+step = 0
+while True:
+    event, values = window.read(500)
+    break
+window.close()
 
+img_2_layout = [
+    [sg.Image(filename='main_folder/img/img_2.png')]
+]
+window = sg.Window('img_2', img_2_layout, size=(130, 82))
+step = 0
+while True:
+    event, values = window.read(500)
+    break
+window.close()
 
+img_3_layout = [
+    [sg.Image(filename='main_folder/img/img_3.png')]
+]
+window = sg.Window('img_3', img_3_layout, size=(130, 82))
+step = 0
+while True:
+    event, values = window.read(500)
+    break
+window.close()
+
+img_4_layout = [
+    [sg.Image(filename='main_folder/img/img_4.png')]
+]
+window = sg.Window('img_4', img_4_layout, size=(130, 82))
+step = 0
+while True:
+    event, values = window.read(500)
+    break
+window.close()
+
+img_5_layout = [
+    [sg.Image(filename='main_folder/img/img_5.png')]
+]
+window = sg.Window('img_5', img_5_layout, size=(130, 82))
+step = 0
+while True:
+    event, values = window.read(1000)
+    break
+window.close()
 
 
 
