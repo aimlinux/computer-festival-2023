@@ -35,6 +35,9 @@ sg.theme('LightBlue3')
 #ランダムにテーマを変える : sg.theme('SystemDefault8')
 #メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
 
+#--------左上のアイコンの画像指定--------
+icon_image = b'main_folder/img/icon.png'
+
 
 time.sleep(0.2)
 sg.popup_ok_cancel('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
@@ -61,7 +64,8 @@ def make_main():
                 [sg.Text('', size=(70, 1))],
                 [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
-    return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 820))
+    return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
+                    icon=icon_image, use_default_focus=True)
 
 
 def make_sub1():
@@ -80,7 +84,8 @@ def make_sub1():
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
-    return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 960))
+    return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
+                    icon=icon_image)
 
 
 #--------Colum layout の定義--------
@@ -138,7 +143,8 @@ def make_sub2():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,960))
+    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,820), relative_location=(0, -50), border_depth=2, 
+                    icon=icon_image)
 
 
 def make_sub3():
@@ -160,7 +166,8 @@ def make_sub3():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 960))
+    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
+                    icon=icon_image)
 
 
 def make_sub4():
@@ -182,7 +189,8 @@ def make_sub4():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 960))
+    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
+                    icon=icon_image)
 
 
 def make_sub5():
@@ -206,20 +214,8 @@ def make_sub5():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 960))
-
-
-def end_window():
-    # ---------エンドウィンドウ作成--------
-    col_end = [        
-        [sg.Button('終了', font=('Arial', 12), key='-TheEnd-'), 
-        sg.Button('続ける', font=('Arial', 12), key='-continue-')], 
-    ]
-    end_layout = [
-        [sg.Text('本当にアプリケーションを終了する？', font=('Arial', 10), text_color='#191970')],
-        [sg.Column(col_end)]
-    ]
-    return sg.Window('end_layout', end_layout, finalize=True, size=(400, 100))
+    return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 900), relative_location=(0, -50), border_depth=2, 
+                    icon=icon_image)
 
 
 
@@ -229,31 +225,31 @@ def img_1():
     img_1_layout = [
         [sg.Image(filename='main_folder/img/img_1.png')]
     ]
-    return sg.Window('img_1', img_1_layout, size=(640, 320))
+    return sg.Window('img_1', img_1_layout, size=(640, 320), relative_location=(0,0), border_depth=2, icon=icon_image)
 
 def img_2():
     img_2_layout = [
         [sg.Image(filename='main_folder/img/img_2.png')]
     ]
-    return sg.Window('img_2', img_2_layout, size=(640, 320))
+    return sg.Window('img_2', img_2_layout, size=(640, 320), relative_location=(0,0), border_depth=2, icon=icon_image)
 
 def img_3():
     img_3_layout = [
     [sg.Image(filename='main_folder/img/img_3.png')]
     ]
-    return sg.Window('img_3', img_3_layout, size=(640, 320))
+    return sg.Window('img_3', img_3_layout, size=(640, 320), relative_location=(0,0), border_depth=2, icon=icon_image)
     
 def img_4():
     img_4_layout = [
         [sg.Image(filename='main_folder/img/img_4.png')]
     ]
-    return sg.Window('img_4', img_4_layout, size=(640, 320))
+    return sg.Window('img_4', img_4_layout, size=(640, 320), relative_location=(0,0), border_depth=2, icon=icon_image)
     
 def img_5():
     img_5_layout = [
         [sg.Image(filename='main_folder/img/img_5.png')]
     ]
-    return sg.Window('img_5', img_5_layout, size=(640, 320))
+    return sg.Window('img_5', img_5_layout, size=(640, 320), relative_location=(0,0), border_depth=2, icon=icon_image)
 
 
 #--------起動時アニメーション--------
@@ -288,7 +284,7 @@ window.close()
 window = img_5()
 step = 4
 while True:
-    event, values = window.read(600)
+    event, values = window.read(1000)
     break
 window.close()
 
@@ -364,9 +360,6 @@ while True:
         window.close()
         break
 
-    if event == '-continue-':
-        window.close()
-        window = make_main()
 
 
 #--------sub1ボタンが押された場合--------
