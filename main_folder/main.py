@@ -36,7 +36,7 @@ sg.theme('LightBlue3')
 #メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
 
 #--------左上のアイコンの画像指定--------
-icon_image = b'main_folder/img/icon.png'
+icon_image = 'main_folder/img/icon_img.ico'
 
 
 time.sleep(0.2)
