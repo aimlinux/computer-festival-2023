@@ -270,7 +270,7 @@ cv.destroyAllWindows()
 img_1_layout = [
     [sg.Image(filename='main_folder/img/img_1.png')]
 ]
-window = sg.Window('img_1', img_1_layout, size=(130, 82))
+window = sg.Window('img_1', img_1_layout, size=(640, 320))
 step = 0
 while True:
     event, values = window.read(500)
@@ -280,7 +280,7 @@ window.close()
 img_2_layout = [
     [sg.Image(filename='main_folder/img/img_2.png')]
 ]
-window = sg.Window('img_2', img_2_layout, size=(130, 82))
+window = sg.Window('img_2', img_2_layout, size=(640, 320))
 step = 0
 while True:
     event, values = window.read(500)
@@ -290,7 +290,7 @@ window.close()
 img_3_layout = [
     [sg.Image(filename='main_folder/img/img_3.png')]
 ]
-window = sg.Window('img_3', img_3_layout, size=(130, 82))
+window = sg.Window('img_3', img_3_layout, size=(640, 320))
 step = 0
 while True:
     event, values = window.read(500)
@@ -300,7 +300,7 @@ window.close()
 img_4_layout = [
     [sg.Image(filename='main_folder/img/img_4.png')]
 ]
-window = sg.Window('img_4', img_4_layout, size=(130, 82))
+window = sg.Window('img_4', img_4_layout, size=(640, 320))
 step = 0
 while True:
     event, values = window.read(500)
@@ -310,7 +310,7 @@ window.close()
 img_5_layout = [
     [sg.Image(filename='main_folder/img/img_5.png')]
 ]
-window = sg.Window('img_5', img_5_layout, size=(130, 82))
+window = sg.Window('img_5', img_5_layout, size=(640, 320))
 step = 0
 while True:
     event, values = window.read(1000)
