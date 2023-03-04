@@ -36,7 +36,7 @@ sg.theme('LightBlue3')
 #メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
 
 #--------左上のアイコンの画像指定--------
-icon_image = 'main_folder/img/icon_img.ico'
+#icon_image = 'main_folder/img/icon_img.ico'
 
 
 time.sleep(0.2)
@@ -64,8 +64,8 @@ def make_main():
                 [sg.Text('', size=(70, 1))],
                 [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
-    return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
-                    icon=icon_image, use_default_focus=True)
+    return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2,
+                    use_default_focus=True, resizable=True)
 
 
 def make_sub1():
@@ -85,42 +85,7 @@ def make_sub1():
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
     return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
-                    icon=icon_image)
-
-
-#--------Colum layout の定義--------
-    
-col2 = [
-    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
-    sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970')],
-    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
-    [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_2-'), 
-    sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_2-')], 
-]
-
-col3 = [
-    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
-    sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
-    [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_3-'), 
-    sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_3-')], 
-]
-
-col4 = [
-    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
-    sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
-    [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_4-'), 
-    sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_4-')], 
-]
-
-col5 = [
-    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
-    sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-    [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
-    [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
-    sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_5-')], 
-]
+                    use_default_focus=True, resizable=True)
 
 
 
@@ -143,8 +108,8 @@ def make_sub2():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,820), relative_location=(0, -50), border_depth=2, 
-                    icon=icon_image)
+    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,850), relative_location=(0, -50), border_depth=2, 
+                    use_default_focus=True, resizable=True)
 
 
 def make_sub3():
@@ -166,8 +131,8 @@ def make_sub3():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
-                    icon=icon_image)
+    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 850), relative_location=(0, -50), border_depth=2, 
+                    use_default_focus=True, resizable=True)
 
 
 def make_sub4():
@@ -189,8 +154,8 @@ def make_sub4():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
-                    icon=icon_image)
+    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 850), relative_location=(0, -50), border_depth=2, 
+                    use_default_focus=True, resizable=True)        
 
 
 def make_sub5():
@@ -215,7 +180,7 @@ def make_sub5():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 900), relative_location=(0, -50), border_depth=2, 
-                    icon=icon_image)
+                    use_default_focus=True, resizable=True)
 
 
 
@@ -225,31 +190,36 @@ def img_1():
     img_1_layout = [
         [sg.Image(filename='main_folder/img/img_1.png')]
     ]
-    return sg.Window('img_1', img_1_layout, size=(640, 320), relative_location=(0,0), border_depth=2, icon=icon_image)
+    return sg.Window('img_1', img_1_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True)
 
 def img_2():
     img_2_layout = [
         [sg.Image(filename='main_folder/img/img_2.png')]
     ]
-    return sg.Window('img_2', img_2_layout, size=(640, 320), relative_location=(0,0), border_depth=2, icon=icon_image)
+    return sg.Window('img_2', img_2_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True)
 
 def img_3():
     img_3_layout = [
     [sg.Image(filename='main_folder/img/img_3.png')]
     ]
-    return sg.Window('img_3', img_3_layout, size=(640, 320), relative_location=(0,0), border_depth=2, icon=icon_image)
+    return sg.Window('img_3', img_3_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True)
     
 def img_4():
     img_4_layout = [
         [sg.Image(filename='main_folder/img/img_4.png')]
     ]
-    return sg.Window('img_4', img_4_layout, size=(640, 320), relative_location=(0,0), border_depth=2, icon=icon_image)
+    return sg.Window('img_4', img_4_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True)
     
 def img_5():
     img_5_layout = [
         [sg.Image(filename='main_folder/img/img_5.png')]
     ]
-    return sg.Window('img_5', img_5_layout, size=(640, 320), relative_location=(0,0), border_depth=2, icon=icon_image)
+    return sg.Window('img_5', img_5_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True)
 
 
 #--------起動時アニメーション--------
@@ -318,7 +288,7 @@ while True:
 #-------ウィンドウが閉じたとき--------
     if event == sg.WIN_CLOSED:
         window.close()
-        
+        pg.confirm('本当に終了するの...?')
         
         #--------終了時のアニメーション--------
         window = img_5()
