@@ -35,7 +35,7 @@ sg.theme('LightBlue3')
 #ランダムにテーマを変える : sg.theme('SystemDefault8')
 #メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
 
-#--------左上のアイコンの画像指定--------
+#--------タイトルバーのアイコンの画像指定（use_custom_titlebar=Trueが指定されている場合のみ有効）--------
 #icon_image = 'main_folder/img/icon_img.ico'
 
 
@@ -52,7 +52,7 @@ def make_main():
     main_layout = [ [sg.Text('', size=(70, 1))], 
                 [sg.Text('ユニークな新単語を生成するアプリケーション', font=('Arial', 25),
                 text_color='#ff1493', size=(45,2))], 
-                [sg.Text('モードを選択してください', font=('Noto Serif CJK JP', 20),
+                [sg.Text('・モードを選択してください', font=('Noto Serif CJK JP', 20),
                 text_color='#191970', size=(45, 2))], 
                 [sg.Button('入力された文字からユニークな新単語を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub1-')],
                 [sg.Button('ひらがなでランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub2-')],
@@ -65,7 +65,9 @@ def make_main():
                 [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
     return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2,
-                    use_default_focus=True, resizable=True)
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
 
 
 def make_sub1():
@@ -85,7 +87,9 @@ def make_sub1():
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
     return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
-                    use_default_focus=True, resizable=True)
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
 
 
 
@@ -109,7 +113,9 @@ def make_sub2():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,850), relative_location=(0, -50), border_depth=2, 
-                    use_default_focus=True, resizable=True)
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
 
 
 def make_sub3():
@@ -132,7 +138,9 @@ def make_sub3():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 850), relative_location=(0, -50), border_depth=2, 
-                    use_default_focus=True, resizable=True)
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
 
 
 def make_sub4():
@@ -155,7 +163,9 @@ def make_sub4():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 850), relative_location=(0, -50), border_depth=2, 
-                    use_default_focus=True, resizable=True)        
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)     
 
 
 def make_sub5():
@@ -180,7 +190,9 @@ def make_sub5():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 900), relative_location=(0, -50), border_depth=2, 
-                    use_default_focus=True, resizable=True)
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
 
 
 
@@ -191,35 +203,45 @@ def img_1():
         [sg.Image(filename='main_folder/img/img_1.png')]
     ]
     return sg.Window('img_1', img_1_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True)
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
 
 def img_2():
     img_2_layout = [
         [sg.Image(filename='main_folder/img/img_2.png')]
     ]
     return sg.Window('img_2', img_2_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True)
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
 
 def img_3():
     img_3_layout = [
     [sg.Image(filename='main_folder/img/img_3.png')]
     ]
     return sg.Window('img_3', img_3_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True)
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
     
 def img_4():
     img_4_layout = [
         [sg.Image(filename='main_folder/img/img_4.png')]
     ]
     return sg.Window('img_4', img_4_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True)
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
     
 def img_5():
     img_5_layout = [
         [sg.Image(filename='main_folder/img/img_5.png')]
     ]
     return sg.Window('img_5', img_5_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True)
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
 
 
 #--------起動時アニメーション--------
@@ -271,6 +293,13 @@ while True:
             
 
 
+# --------右クリックオプション（Exitを除く）--------
+    if event == 'Click':
+        pg.click(button='left')
+    if event == 'Menu':
+        window.close()
+        window = make_main()
+
 #-------音声読み上げ機能の変更---------
     #if event == values['-volume-']:
         #スピーチのレートを変更
@@ -285,8 +314,8 @@ while True:
 
 
 
-#-------ウィンドウが閉じたとき--------
-    if event == sg.WIN_CLOSED:
+#-------ウィンドウが閉じたとき or Exit（右クリックオプション）が押されたとき--------
+    if event == sg.WIN_CLOSED or event == 'Exit':
         window.close()
         pg.confirm('本当に終了するの...?')
         
