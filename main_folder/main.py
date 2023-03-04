@@ -40,16 +40,25 @@ sg.theme('LightBlue3')
 
 
 time.sleep(0.2)
-sg.popup_ok_cancel('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
+sg.popup_ok('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
 #pg.confirm('本当に起動しますか？')
 time.sleep(0.2)
 
 
 
+
+
 #--------各ウィンドウのオブジェクト定義--------
 def make_main():
+    top_col = [
+                [sg.Button('〓Menu', key='-TopMenu-'), 
+                sg.Button('〓preservation', key='-TopPreservation_main-'), 
+                sg.Button('〓Voice', key='-TopVoice-')], 
+    ]
     # ------------ メインウィンドウ作成 ------------
-    main_layout = [ [sg.Text('', size=(70, 1))], 
+    main_layout = [ 
+                [sg.Column(top_col)], 
+                [sg.Text('', size=(70, ))], 
                 [sg.Text('ユニークな新単語を生成するアプリケーション', font=('Arial', 25),
                 text_color='#ff1493', size=(45,2))], 
                 [sg.Text('・モードを選択してください', font=('Noto Serif CJK JP', 20),
@@ -65,14 +74,21 @@ def make_main():
                 [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
     return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2,
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
 
 def make_sub1():
+    top_col_sub1 = [
+                [sg.Button('〓Menu', key='-TopMenu-'), 
+                sg.Button('〓preservation', key='-TopPreservation_sub1-'), 
+                sg.Button('〓Voice', key='-TopVoice-')], 
+    ]
     # ------------ サブ１ウィンドウ作成 ------------
-    sub1_layout = [ #[sg.Text('', size=(80, 1))],  
+    sub1_layout = [ 
+                [sg.Column(top_col_sub1)], 
+                #[sg.Text('', size=(80, 1))],  
                 [sg.Text('入力された文字から創造性のあふれるユニークな新単語を生成するよ！！', text_color='#191970', font=('Arial', 18))],
                 [sg.Text('', size=(80, 1))],
                 # 文章入力欄を設置
@@ -87,13 +103,18 @@ def make_sub1():
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
     return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
 
 
 def make_sub2():
+    top_col_sub2 = [
+                [sg.Button('〓Menu', key='-TopMenu-'), 
+                sg.Button('〓preservation', key='-TopPreservation_sub2-'), 
+                sg.Button('〓Voice', key='-TopVoice-')], 
+    ]
     # ------------ サブ２ウィンドウ作成 ------------
     col2 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970')],
@@ -101,7 +122,9 @@ def make_sub2():
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_2-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_2-')], 
     ]
-    sub2_layout = [ #[sg.Text('', size=(80, 1))],  
+    sub2_layout = [ 
+                [sg.Column(top_col_sub2)], 
+                #[sg.Text('', size=(80, 1))],  
                 [sg.Text('ひらがなでランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
                 [sg.Text('', size=(80, 1))],
                 [sg.Column(col2)], 
@@ -113,12 +136,17 @@ def make_sub2():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,850), relative_location=(0, -50), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
 
 def make_sub3():
+    top_col_sub3 = [
+                [sg.Button('〓Menu', key='-TopMenu-'), 
+                sg.Button('〓preservation', key='-TopPreservation_sub3-'), 
+                sg.Button('〓Voice', key='-TopVoice-')], 
+    ]
     # ------------ サブ３ウィンドウ作成 ------------
     col3 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
@@ -126,7 +154,9 @@ def make_sub3():
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_3-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_3-')], 
     ]
-    sub3_layout = [ #[sg.Text('', size=(80, 1))],  
+    sub3_layout = [ 
+                [sg.Column(top_col_sub3)], 
+                #[sg.Text('', size=(80, 1))],  
                 [sg.Text('カタカナでランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
                 [sg.Text('', size=(80, 1))],
                 [sg.Column(col3)], 
@@ -138,12 +168,17 @@ def make_sub3():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 850), relative_location=(0, -50), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
 
 def make_sub4():
+    top_col_sub4 = [
+                [sg.Button('〓Menu', key='-TopMenu-'), 
+                sg.Button('〓preservation', key='-TopPreservation_sub4-'), 
+                sg.Button('〓Voice', key='-TopVoice-')], 
+    ]
     # ------------ サブ４ウィンドウ作成 ------------
     col4 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
@@ -151,7 +186,9 @@ def make_sub4():
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_4-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_4-')], 
     ]
-    sub4_layout = [ #[sg.Text('', size=(80, 1))],  
+    sub4_layout = [ 
+                [sg.Column(top_col_sub4)],
+                #[sg.Text('', size=(80, 1))],  
                 [sg.Text('ローマ字でランダムに文字を生成するよ！！', font=('Arial', 18), text_color='#191970')],     
                 [sg.Text('', size=(80, 1))],
                 [sg.Column(col4)], 
@@ -163,12 +200,17 @@ def make_sub4():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 850), relative_location=(0, -50), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)     
 
 
 def make_sub5():
+    top_col_sub5 = [
+                [sg.Button('〓Menu', key='-TopMenu-'), 
+                sg.Button('〓preservation', key='-TopPreservation_sub5-'), 
+                sg.Button('〓Voice', key='-TopVoice-')], 
+    ]
     # ------------ サブ５ウィンドウ作成 ------------
     col5 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
@@ -176,7 +218,9 @@ def make_sub5():
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_5-')], 
     ]  
-    sub5_layout = [ #[sg.Text('', size=(80, 1))],  
+    sub5_layout = [ 
+                [sg.Column(top_col_sub5)],
+                #[sg.Text('', size=(80, 1))],  
                 [sg.Text('ひらがなで名前をランダムに生成するよ！！', font=('Arial', 18), text_color='#191970')],
                 [sg.Text('', size=(80, 1))],                
                 [sg.Column(col5)], 
@@ -190,7 +234,7 @@ def make_sub5():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 900), relative_location=(0, -50), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
@@ -203,7 +247,7 @@ def img_1():
         [sg.Image(filename='main_folder/img/img_1.png')]
     ]
     return sg.Window('img_1', img_1_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
@@ -212,7 +256,7 @@ def img_2():
         [sg.Image(filename='main_folder/img/img_2.png')]
     ]
     return sg.Window('img_2', img_2_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
@@ -221,7 +265,7 @@ def img_3():
     [sg.Image(filename='main_folder/img/img_3.png')]
     ]
     return sg.Window('img_3', img_3_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
     
@@ -230,7 +274,7 @@ def img_4():
         [sg.Image(filename='main_folder/img/img_4.png')]
     ]
     return sg.Window('img_4', img_4_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
     
@@ -239,7 +283,7 @@ def img_5():
         [sg.Image(filename='main_folder/img/img_5.png')]
     ]
     return sg.Window('img_5', img_5_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Properties', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
@@ -282,6 +326,12 @@ window.close()
 
 
 time.sleep(0.1)
+# それぞれの解の初期化
+cc_sub1 = 'NULL'
+cc_sub2 = 'NULL'
+cc_sub3 = 'NULL'
+cc_sub4 = 'NULL'
+cc_sub5 = 'NULL'
 
 
 # --------最初に表示するウィンドウを指定する--------
@@ -296,9 +346,173 @@ while True:
 # --------右クリックオプション（Exitを除く）--------
     if event == 'Click':
         pg.click(button='left')
+        
+        
     if event == 'Menu':
         window.close()
         window = make_main()
+        
+        
+    if event == 'Restart':
+        sg.popup_ok_cancel('アプリケーションを再起動します。', font=('Arial', 12), text_color='#ff1493')
+        #pg.confirm('本当に再起動します？')
+        window.close()
+        time.sleep(0.2)
+        window = make_main()
+        continue
+    
+    
+    
+#--------Topオプション--------
+    if event == 'Force Quit':
+        window.close()
+        pg.confirm('アプリケーションを強制終了します。')
+        break
+        
+        
+    if event == '-TopMenu-':
+        pg.click(button='right')
+
+
+    if event == '-TopPreservation_main-':
+        sg.popup_ok('ここではファイルを書き込みできないよ...',
+                'モードを選択してね！！', text_color='#191970')
+        
+        
+#--------txtファイルへのテキストの保存--------
+
+
+#--------サブ1ウィンドウ--------
+    if event == '-TopPreservation_sub1-':
+        Origin_window_sub1 = window
+        TxtFile_sub1 = 0
+        open_file_sub1 = [
+            [sg.FileBrowse('.txtファイル'),
+            sg.InputText(key='-InputTxt_sub1-')], 
+            [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub1-')], 
+            [sg.Text('※必ず戻るボタンを押して戻ってね。', text_color='#191970')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
+            [sg.Button('戻る', key='-FileExit_sub1-')]
+        ]   
+        window = sg.Window('open_file_sub1', open_file_sub1)
+
+    if event == '-WriteTxt_sub1-':
+        TxtFile_sub1 = values['-InputTxt_sub1-']
+        f_txt = open(TxtFile_sub1, 'a', encoding='UTF-8')
+        f_txt.write(cc_sub1)
+        f_txt.write('\n')
+        f_txt.close()
+        
+    if event == '-FileExit_sub1-':
+        window.close()
+        window = Origin_window_sub1
+    
+
+#--------サブ2ウィンドウ--------
+    if event == '-TopPreservation_sub2-':
+        Origin_window_sub2 = window
+        TxtFile_sub2 = 0
+        open_file_sub2 = [
+            [sg.FileBrowse('.txtファイル'),
+            sg.InputText(key='-InputTxt_sub2-')], 
+            [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub2-')], 
+            [sg.Text('※必ず戻るボタンを押して戻ってね。', text_color='#191970')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
+            [sg.Button('戻る', key='-FileExit_sub2-')]
+        ]   
+        window = sg.Window('open_file_sub2', open_file_sub2)
+        
+    if event == '-WriteTxt_sub2-':
+        TxtFile_sub2 = values['-InputTxt_sub2-']
+        f_txt = open(TxtFile_sub2, 'a', encoding='UTF-8')
+        f_txt.write(cc_sub2)
+        f_txt.write('\n')
+        f_txt.close()
+    
+    if event == '-FileExit_sub2-':
+        window.close()
+        window = Origin_window_sub2
+        
+        
+#--------サブ3ウィンドウ--------
+    if event == '-TopPreservation_sub3-':
+        Origin_window_sub3 = window
+        TxtFile_sub3 = 0
+        open_file_sub3 = [
+            [sg.FileBrowse('.txtファイル'),
+            sg.InputText(key='-InputTxt_sub3-')], 
+            [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub3-')], 
+            [sg.Text('※必ず戻るボタンを押して戻ってね。', text_color='#191970')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
+            [sg.Button('戻る', key='-FileExit_sub3-')]
+        ]   
+        window = sg.Window('open_file_sub3', open_file_sub3)
+        
+    if event == '-WriteTxt_sub3-':
+        TxtFile_sub3 = values['-InputTxt_sub3-']
+        f_txt = open(TxtFile_sub3, 'a', encoding='UTF-8')
+        f_txt.write(cc_sub3)
+        f_txt.write('\n')
+        f_txt.close()
+    
+    if event == '-FileExit_sub3-':
+        window.close()
+        window = Origin_window_sub3
+
+
+#--------サブ4ウィンドウ--------
+    if event == '-TopPreservation_sub4-':
+        Origin_window_sub4 = window
+        TxtFile_sub4 = 0
+        open_file_sub4 = [
+            [sg.FileBrowse('.txtファイル'),
+            sg.InputText(key='-InputTxt_sub4-')], 
+            [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub4-')], 
+            [sg.Text('※必ず戻るボタンを押して戻ってね。', text_color='#191970')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
+            [sg.Button('戻る', key='-FileExit_sub4-')]
+        ]   
+        window = sg.Window('open_file_sub4', open_file_sub4)
+        
+    if event == '-WriteTxt_sub4-':
+        TxtFile_sub4 = values['-InputTxt_sub4-']
+        f_txt = open(TxtFile_sub4, 'a', encoding='UTF-8')
+        f_txt.write(cc_sub4)
+        f_txt.write('\n')
+        f_txt.close()
+    
+    if event == '-FileExit_sub4-':
+        window.close()
+        window = Origin_window_sub4
+
+
+#--------サブ5ウィンドウ--------
+    if event == '-TopPreservation_sub5-':
+        Origin_window_sub5 = window
+        TxtFile_sub5 = 0
+        open_file_sub5 = [
+            [sg.FileBrowse('.txtファイル'),
+            sg.InputText(key='-InputTxt_sub5-')], 
+            [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub5-')], 
+            [sg.Text('※必ず戻るボタンを押して戻ってね。', text_color='#191970')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
+            [sg.Button('戻る', key='-FileExit_sub5-')]
+        ]   
+        window = sg.Window('open_file_sub5', open_file_sub5)
+        
+    if event == '-WriteTxt_sub5-':
+        TxtFile_sub5 = values['-InputTxt_sub5-']
+        f_txt = open(TxtFile_sub5, 'a', encoding='UTF-8')
+        f_txt.write(cc_sub5)
+        f_txt.write('\n')
+        f_txt.close()
+    
+    if event == '-FileExit_sub5-':
+        window.close()
+        window = Origin_window_sub5
+
+        
+        
 
 #-------音声読み上げ機能の変更---------
     #if event == values['-volume-']:
@@ -355,7 +569,7 @@ while True:
             break
         window.close()
 
-        sg.popup_ok_cancel('アプリケーションを終了しました。', font=('Arial', 12), text_color='#ff1493')
+        sg.popup_ok('アプリケーションを終了しました。', font=('Arial', 12), text_color='#ff1493')
         window.close()
         break
 
