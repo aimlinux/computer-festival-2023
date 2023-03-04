@@ -74,9 +74,9 @@ def make_sub1():
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_1-')], 
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_1-')],
                 [sg.Output(size=(70, 10), font=('Arial', 13))], 
-                [sg.Text('言語設定', font=('Arial', 13), text_color='#191970')],
-                [sg.Spin(['ひらがなのみ', 'ひらがな・カタカナ'], font=('Arial', 13), 
-                size=(30,1), initial_value='ひらがな・カタカナ', key='-language-')], 
+                #[sg.Text('言語設定', font=('Arial', 13), text_color='#191970')],
+                #[sg.Spin(['ひらがなのみ', 'ひらがな・カタカナ'], font=('Arial', 13), 
+                #size=(30,1), initial_value='ひらがな・カタカナ', key='-language-')], 
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
@@ -209,7 +209,7 @@ def make_sub5():
     return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 960))
 
 
-#def end_window():
+def end_window():
     # ---------エンドウィンドウ作成--------
     col_end = [        
         [sg.Button('終了', font=('Arial', 12), key='-TheEnd-'), 
@@ -220,6 +220,7 @@ def make_sub5():
         [sg.Column(col_end)]
     ]
     return sg.Window('end_layout', end_layout, finalize=True, size=(400, 100))
+
 
 
 
@@ -255,6 +256,7 @@ def img_5():
     return sg.Window('img_5', img_5_layout, size=(640, 320))
 
 
+#--------起動時アニメーション--------
 window = img_1()
 step = 0
 while True:
@@ -291,7 +293,6 @@ while True:
 window.close()
 
 
-
 time.sleep(0.1)
 
 
@@ -302,20 +303,35 @@ window = make_main()
 while True:
     event, values = window.read()
             
-            
+
+
+#-------音声読み上げ機能の変更---------
+    #if event == values['-volume-']:
+        #スピーチのレートを変更
+        #rate = engine.getProperty('rate')
+        #engine.setProperty('rate', rate-100)
+        #スピーチのボリュームを変更
+        #volume = engine.getProperty('volume')
+        #engine.setProperty('volume', volume-1.00)
+        #スピーチの声を変える(0が男性, 1が女性の声)
+        #voices = engine.getProperty('voices')
+        #engine.setProperty('voice', voices[0].id)
+
+
 
 #-------ウィンドウが閉じたとき--------
     if event == sg.WIN_CLOSED:
-        pg.confirm('本当に終了するの...？')
-        time.sleep(0.2)
+        window.close()
         
+        
+        #--------終了時のアニメーション--------
         window = img_5()
         step = 9
         while True:
             event, values = window.read(600)
             break
         window.close()
-        
+
         window = img_4()
         step = 8
         while True:
@@ -348,19 +364,9 @@ while True:
         window.close()
         break
 
-
-
-#-------音声読み上げ機能の変更---------
-    #if event == values['-volume-']:
-        #スピーチのレートを変更
-        rate = engine.getProperty('rate')
-        engine.setProperty('rate', rate-100)
-        #スピーチのボリュームを変更
-        volume = engine.getProperty('volume')
-        engine.setProperty('volume', volume-1.00)
-        #スピーチの声を変える(0が男性, 1が女性の声)
-        voices = engine.getProperty('voices')
-        engine.setProperty('voice', voices[0].id)
+    if event == '-continue-':
+        window.close()
+        window = make_main()
 
 
 #--------sub1ボタンが押された場合--------
@@ -668,12 +674,9 @@ while True:
         # サブウィンドウを閉じて、メインウィンドウを作成して表示する
         window.close()
         window = make_main()
-    
-    
     #「アプリケーションを終了する」ボタンが押された場合
     elif event == '-exit-':
         # メインウィンドウを閉じて、アプリケーションを終了する
-        #pg.confirm("本当に終了しますか？")
         window.close()
 
 
