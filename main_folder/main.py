@@ -7,8 +7,6 @@
 #----[pip install pyttsx3]----
 #----[pip install pyautogui]----
 #----[pip install screeninfo]----
-#----[pip install opencv-python]----
-#----[pip install opencv-contrib-python]----
 
 import os
 import PySimpleGUI as sg
@@ -16,20 +14,19 @@ import random as rand
 import pyttsx3
 import numpy as np
 from msilib.schema import Upgrade
+from msilib.schema import Binary
 from re import U
 from turtle import update
 import pyautogui as pg
 import time
 
-#--------アニメーション関係--------
-#from PIL import Image
-#import cv2 as cv
-#import io
 
 #--------モニターの解像度を取得--------
 from screeninfo import get_monitors as gm
 monitor = gm()[0]
 window_size = (monitor.width, monitor.height)
+#print(window_size)
+
 
 
 #--------ウィンドウのテーマ--------
@@ -40,8 +37,10 @@ sg.theme('LightBlue3')
 
 
 time.sleep(0.2)
-sg.popup_ok('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
+sg.popup_ok_cancel('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
 #pg.confirm('本当に起動しますか？')
+time.sleep(0.2)
+
 
 
 
@@ -225,98 +224,76 @@ def make_sub5():
 
 
 
-'''
-#-------アニメーション定義---------
-def animation():
-    filename = sg.popup_get_file('')
-    #取得したファイルがNoneなら終了
-    if filename is None:
-        return
-    
-    vidFile = cv.VideoCapture(filename) 
-    
-    #動画ファイルのプロパティを取得
-    num_frame = vidFile.get(cv.CAP_PROP_FRAME_COUNT)
-    fps = vidFile.get(cv.CAP_PROP_FPS)
-    
-    #--------アニメーションウィンドウ作成---------
-    animation_layout = [
-        [sg.Image(filename='', key='-image-')],
+#--------画像表示の定義--------
+def img_1():
+    img_1_layout = [
+        [sg.Image(filename='main_folder/img/img_1.png')]
     ]
-    return sg.Window('animation_layout', animation_layout, finalize=True, size=(1300, 820))
+    return sg.Window('img_1', img_1_layout, size=(640, 320))
 
-start = time.time()
+def img_2():
+    img_2_layout = [
+        [sg.Image(filename='main_folder/img/img_2.png')]
+    ]
+    return sg.Window('img_2', img_2_layout, size=(640, 320))
 
-#----相対パスは各環境ごとに変更しよう----
-cap = cv.VideoCapture(r'')
-size = (1080, 720)
-if (cap.isOpened()== False):  
-    print("Error") 
-    
-while(cap.isOpened()):
-    ret, frame = cap.read()
-    if ret == True:
-        cv.imshow("main_layout", frame)
-        if cv.waitKey(25) & 0xFF == ord('q'): 
-            break    
-    else:
-        break
-cap.release()
-
-cv.destroyAllWindows()
-'''
-
-
-img_1_layout = [
-    [sg.Image(filename='main_folder/img/img_1.png')]
-]
-window = sg.Window('img_1', img_1_layout, size=(640, 320))
-step = 0
-while True:
-    event, values = window.read(500)
-    break
-window.close()
-
-img_2_layout = [
-    [sg.Image(filename='main_folder/img/img_2.png')]
-]
-window = sg.Window('img_2', img_2_layout, size=(640, 320))
-step = 0
-while True:
-    event, values = window.read(500)
-    break
-window.close()
-
-img_3_layout = [
+def img_3():
+    img_3_layout = [
     [sg.Image(filename='main_folder/img/img_3.png')]
-]
-window = sg.Window('img_3', img_3_layout, size=(640, 320))
+    ]
+    return sg.Window('img_3', img_3_layout, size=(640, 320))
+    
+def img_4():
+    img_4_layout = [
+        [sg.Image(filename='main_folder/img/img_4.png')]
+    ]
+    return sg.Window('img_4', img_4_layout, size=(640, 320))
+    
+def img_5():
+    img_5_layout = [
+        [sg.Image(filename='main_folder/img/img_5.png')]
+    ]
+    return sg.Window('img_5', img_5_layout, size=(640, 320))
+
+
+window = img_1()
 step = 0
 while True:
     event, values = window.read(500)
     break
 window.close()
 
-img_4_layout = [
-    [sg.Image(filename='main_folder/img/img_4.png')]
-]
-window = sg.Window('img_4', img_4_layout, size=(640, 320))
-step = 0
+window = img_2()
+step = 1
 while True:
-    event, values = window.read(500)
+    event, values = window.read(300)
     break
 window.close()
 
-img_5_layout = [
-    [sg.Image(filename='main_folder/img/img_5.png')]
-]
-window = sg.Window('img_5', img_5_layout, size=(640, 320))
-step = 0
+window = img_3()
+step = 2
 while True:
-    event, values = window.read(1000)
+    event, values = window.read(300)
     break
 window.close()
 
+window = img_4()
+step = 3
+while True:
+    event, values = window.read(300)
+    break
+window.close()
+
+window = img_5()
+step = 4
+while True:
+    event, values = window.read(600)
+    break
+window.close()
+
+
+
+time.sleep(0.1)
 
 
 # --------最初に表示するウィンドウを指定する--------
@@ -331,7 +308,44 @@ while True:
 #-------ウィンドウが閉じたとき--------
     if event == sg.WIN_CLOSED:
         pg.confirm('本当に終了するの...？')
-        sg.popup_ok_cancel('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
+        time.sleep(0.2)
+        
+        window = img_5()
+        step = 9
+        while True:
+            event, values = window.read(600)
+            break
+        window.close()
+        
+        window = img_4()
+        step = 8
+        while True:
+            event, values = window.read(300)
+            break
+        window.close()
+
+        window = img_3()
+        step = 7
+        while True:
+            event, values = window.read(300)
+            break
+        window.close()
+
+        window = img_2()
+        step = 6
+        while True:
+            event, values = window.read(300)
+            break
+        window.close()
+
+        window = img_1()
+        step = 5
+        while True:
+            event, values = window.read(600)
+            break
+        window.close()
+
+        sg.popup_ok_cancel('アプリケーションを終了しました。', font=('Arial', 12), text_color='#ff1493')
         window.close()
         break
 
