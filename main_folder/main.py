@@ -347,11 +347,9 @@ while True:
     if event == 'Click':
         pg.click(button='left')
         
-        
     if event == 'Menu':
         window.close()
         window = make_main()
-        
         
     if event == 'Restart':
         sg.popup_ok_cancel('アプリケーションを再起動します。', font=('Arial', 12), text_color='#ff1493')
@@ -361,15 +359,13 @@ while True:
         window = make_main()
         continue
     
-    
-    
-#--------Topオプション--------
     if event == 'Force Quit':
         window.close()
         pg.confirm('アプリケーションを強制終了します。')
         break
-        
-        
+    
+    
+#--------Topオプション--------
     if event == '-TopMenu-':
         pg.click(button='right')
 
@@ -380,7 +376,6 @@ while True:
         
         
 #--------txtファイルへのテキストの保存--------
-
 
 #--------サブ1ウィンドウ--------
     if event == '-TopPreservation_sub1-':
@@ -394,7 +389,10 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
             [sg.Button('戻る', key='-FileExit_sub1-')]
         ]   
-        window = sg.Window('open_file_sub1', open_file_sub1)
+        window = sg.Window('open_file_sub1', open_file_sub1, relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
 
     if event == '-WriteTxt_sub1-':
         TxtFile_sub1 = values['-InputTxt_sub1-']
@@ -420,7 +418,10 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
             [sg.Button('戻る', key='-FileExit_sub2-')]
         ]   
-        window = sg.Window('open_file_sub2', open_file_sub2)
+        window = sg.Window('open_file_sub2', open_file_sub2, relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
         
     if event == '-WriteTxt_sub2-':
         TxtFile_sub2 = values['-InputTxt_sub2-']
@@ -446,7 +447,10 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
             [sg.Button('戻る', key='-FileExit_sub3-')]
         ]   
-        window = sg.Window('open_file_sub3', open_file_sub3)
+        window = sg.Window('open_file_sub3', open_file_sub3, relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
         
     if event == '-WriteTxt_sub3-':
         TxtFile_sub3 = values['-InputTxt_sub3-']
@@ -472,7 +476,10 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
             [sg.Button('戻る', key='-FileExit_sub4-')]
         ]   
-        window = sg.Window('open_file_sub4', open_file_sub4)
+        window = sg.Window('open_file_sub4', open_file_sub4, relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
         
     if event == '-WriteTxt_sub4-':
         TxtFile_sub4 = values['-InputTxt_sub4-']
@@ -498,7 +505,10 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
             [sg.Button('戻る', key='-FileExit_sub5-')]
         ]   
-        window = sg.Window('open_file_sub5', open_file_sub5)
+        window = sg.Window('open_file_sub5', open_file_sub5, relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
         
     if event == '-WriteTxt_sub5-':
         TxtFile_sub5 = values['-InputTxt_sub5-']
