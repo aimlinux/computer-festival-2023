@@ -58,7 +58,7 @@ def make_main():
     # ------------ メインウィンドウ作成 ------------
     main_layout = [ 
                 [sg.Column(top_col)], 
-                [sg.Text('', size=(70, ))], 
+                #[sg.Text('', size=(70, 1))], 
                 [sg.Text('ユニークな新単語を生成するアプリケーション', font=('Arial', 25),
                 text_color='#ff1493', size=(45,2))], 
                 [sg.Text('・モードを選択してください', font=('Noto Serif CJK JP', 20),
