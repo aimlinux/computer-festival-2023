@@ -521,8 +521,30 @@ while True:
         window.close()
         window = Origin_window_sub5
 
-        
-        
+    
+    
+#-------TopOptionのボイス設定--------
+    if event == '-TopVoice-':
+        Origin_window_Voice = window
+        voice_option = [
+            [sg.Text('アプリケーション内の音声設定画面', text_color='#191970')],
+            [sg.Text('===音の大きさ===')],
+            [sg.Slider(range=(0, 10), default_value=10, resolution=1, tick_interval=5, orientation='horizontal', 
+                        enable_events=True, font='Helvetica', text_color='#000000', trough_color='#da70d6', 
+                        key='-VoiceSlider-'), 
+            sg.Output(size=(8, 1))],
+            [sg.Button('戻る', key='-VoiceExit-')],
+        ]
+        window = sg.Window('voice_option', voice_option, relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
+
+    
+    if event == '-VoiceExit-':
+        window.close()
+        window = Origin_window_Voice
+
 
 #-------音声読み上げ機能の変更---------
     #if event == values['-volume-']:
