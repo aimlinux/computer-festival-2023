@@ -73,7 +73,7 @@ def make_main():
                 [sg.Text('', size=(70, 1))],
                 [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
-    return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2,
+    return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 920), relative_location=(0, -80), border_depth=2,
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -102,7 +102,7 @@ def make_sub1():
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
-    return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 820), relative_location=(0, -50), border_depth=2, 
+    return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 920), relative_location=(0, -80), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -135,7 +135,7 @@ def make_sub2():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,850), relative_location=(0, -50), border_depth=2, 
+    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,920), relative_location=(0, -80), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -167,7 +167,7 @@ def make_sub3():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 850), relative_location=(0, -50), border_depth=2, 
+    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 920), relative_location=(0, -80), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -199,7 +199,7 @@ def make_sub4():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 850), relative_location=(0, -50), border_depth=2, 
+    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 920), relative_location=(0, -80), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)     
@@ -227,13 +227,13 @@ def make_sub5():
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_5-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_5-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13))],
-                [sg.Text('', size=(80, 1))],
-                [sg.Text('実は機械学習を使ってるんだよね！！', font=('Arial', 16), text_color='#191970')],  
+                #[sg.Text('', size=(80, 1))],
+                #[sg.Text('実は機械学習を使ってるんだよね！！', font=('Arial', 16), text_color='#191970')],  
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 900), relative_location=(0, -50), border_depth=2, 
+    return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 920), relative_location=(0, -80), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
