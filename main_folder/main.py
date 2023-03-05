@@ -339,6 +339,12 @@ step = 0
 default_voice_slider = 5
 default_speed_slider = 5
 
+# 音声を「滑らかな女性の声」に設定（男性の声は現在使用できない）
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+engine.setProperty('voices_woman', voices[1].id)
+
+
 
 # ----------------最初に表示するウィンドウを指定する----------------
 window = make_main()
