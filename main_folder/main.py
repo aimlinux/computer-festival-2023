@@ -51,9 +51,9 @@ time.sleep(0.2)
 #--------各ウィンドウのオブジェクト定義--------
 def make_main():
     top_col = [
-                [sg.Button('〓Menu', key='-TopMenu-'), 
-                sg.Button('〓preservation', key='-TopPreservation_main-'), 
-                sg.Button('〓Voice', key='-TopVoice-')], 
+                [sg.Button('〓メニュー', key='-TopMenu-'), 
+                sg.Button('〓テキスト保存', key='-TopPreservation_main-'), 
+                sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ メインウィンドウ作成 ------------
     main_layout = [ 
@@ -81,15 +81,15 @@ def make_main():
 
 def make_sub1():
     top_col_sub1 = [
-                [sg.Button('〓Menu', key='-TopMenu-'), 
-                sg.Button('〓preservation', key='-TopPreservation_sub1-'), 
-                sg.Button('〓Voice', key='-TopVoice-')], 
+                [sg.Button('〓メニュー', key='-TopMenu-'), 
+                sg.Button('〓テキスト保存', key='-TopPreservation_sub1-'), 
+                sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ１ウィンドウ作成 ------------
     sub1_layout = [ 
                 [sg.Column(top_col_sub1)], 
                 #[sg.Text('', size=(80, 1))],  
-                [sg.Text('入力された文字から創造性のあふれるユニークな新単語を生成するよ！！', text_color='#191970', font=('Arial', 18))],
+                [sg.Text('入力された文字からユニークな新単語を生成するよ！！', text_color='#191970', font=('Arial', 18))],
                 [sg.Text('', size=(80, 1))],
                 # 文章入力欄を設置
                 [sg.Multiline('文字を入力してください', font=('Arial', 13), text_color='#191970', size=(60, 6), key='-sentence_1-')],
@@ -111,9 +111,9 @@ def make_sub1():
 
 def make_sub2():
     top_col_sub2 = [
-                [sg.Button('〓Menu', key='-TopMenu-'), 
-                sg.Button('〓preservation', key='-TopPreservation_sub2-'), 
-                sg.Button('〓Voice', key='-TopVoice-')], 
+                [sg.Button('〓メニュー', key='-TopMenu-'), 
+                sg.Button('〓テキスト保存', key='-TopPreservation_sub2-'), 
+                sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ２ウィンドウ作成 ------------
     col2 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
@@ -143,9 +143,9 @@ def make_sub2():
 
 def make_sub3():
     top_col_sub3 = [
-                [sg.Button('〓Menu', key='-TopMenu-'), 
-                sg.Button('〓preservation', key='-TopPreservation_sub3-'), 
-                sg.Button('〓Voice', key='-TopVoice-')], 
+                [sg.Button('〓メニュー', key='-TopMenu-'), 
+                sg.Button('〓テキスト保存', key='-TopPreservation_sub3-'), 
+                sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ３ウィンドウ作成 ------------
     col3 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
@@ -175,9 +175,9 @@ def make_sub3():
 
 def make_sub4():
     top_col_sub4 = [
-                [sg.Button('〓Menu', key='-TopMenu-'), 
-                sg.Button('〓preservation', key='-TopPreservation_sub4-'), 
-                sg.Button('〓Voice', key='-TopVoice-')], 
+                [sg.Button('〓メニュー', key='-TopMenu-'), 
+                sg.Button('〓保存', key='-TopPreservation_sub4-'), 
+                sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ４ウィンドウ作成 ------------
     col4 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
@@ -207,9 +207,9 @@ def make_sub4():
 
 def make_sub5():
     top_col_sub5 = [
-                [sg.Button('〓Menu', key='-TopMenu-'), 
-                sg.Button('〓preservation', key='-TopPreservation_sub5-'), 
-                sg.Button('〓Voice', key='-TopVoice-')], 
+                [sg.Button('〓メニュー', key='-TopMenu-'), 
+                sg.Button('〓保存', key='-TopPreservation_sub5-'), 
+                sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ５ウィンドウ作成 ------------
     col5 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
@@ -326,15 +326,21 @@ window.close()
 
 
 time.sleep(0.1)
-# それぞれの解の初期化
+
+# 各解の初期化
 cc_sub1 = 'NULL'
 cc_sub2 = 'NULL'
 cc_sub3 = 'NULL'
 cc_sub4 = 'NULL'
 cc_sub5 = 'NULL'
+step = 0
+
+# 各デフォルト値を定義
+default_voice_slider = 5
+default_speed_slider = 5
 
 
-# --------最初に表示するウィンドウを指定する--------
+# ----------------最初に表示するウィンドウを指定する----------------
 window = make_main()
 
 #--------ウィンドウを繰り返し表示する--------
@@ -343,7 +349,7 @@ while True:
             
 
 
-# --------右クリックオプション（Exitを除く）--------
+# ----------------右クリックオプション（Exitを除く）----------------
     if event == 'Click':
         pg.click(button='left')
         
@@ -365,34 +371,37 @@ while True:
         break
     
     
-#--------Topオプション--------
+#----------------Topオプション----------------
+#--------Topメニューを押したとき--------
     if event == '-TopMenu-':
         pg.click(button='right')
 
+        
+#--------txtファイルへのテキストの保存--------
 
+#--------メインウィンドウ--------
     if event == '-TopPreservation_main-':
         sg.popup_ok('ここではファイルを書き込みできないよ...',
                 'モードを選択してね！！', text_color='#191970')
         
-        
-#--------txtファイルへのテキストの保存--------
-
 #--------サブ1ウィンドウ--------
     if event == '-TopPreservation_sub1-':
         Origin_window_sub1 = window
         TxtFile_sub1 = 0
         open_file_sub1 = [
+            [sg.Text('出力されたテキストをtxtファイルに保存するよ。', font=('Helvetica', 15), text_color='#191970')],
+            [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub1-')], 
             [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub1-')], 
-            [sg.Text('※必ず戻るボタンを押して戻ってね。', text_color='#191970')],
-            [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
+            [sg.Text('※必ず戻るボタンを押して戻ってね。')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub1-')]
         ]   
         window = sg.Window('open_file_sub1', open_file_sub1, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
+                    right_click_menu_tearoff=False, keep_on_top=True)
 
     if event == '-WriteTxt_sub1-':
         TxtFile_sub1 = values['-InputTxt_sub1-']
@@ -411,17 +420,19 @@ while True:
         Origin_window_sub2 = window
         TxtFile_sub2 = 0
         open_file_sub2 = [
+            [sg.Text('出力されたテキストをtxtファイルに保存するよ。', font=('Helvetica', 15), text_color='#191970')],
+            [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub2-')], 
             [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub2-')], 
-            [sg.Text('※必ず戻るボタンを押して戻ってね。', text_color='#191970')],
-            [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
+            [sg.Text('※必ず戻るボタンを押して戻ってね。')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub2-')]
         ]   
         window = sg.Window('open_file_sub2', open_file_sub2, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
+                    right_click_menu_tearoff=False, keep_on_top=True)
         
     if event == '-WriteTxt_sub2-':
         TxtFile_sub2 = values['-InputTxt_sub2-']
@@ -440,17 +451,19 @@ while True:
         Origin_window_sub3 = window
         TxtFile_sub3 = 0
         open_file_sub3 = [
+            [sg.Text('出力されたテキストをtxtファイルに保存するよ。', font=('Helvetica', 15), text_color='#191970')],
+            [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub3-')], 
             [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub3-')], 
-            [sg.Text('※必ず戻るボタンを押して戻ってね。', text_color='#191970')],
-            [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
+            [sg.Text('※必ず戻るボタンを押して戻ってね。')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub3-')]
         ]   
         window = sg.Window('open_file_sub3', open_file_sub3, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
+                    right_click_menu_tearoff=False, keep_on_top=True)
         
     if event == '-WriteTxt_sub3-':
         TxtFile_sub3 = values['-InputTxt_sub3-']
@@ -469,17 +482,19 @@ while True:
         Origin_window_sub4 = window
         TxtFile_sub4 = 0
         open_file_sub4 = [
+            [sg.Text('出力されたテキストをtxtファイルに保存するよ。', font=('Helvetica', 15), text_color='#191970')],
+            [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub4-')], 
             [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub4-')], 
-            [sg.Text('※必ず戻るボタンを押して戻ってね。', text_color='#191970')],
-            [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
+            [sg.Text('※必ず戻るボタンを押して戻ってね。')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub4-')]
         ]   
         window = sg.Window('open_file_sub4', open_file_sub4, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
+                    right_click_menu_tearoff=False, keep_on_top=True)
         
     if event == '-WriteTxt_sub4-':
         TxtFile_sub4 = values['-InputTxt_sub4-']
@@ -498,17 +513,19 @@ while True:
         Origin_window_sub5 = window
         TxtFile_sub5 = 0
         open_file_sub5 = [
+            [sg.Text('出力されたテキストをtxtファイルに保存するよ。', font=('Helvetica', 15), text_color='#191970')],
+            [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub5-')], 
             [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub5-')], 
-            [sg.Text('※必ず戻るボタンを押して戻ってね。', text_color='#191970')],
-            [sg.Text('    ここでは右上の×ボタンは押さないでね。', text_color='#191970')],
+            [sg.Text('※必ず戻るボタンを押して戻ってね。')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub5-')]
         ]   
         window = sg.Window('open_file_sub5', open_file_sub5, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
+                    right_click_menu_tearoff=False, keep_on_top=True)
         
     if event == '-WriteTxt_sub5-':
         TxtFile_sub5 = values['-InputTxt_sub5-']
@@ -527,36 +544,60 @@ while True:
     if event == '-TopVoice-':
         Origin_window_Voice = window
         voice_option = [
-            [sg.Text('アプリケーション内の音声設定画面', text_color='#191970')],
-            [sg.Text('===音の大きさ===')],
-            [sg.Slider(range=(0, 10), default_value=10, resolution=1, tick_interval=5, orientation='horizontal', 
-                        enable_events=True, font='Helvetica', text_color='#000000', trough_color='#da70d6', 
-                        key='-VoiceSlider-'), 
-            sg.Output(size=(8, 1))],
+            [sg.Text('アプリケーション内の音声設定画面', font=('Helvetica', 15), text_color='#191970')],
+            [sg.Text('', size=(10, 1))],
+            #音量調節
+            [sg.Text('===音量調節===')],
+            [sg.Slider(range=(0, 10), default_value=default_voice_slider, resolution=1, tick_interval=5, orientation='horizontal', 
+                        enable_events=True, font='Helvetica', text_color='#000000', trough_color='#fae1e9', 
+                        expand_x=True, expand_y=True, metadata=True, key='-VoiceSlider-'), 
+            sg.Button('確定する', key='-VoiceChange-')],
+            [sg.Text('', size=(10, 1))],
+            #音声スピード調節
+            [sg.Text('===音声スピード調節===')],
+            [sg.Slider(range=(0, 10), default_value=default_speed_slider, resolution=1, tick_interval=5, orientation='horizontal', 
+                        enable_events=True, font='Helvetica', text_color='#000000', trough_color='#fae1e9', 
+                        expand_x=True, expand_y=True, metadata=True, key='-SpeedSlider-'), 
+            sg.Button('確定する', key='-SpeedChange-')],
+            #ウィンドウを閉じる
             [sg.Button('戻る', key='-VoiceExit-')],
         ]
         window = sg.Window('voice_option', voice_option, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
+                    right_click_menu_tearoff=False, keep_on_top=True)
 
-    
+    #--------音量調節の設定--------
+    if event == '-VoiceSlider-':
+        voice_volume = int(values['-VoiceSlider-'])
+        #print(voice_volume)
+        window['-VoiceSlider-'].update
+        
+    if event == '-VoiceChange-':
+        engine = pyttsx3.init()
+        engine.setProperty('volume', voice_volume / 10)#デフォルト値は1.0
+        volume = engine.getProperty('volume')
+        sg.popup_ok('音量が変更されたよ。', text_color='#191970', keep_on_top=True)
+        default_voice_slider = voice_volume
+        
+    #--------音声スピードの設定--------
+    if event == '-SpeedSlider-':
+        voice_speed = int(values['-SpeedSlider-'])
+        #print(voice_speed)
+        window['-SpeedSlider-'].update
+        
+    if event == '-SpeedChange-':
+        engine = pyttsx3.init()
+        engine.setProperty('rate', voice_speed * 40)#デフォルト値は200
+        rate = engine.getProperty('rate')
+        sg.popup_ok('音声スピードが変更されたよ', text_color='#191970', keep_on_top=True)
+        default_speed_slider = voice_speed
+        
+    #--------戻るボタンが押されたとき--------
     if event == '-VoiceExit-':
         window.close()
         window = Origin_window_Voice
 
-
-#-------音声読み上げ機能の変更---------
-    #if event == values['-volume-']:
-        #スピーチのレートを変更
-        #rate = engine.getProperty('rate')
-        #engine.setProperty('rate', rate-100)
-        #スピーチのボリュームを変更
-        #volume = engine.getProperty('volume')
-        #engine.setProperty('volume', volume-1.00)
-        #スピーチの声を変える(0が男性, 1が女性の声)
-        #voices = engine.getProperty('voices')
-        #engine.setProperty('voice', voices[0].id)
 
 
 
