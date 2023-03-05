@@ -68,8 +68,8 @@ def make_main():
                 [sg.Button('カタカナでランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub3-')],
                 [sg.Button('ローマ字でランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub4-')],
                 [sg.Button('ひらがなで名前をランダムに生成するモード', font=('Arial', 11), size=(50, 2), key='-sub5-')],
-                [sg.Text('', size=(70, 1))],
-                [sg.Checkbox('音声OFF', default=None, font=('Arial', 16), key='-volume-')],
+                #[sg.Text('', size=(70, 1))],
+                #[sg.Checkbox('音声OFF', default=None, font=('Arial', 16), key='-volume-')],
                 [sg.Text('', size=(70, 1))],
                 [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
@@ -606,12 +606,12 @@ while True:
 
 
 
-
 #-------ウィンドウが閉じたとき or Exit（右クリックオプション）が押されたとき--------
     if event == sg.WIN_CLOSED or event == 'Exit':
+        #Origin_window_end = window
         window.close()
-        pg.confirm('本当に終了するの...?')
-        
+        sg.popup_ok('アプリケーションを終了しました。', font=('Arial', 12), text_color='#ff1493')
+
         #--------終了時のアニメーション--------
         window = img_5()
         step = 9
@@ -648,7 +648,6 @@ while True:
             break
         window.close()
 
-        sg.popup_ok('アプリケーションを終了しました。', font=('Arial', 12), text_color='#ff1493')
         window.close()
         break
 
