@@ -43,4 +43,5 @@
         ・右クリックオプションで色覚障害がある方向けの音声読み上げを付ける
         ・pyinstaller使えそう
         （https://youtu.be/hdjDYGXbVws）
+        ・テーマを自分好みにできる
 
