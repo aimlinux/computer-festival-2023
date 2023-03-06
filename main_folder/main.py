@@ -53,7 +53,7 @@ sg.theme('LightBlue3')
 #icon_image = 'main_folder/img/icon_img.ico'
 
 
-time.sleep(0.2)
+time.sleep(0.1)
 sg.popup_ok('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
 #pg.confirm('本当に起動しますか？')
 time.sleep(0.2)
@@ -381,7 +381,7 @@ while True:
     
     if event == 'Force Quit':
         window.close()
-        pg.confirm('アプリケーションを強制終了します。')
+        pg.alert('アプリケーションを強制終了します。')
         break
     
     
@@ -618,10 +618,17 @@ while True:
 
 #-------ウィンドウが閉じたとき or Exit（右クリックオプション）が押されたとき--------
     if event == sg.WIN_CLOSED or event == 'Exit':
-        #Origin_window_end = window
-        window.close()
-        sg.popup_ok('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
+        window.close()  
+        Origin_window_end = window
+        end_popup = sg.popup_ok('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
+        
 
+    #if end_popup == 'Cancel':
+        #message = 'Cancelが押されました。'
+        #window['result'].update(message)
+        #sg.popup('アプリケーションを続行します。')
+        
+    if end_popup == 'OK':
         #--------終了時のアニメーション--------
         window = img_5()
         step = 9
@@ -967,7 +974,7 @@ while True:
             
     
     
-#--------サブ5について機械学習--------
+#--------サブ5について機械学習を用いて判定--------
     if event == '-JudgeButton-':
         text = cc_sub5
         #sg.popup_ok(cc_sub5)
@@ -1000,7 +1007,7 @@ while True:
             
                 test_df.loc[4998] = (target)
             
-                # MultiLabelを使ってベクトルに
+                # MultiLabelを使ってベクトルにする
                 train_features = mlb.transform(train_df.bi_yomi)
                 test_features = mlb.transform(test_df.bi_yomi)
                 
@@ -1045,9 +1052,10 @@ while True:
         s = train_and_test(classifier, df, mlb,target)
             
         if s == 1:
-            sg.popup('女性です')
+            #Outputでだすかeventに入れてupdateさせるか...
+            sg.popup('女性に多い名前です')
         if s == 0:
-            sg.popup('男性です')
+            sg.popup('男性に多い名前です')
                 
                 
     # window右上のx印を押して閉じたとき
