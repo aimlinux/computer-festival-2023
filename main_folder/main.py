@@ -286,6 +286,7 @@ def img_5():
                     right_click_menu_tearoff=False)
 
 
+
 #--------起動時アニメーション--------
 window = img_1()
 while True:
