@@ -21,6 +21,19 @@ import pyautogui as pg
 import time
 
 
+#--------機械学習で使用--------
+import pandas as pd
+import pickle
+import warnings
+from sklearn.preprocessing import MultiLabelBinarizer
+from sklearn.model_selection import KFold
+
+warnings.simplefilter('ignore')
+#ファイル読み込み
+df = pd.read_csv('main_folder/namelist.csv',sep=",")
+
+
+
 #--------モニターの解像度を取得--------
 from screeninfo import get_monitors as gm
 monitor = gm()[0]
@@ -56,7 +69,7 @@ def make_main():
     # ------------ メインウィンドウ作成 ------------
     main_layout = [ 
                 [sg.Column(top_col)], 
-                #[sg.Text('', size=(70, 1))], 
+                [sg.Text('', size=(70, 1))], 
                 [sg.Text('ユニークな新単語を生成するアプリケーション', font=('Helvetica', 25),
                 text_color='#ff1493', size=(45,2))], 
                 [sg.Text('・モードを選択してください', font=('Noto Serif CJK JP', 20),
@@ -225,6 +238,7 @@ def make_sub5():
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_5-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_5-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13), text_color='#9400d3')],
+                [sg.Button('機械学習ボタン', key='-JudgeButton-')],
                 #[sg.Text('', size=(80, 1))],
                 #[sg.Text('実は機械学習を使ってるんだよね！！', font=('Arial', 16), text_color='#191970')],  
                 [sg.Text('', size=(80, 1))],
@@ -950,6 +964,34 @@ while True:
         engine.say(cc_sub5) 
         engine.runAndWait()
             
+    
+    
+#--------サブ5について機械学習--------
+    if event == '-JudgeButton-':
+        text_judge = cc_sub5
+        #sg.popup_ok(cc_sub5)
+        
+        list1_judge = [text_judge, 0]
+        index1_judge = ['name', 'label']
+        target_judge = pd.Series(data = list1_judge, index = index1_judge)
+        
+        # bi-gramを取る
+        def bigram(text_judge):
+            return [text_judge[i:i+2] for i in range(len(text_judge) - 1)] + ['end_'+text_judge[-2:], 'end_'+text_judge[-1]]
+
+        target_judge['bi_yomi'] = bigram(text_judge)
+        df['bi_yomi'] = df.name.apply(bigram)
+        mlb = MultiLabelBinarizer()
+        mlb.fit(df.bi_yomi)
+        with open('mld.pickle', mode = 'wb') as f:
+            pickle.dump(mlb, f)
+        
+        mlb.classes_
+        
+        
+        
+        
+        
     # window右上のx印を押して閉じたとき
     if event == sg.WIN_CLOSED: 
         break
