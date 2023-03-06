@@ -46,8 +46,6 @@ time.sleep(0.2)
 
 
 
-
-
 #--------各ウィンドウのオブジェクト定義--------
 def make_main():
     top_col = [
@@ -59,7 +57,7 @@ def make_main():
     main_layout = [ 
                 [sg.Column(top_col)], 
                 #[sg.Text('', size=(70, 1))], 
-                [sg.Text('ユニークな新単語を生成するアプリケーション', font=('Arial', 25),
+                [sg.Text('ユニークな新単語を生成するアプリケーション', font=('Helvetica', 25),
                 text_color='#ff1493', size=(45,2))], 
                 [sg.Text('・モードを選択してください', font=('Noto Serif CJK JP', 20),
                 text_color='#191970', size=(45, 2))], 
@@ -68,12 +66,12 @@ def make_main():
                 [sg.Button('カタカナでランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub3-')],
                 [sg.Button('ローマ字でランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub4-')],
                 [sg.Button('ひらがなで名前をランダムに生成するモード', font=('Arial', 11), size=(50, 2), key='-sub5-')],
-                #[sg.Text('', size=(70, 1))],
+                [sg.Text('', size=(70, 1))],
                 #[sg.Checkbox('音声OFF', default=None, font=('Arial', 16), key='-volume-')],
                 [sg.Text('', size=(70, 1))],
                 [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
-    return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 920), relative_location=(0, -80), border_depth=2,
+    return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2,
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -95,14 +93,14 @@ def make_sub1():
                 [sg.Multiline('文字を入力してください', font=('Arial', 13), text_color='#191970', size=(60, 6), key='-sentence_1-')],
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_1-')], 
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_1-')],
-                [sg.Output(size=(70, 10), font=('Arial', 13))], 
+                [sg.Output(size=(70, 10), font=('Arial', 13), text_color='#9400d3')], 
                 #[sg.Text('言語設定', font=('Arial', 13), text_color='#191970')],
                 #[sg.Spin(['ひらがなのみ', 'ひらがな・カタカナ'], font=('Arial', 13), 
                 #size=(30,1), initial_value='ひらがな・カタカナ', key='-language-')], 
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
-    return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 920), relative_location=(0, -80), border_depth=2, 
+    return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -117,8 +115,8 @@ def make_sub2():
     ]
     # ------------ サブ２ウィンドウ作成 ------------
     col2 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
-                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970')],
-                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
+                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_2-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_2-')], 
     ]
@@ -130,12 +128,12 @@ def make_sub2():
                 [sg.Column(col2)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_2-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_2-')],
-                [sg.Output(size=(70, 12), font=('Arial', 13))],
+                [sg.Output(size=(70, 12), font=('Arial', 13), text_color='#9400d3')],
                 [sg.Text('', size=(80, 2))],
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,920), relative_location=(0, -80), border_depth=2, 
+    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -149,8 +147,8 @@ def make_sub3():
     ]
     # ------------ サブ３ウィンドウ作成 ------------
     col3 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
-                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
+                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_3-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_3-')], 
     ]
@@ -162,12 +160,12 @@ def make_sub3():
                 [sg.Column(col3)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_3-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_3-')],
-                [sg.Output(size=(70, 12), font=('Arial', 13))],
+                [sg.Output(size=(70, 12), font=('Arial', 13), text_color='#9400d3')],
                 [sg.Text('', size=(80, 2))],
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 920), relative_location=(0, -80), border_depth=2, 
+    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -181,8 +179,8 @@ def make_sub4():
     ]
     # ------------ サブ４ウィンドウ作成 ------------
     col4 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
-                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
+                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_4-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_4-')], 
     ]
@@ -194,12 +192,12 @@ def make_sub4():
                 [sg.Column(col4)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_4-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_4-')],
-                [sg.Output(size=(70, 12), font=('Arial', 13))],
+                [sg.Output(size=(70, 12), font=('Arial', 13), text_color='#9400d3')],
                 [sg.Text('', size=(80, 2))],
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 920), relative_location=(0, -80), border_depth=2, 
+    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)     
@@ -213,8 +211,8 @@ def make_sub5():
     ]
     # ------------ サブ５ウィンドウ作成 ------------
     col5 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
-                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'), text_color='#191970', )],
-                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ！！', font=('Arial', 10), text_color='#191970')],
+                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
+                [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_5-')], 
     ]  
@@ -226,14 +224,14 @@ def make_sub5():
                 [sg.Column(col5)], 
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_5-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_5-')],
-                [sg.Output(size=(70, 12), font=('Arial', 13))],
+                [sg.Output(size=(70, 12), font=('Arial', 13), text_color='#9400d3')],
                 #[sg.Text('', size=(80, 1))],
                 #[sg.Text('実は機械学習を使ってるんだよね！！', font=('Arial', 16), text_color='#191970')],  
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 920), relative_location=(0, -80), border_depth=2, 
+    return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -290,37 +288,32 @@ def img_5():
 
 #--------起動時アニメーション--------
 window = img_1()
-step = 0
 while True:
     event, values = window.read(500)
     break
 window.close()
 
 window = img_2()
-step = 1
 while True:
     event, values = window.read(300)
     break
 window.close()
 
 window = img_3()
-step = 2
 while True:
     event, values = window.read(300)
     break
 window.close()
 
 window = img_4()
-step = 3
 while True:
     event, values = window.read(300)
     break
 window.close()
 
 window = img_5()
-step = 4
 while True:
-    event, values = window.read(1000)
+    event, values = window.read(800)
     break
 window.close()
 
@@ -333,7 +326,6 @@ cc_sub2 = 'NULL'
 cc_sub3 = 'NULL'
 cc_sub4 = 'NULL'
 cc_sub5 = 'NULL'
-step = 0
 
 # 各デフォルト値を定義
 default_voice_slider = 5
@@ -388,7 +380,7 @@ while True:
 #--------メインウィンドウ--------
     if event == '-TopPreservation_main-':
         sg.popup_ok('ここではファイルを書き込みできないよ...',
-                'モードを選択してね！！', text_color='#191970')
+                'モードを選択してね！！', text_color='#ff1493', font=('Arial', 12))
         
 #--------サブ1ウィンドウ--------
     if event == '-TopPreservation_sub1-':
@@ -399,7 +391,7 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub1-')], 
-            [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub1-')], 
+            [sg.Button('ファイルに最新の出力されたテキストを書き込む', key='-WriteTxt_sub1-')], 
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub1-')]
@@ -430,7 +422,7 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub2-')], 
-            [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub2-')], 
+            [sg.Button('ファイルに最新の出力されたテキストを書き込む', key='-WriteTxt_sub2-')], 
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub2-')]
@@ -461,7 +453,7 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub3-')], 
-            [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub3-')], 
+            [sg.Button('ファイルに最新の出力されたテキストを書き込む', key='-WriteTxt_sub3-')], 
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub3-')]
@@ -492,7 +484,7 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub4-')], 
-            [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub4-')], 
+            [sg.Button('ファイルに最新の出力されたテキストを書き込む', key='-WriteTxt_sub4-')], 
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub4-')]
@@ -523,7 +515,7 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub5-')], 
-            [sg.Button('ファイルに最新の出力されたテキストを書き込みます', key='-WriteTxt_sub5-')], 
+            [sg.Button('ファイルに最新の出力されたテキストを書き込む', key='-WriteTxt_sub5-')], 
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub5-')]
@@ -565,10 +557,12 @@ while True:
                         enable_events=True, font='Helvetica', text_color='#000000', trough_color='#fae1e9', 
                         expand_x=True, expand_y=True, metadata=True, key='-SpeedSlider-'), 
             sg.Button('確定する', key='-SpeedChange-')],
+            [sg.Text('※必ず戻るボタンを押して戻ってね。', font=('Arial', 11))],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。', font=('Arial', 11))],
             #ウィンドウを閉じる
             [sg.Button('戻る', key='-VoiceExit-')],
         ]
-        window = sg.Window('voice_option', voice_option, relative_location=(0,0), border_depth=2, 
+        window = sg.Window('voice_option', voice_option, size=(700, 500), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
@@ -610,7 +604,7 @@ while True:
     if event == sg.WIN_CLOSED or event == 'Exit':
         #Origin_window_end = window
         window.close()
-        sg.popup_ok('アプリケーションを終了しました。', font=('Arial', 12), text_color='#ff1493')
+        sg.popup_ok('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
 
         #--------終了時のアニメーション--------
         window = img_5()
@@ -663,14 +657,22 @@ while True:
 #--------サブ１のウィンドウについての設定--------    
     if event == '-generate_1-':
         c_sub1 = list (values['-sentence_1-'])
+        #入力されたリストをランダムに並べ替える
+        c_sub1 = rand.sample(c_sub1, len(c_sub1))
         a_sub1 = rand.randint(0,len(c_sub1))
-        while True:
-            ca_sub1 = rand.randint(12353,12540)
-            if 12438 > ca_sub1 or ca_sub1 > 12449 or ca_sub1 == 12387 or ca_sub1 == 12540:
-            #if ca_sub1 == 12387 or ca_sub1 == 12540:   ////----「ー」「っ」のみ表示----
-                break; 
-        cc_sub1 = c_sub1[:a_sub1]
-        cc_sub1.append(chr(ca_sub1))
+        cc_sub1 = c_sub1[:a_sub1]#もとはwhile文の直後
+        # 0 ~ 6の間でランダムな回数、文字を追加する
+        lower_limit_sub1 = 0
+        upper_limit_sub1 = 6
+        q_sub1 = 0
+        for q_sub1 in range(rand.randint(lower_limit_sub1, upper_limit_sub1)):
+            while True:
+                ca_sub1 = rand.randint(12353,12540)
+                if 12438 > ca_sub1 or ca_sub1 > 12449 or ca_sub1 == 12387 or ca_sub1 == 12540:
+                #if ca_sub1 == 12387 or ca_sub1 == 12540:   ////----「ー」「っ」のみ表示----
+                    break
+            cc_sub1.append(chr(ca_sub1))
+
         i_sub1 = a_sub1
         for i_sub1 in range(len(c_sub1)-a_sub1):
             cc_sub1.append(c_sub1[i_sub1+a_sub1])

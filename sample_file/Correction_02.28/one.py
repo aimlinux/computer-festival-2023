@@ -1,4 +1,4 @@
-import random as rnd
+import random as rand
 
 f=open("main_folder/hira.bin","rb")
 a=[]
@@ -20,7 +20,7 @@ cc=cc+[0]
 
 sum=0
 while sum==0:
-    r=rnd.randint(0,len(c))
+    r=rand.randint(0,len(c))
     aa=[0]*92
     sum=0
     for j in range(92):
@@ -28,7 +28,7 @@ while sum==0:
         aa[j]=a[cc[r]][i]*a[i][cc[r+1]]
         sum=sum+aa[j]
 
-rr=rnd.randint(1,sum)
+rr=rand.randint(1,sum)
 count=0
 i=0
 while count<rr:
