@@ -11,7 +11,7 @@ df = pd.read_csv('namelist.csv',sep=",")
 # df = df.sample(frac=1, ignore_index=True)
 
 text = input()
-
+#text = ''
 list1 = [text,0]
 index1 = ['name','label']
 
@@ -39,7 +39,7 @@ from sklearn.model_selection import KFold
 
 # 渡されたscikit-learnのclassifierに対して学習して評価する
 # probabilityが0.6以上だったら判定できたことにする
-def train_and_test(classifier, df, mlb,target,fcount=0,mcount=0 ,threshold=0.6):
+def train_and_test(classifier, df, mlb, target, fcount=0, mcount=0 ,threshold=0.6):
     kf = KFold(n_splits=5)
     for train, test in kf.split(df):
         # 訓練データとテストデータにsplit
@@ -87,7 +87,8 @@ def train_and_test(classifier, df, mlb,target,fcount=0,mcount=0 ,threshold=0.6):
     if mcount >= 3:
         return 0
         
-    if fcount+mcount<5:train_and_test(classifier, df, mlb,target)
+    if fcount+mcount<5:
+        train_and_test(classifier, df, mlb,target)
         
     import pickle
 
@@ -100,8 +101,11 @@ from sklearn import svm
 classifier = svm.SVC(probability=True, C=0.1)
 s = train_and_test(classifier, df, mlb,target)
 
-if s == 1:print("女性です")
-if s == 0:print("男性です")
+
+if s == 1:
+    print("女性です")
+if s == 0:
+    print("男性です")
 
 
 
