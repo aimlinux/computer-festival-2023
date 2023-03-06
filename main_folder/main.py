@@ -239,7 +239,8 @@ def make_sub5():
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_5-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_5-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13), text_color='#9400d3')],
-                [sg.Button('機械学習ボタン', key='-JudgeButton-')],
+                [sg.Button('機械学習ボタン', font=('Arial', 12), key='-JudgeButton-'), 
+                sg.Text('おはようみあ', font=('Arial', 12), text_color='#ff1493', key='-JudgeAnswer-')],
                 #[sg.Text('', size=(80, 1))],
                 #[sg.Text('実は機械学習を使ってるんだよね！！', font=('Arial', 16), text_color='#191970')],  
                 [sg.Text('', size=(80, 1))],
@@ -628,7 +629,7 @@ while True:
         #window['result'].update(message)
         #sg.popup('アプリケーションを続行します。')
         
-    if end_popup == 'OK':
+    #if end_popup == 'OK':
         #--------終了時のアニメーション--------
         window = img_5()
         step = 9
