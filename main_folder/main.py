@@ -983,6 +983,7 @@ while True:
     
 #--------サブ5について機械学習を用いて判定--------
     if event == '-JudgeButton-' and cc_sub5 != 'NULL':
+        window['-JudgeAnswer-'].update('※※ジャッジ中...※※')
         
         text = cc_sub5
         #sg.popup_ok(cc_sub5)
@@ -1039,7 +1040,9 @@ while True:
                 #        class_name, all_len, predictable, tp / predictable, tp / all_len))
         
                 s = test_df["predict"][4998]
-
+        
+                chance = (test_df['proba_female'][4998])
+                print(float(chance))
                 #sg.popup(test_df)
                 if s==1:
                     fcount= fcount+1
@@ -1058,7 +1061,7 @@ while True:
         # svm
         classifier = svm.SVC(probability=True, C=0.1)
         s = train_and_test(classifier, df, mlb,target)
-            
+        
             
         if s == 1:
             #Outputでだすかeventに入れてupdateさせるか...
