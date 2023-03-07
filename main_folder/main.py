@@ -920,10 +920,12 @@ while True:
         # メインウィンドウを閉じて、サブ５ウィンドウを作成して表示する
         window.close()
         window = make_sub5()
-        
+        #機械学習のため初期化
+        cc_sub5 = 'NULL'
         
 #--------サブ5のウィンドウについての設定--------    
     if event == '-generate_5-':
+
         kagen_sub5 = int(values['-kag_5-'])#
         jogen_sub5 = int(values['-jog_5-'])#
         #--------各環境で相対パスを変更しよう！！--------
@@ -975,8 +977,12 @@ while True:
             
     
     
+    if event == '-JudgeButton-' and cc_sub5 == 'NULL':
+        window['-JudgeAnswer-'].update('新しい名前がまだ生成されていません。')
+    
 #--------サブ5について機械学習を用いて判定--------
-    if event == '-JudgeButton-':
+    if event == '-JudgeButton-' and cc_sub5 != 'NULL':
+        
         text = cc_sub5
         #sg.popup_ok(cc_sub5)
         
@@ -1052,11 +1058,15 @@ while True:
         classifier = svm.SVC(probability=True, C=0.1)
         s = train_and_test(classifier, df, mlb,target)
             
+            
         if s == 1:
             #Outputでだすかeventに入れてupdateさせるか...
-            sg.popup('女性に多い名前です')
+            #sg.popup('女性に多い名前です')
+            window['-JudgeAnswer-'].update('女性に多い名前です。')
+            
         if s == 0:
-            sg.popup('男性に多い名前です')
+            #sg.popup('男性に多い名前です')
+            window['-JudgeAnswer-'].update('男性に多い名前です。')
                 
                 
     # window右上のx印を押して閉じたとき
