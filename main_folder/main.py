@@ -225,9 +225,9 @@ def make_sub5():
     ]
     # ------------ サブ５ウィンドウ作成 ------------
     col5 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
-                sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
+                sg.Text('(デフォルトの値は上限が4、下限が2だよ)', font=('Arial, 10'))],
                 [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
-                [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
+                [sg.Multiline('4', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_5-')], 
     ]  
     sub5_layout = [ 
@@ -240,8 +240,9 @@ def make_sub5():
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_5-')],
                 [sg.Output(size=(70, 12), font=('Arial', 13), text_color='#9400d3')],
                 [sg.Button('機械学習ボタン', font=('Arial', 13), key='-JudgeButton-'), 
-                sg.Text('    ', font=('Arial', 13)),
-                sg.Text('名前がまだ生成されていません。', font=('Arial', 13), text_color='#ff1493', key='-JudgeAnswer-')],
+                sg.Text('  ', font=('Arial', 13)),
+                sg.Text('名前がまだ生成されていません。', font=('Arial', 13), text_color='#ff1493', key='-JudgeAnswer-')], 
+                #sg.Button('詳細を確認', font=('Arial', 12), key='-JudgeDetails-')],
                 #[sg.Text('', size=(80, 1))],
                 #[sg.Text('実は機械学習を使ってるんだよね！！', font=('Arial', 16), text_color='#191970')],  
                 [sg.Text('', size=(80, 1))],
@@ -254,8 +255,21 @@ def make_sub5():
                     right_click_menu_tearoff=False)
 
 
-
-
+#--------機械学習の詳細を表示するウィンドウ（sub5）
+#def make_judge_details():
+    judge_details = [
+        [sg.Text('機械学習の結果の詳細を確認します。', font=('Arial', 15), text_color='#9400d3')],
+        [sg.Button('最新の結果の詳細を表示', font=('Arial', 12), key='-JudgeDetailsDisplay-')],
+        [sg.Output(size=(60, 12), font=('Helvetica', 12), text_color='#9400d3')],
+        [sg.Button('戻る', font=('Arial', 13), key='-JudgeDetailsBack-')],
+        ]
+    return sg.Window('judge_details', judge_details, relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False, keep_on_top=True)
+    
+    
+    
 #--------画像表示の定義--------
 def img_1():
     img_1_layout = [
@@ -1042,8 +1056,9 @@ while True:
                 s = test_df["predict"][4998]
         
                 chance = (test_df['proba_female'][4998])
-                print(float(chance))
+                #print(float(chance))
                 #sg.popup(test_df)
+
                 if s==1:
                     fcount= fcount+1
                 if s==0: 
@@ -1053,6 +1068,7 @@ while True:
             if mcount >= 3:
                 return 0
         
+                
             if fcount+mcount<5:train_and_test(classifier, df, mlb,target)
             
             with open('model.pickle', mode='wb') as f:
@@ -1072,7 +1088,7 @@ while True:
             #sg.popup('男性に多い名前です')
             window['-JudgeAnswer-'].update('男性に多い名前です。')
                 
-                
+            
     # window右上のx印を押して閉じたとき
     if event == sg.WIN_CLOSED: 
         break
