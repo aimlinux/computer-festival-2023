@@ -645,10 +645,11 @@ while True:
         
         Origin_window_scr = window
         make_scr = [
-            [sg.Text('', font=('Helvetica', 15), text_color='#191970')],
+            [sg.Text('保存先を決めて画像を保存できるよ。', font=('Helvetica', 15), text_color='#191970')],
             [sg.Text('', size=(10, 1))],
             [sg.FolderBrowse('保存先フォルダ'),
             sg.InputText(key='-InputScrot-')], 
+            [sg.Button('保存を確定する', key='WriteScrot')], 
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-ScrotExit-')],
