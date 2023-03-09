@@ -128,7 +128,7 @@ def make_sub2():
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ２ウィンドウ作成 ------------
-    col2 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+    col2 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10')), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
                 [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_2-'), 
@@ -160,7 +160,7 @@ def make_sub3():
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ３ウィンドウ作成 ------------
-    col3 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+    col3 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10')), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
                 [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_3-'), 
@@ -192,7 +192,7 @@ def make_sub4():
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ４ウィンドウ作成 ------------
-    col4 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+    col4 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10')), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
                 [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
                 [sg.Multiline('5', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_4-'), 
@@ -224,7 +224,7 @@ def make_sub5():
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ５ウィンドウ作成 ------------
-    col5 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10'), text_color='#191970'), 
+    col5 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10')), 
                 sg.Text('(デフォルトの値は上限が4、下限が2だよ)', font=('Arial, 10'))],
                 [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
                 [sg.Multiline('4', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
@@ -938,12 +938,19 @@ while True:
         window = make_sub5()
         #機械学習のため初期化
         cc_sub5 = 'NULL'
-        
-#--------サブ5のウィンドウについての設定--------    
-    if event == '-generate_5-':
 
-        kagen_sub5 = int(values['-kag_5-'])#
-        jogen_sub5 = int(values['-jog_5-'])#
+    if event == '-generate_5' and int(values['-jog_5-']) > 81:
+        #kagen_sub5 = int(values['-kag_5-'])
+        #jogen_sub5 = int(values['-jog_5-'])
+        print('上限の値が大きすぎるよ。')
+        sg.popup_ok('上限の値が大きすぎるよ。')
+        
+
+#--------サブ5のウィンドウについての設定--------    
+    if event == '-generate_5-' and int(values['-jog_5-']) < 80:
+        kagen_sub5 = int(values['-kag_5-'])
+        jogen_sub5 = int(values['-jog_5-'])
+    
         #--------各環境で相対パスを変更しよう！！--------
         f_sub5=open("main_folder/human.bin","rb")
         sum_sub5=[0]*85
