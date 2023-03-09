@@ -352,6 +352,7 @@ window.close()
 
 time.sleep(0.1)
 
+
 # 各解の初期化
 cc_sub1 = 'NULL'
 cc_sub2 = 'NULL'
