@@ -65,6 +65,7 @@ def make_main():
     top_col = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
                 sg.Button('〓テキスト保存', key='-TopPreservation_main-'), 
+                sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ メインウィンドウ作成 ------------
@@ -95,6 +96,7 @@ def make_sub1():
     top_col_sub1 = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
                 sg.Button('〓テキスト保存', key='-TopPreservation_sub1-'), 
+                sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ１ウィンドウ作成 ------------
@@ -125,6 +127,7 @@ def make_sub2():
     top_col_sub2 = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
                 sg.Button('〓テキスト保存', key='-TopPreservation_sub2-'), 
+                sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ２ウィンドウ作成 ------------
@@ -157,6 +160,7 @@ def make_sub3():
     top_col_sub3 = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
                 sg.Button('〓テキスト保存', key='-TopPreservation_sub3-'), 
+                sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ３ウィンドウ作成 ------------
@@ -188,7 +192,8 @@ def make_sub3():
 def make_sub4():
     top_col_sub4 = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
-                sg.Button('〓保存', key='-TopPreservation_sub4-'), 
+                sg.Button('〓テキスト保存', key='-TopPreservation_sub4-'), 
+                sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ４ウィンドウ作成 ------------
@@ -220,7 +225,8 @@ def make_sub4():
 def make_sub5():
     top_col_sub5 = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
-                sg.Button('〓保存', key='-TopPreservation_sub5-'), 
+                sg.Button('〓テキスト保存', key='-TopPreservation_sub5-'), 
+                sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
     # ------------ サブ５ウィンドウ作成 ------------
@@ -403,6 +409,7 @@ while True:
     
     
 #----------------Topオプション----------------
+
 #--------Topメニューを押したとき--------
     if event == '-TopMenu-':
         pg.click(button='right')
@@ -633,6 +640,34 @@ while True:
 
 
 
+#--------画面スクショ---------
+    if event == '-Scrot-':
+        
+        Origin_window_scr = window
+        make_scr = [
+            [sg.Text('', font=('Helvetica', 15), text_color='#191970')],
+            [sg.Text('', size=(10, 1))],
+            [sg.FolderBrowse('保存先フォルダ'),
+            sg.InputText(key='-InputScrot-')], 
+            [sg.Text('※必ず戻るボタンを押して戻ってね。')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
+            [sg.Button('戻る', key='-ScrotExit-')],
+        ]   
+        window = sg.Window('make_scr', make_scr, relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False, keep_on_top=True)
+
+
+    if event == '-ScrotExit-':
+        window.close()
+        window = Origin_window_scr
+        
+
+
+
+
+
 #-------ウィンドウが閉じたとき or Exit（右クリックオプション）が押されたとき--------
     if event == sg.WIN_CLOSED or event == 'Exit':
         window.close()  
@@ -644,6 +679,7 @@ while True:
         #message = 'Cancelが押されました。'
         #window['result'].update(message)
         #sg.popup('アプリケーションを続行します。')
+        
         
     #if end_popup == 'OK':
         #--------終了時のアニメーション--------
@@ -684,6 +720,8 @@ while True:
 
         window.close()
         break
+
+
 
 
 
