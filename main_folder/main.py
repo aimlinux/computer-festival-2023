@@ -651,7 +651,7 @@ while True:
             sg.InputText(key='-InputScrot-')], 
             [sg.Button('保存を確定する', key='WriteScrot')], 
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
-            [sg.Text('   ここでは右上の×ボタンは押さないでね。'),
+            [sg.Text('   ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-ScrotExit-')],
         ]   
         window = sg.Window('make_scr', make_scr, relative_location=(0,0), border_depth=2, 
