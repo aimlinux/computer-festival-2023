@@ -3,10 +3,11 @@
 
 # -*- coding: utf-8 -*-
 
-#----[pip install pysimplegui]----
+#----[pip install pysimplegui]----[
 #----[pip install pyttsx3]----
 #----[pip install pyautogui]----
 #----[pip install screeninfo]----
+#----[pip install pillow]----
 
 import os
 import PySimpleGUI as sg
@@ -19,6 +20,8 @@ from re import U
 from turtle import update
 import pyautogui as pg
 import time
+from PIL import ImageGrab
+import win32gui
 
 
 #--------機械学習で使用--------
@@ -642,14 +645,25 @@ while True:
 
 #--------画面スクショ---------
     if event == '-Scrot-':
+        # 元のウィンドウを取得してスクショ
+        handle = win32gui.GetForegroundWindow()
+        rect = win32gui.GetWindowRect(handle)
+        screenshot = ImageGrab.grab()
+        croped_screenshot = screenshot = screenshot.crop(rect)
         
+        #整数でスクショした時刻を取得
+        time_scr = int(time.time())
+        #sg.popup(time_scr)
+        
+
         Origin_window_scr = window
+        time.sleep(1)
         make_scr = [
             [sg.Text('保存先を決めて画像を保存できるよ。', font=('Helvetica', 15), text_color='#191970')],
             [sg.Text('', size=(10, 1))],
             [sg.FolderBrowse('保存先フォルダ'),
             sg.InputText(key='-InputScrot-')], 
-            [sg.Button('保存を確定する', key='WriteScrot')], 
+            [sg.Button('保存を確定する', key='-SaveScrot-')], 
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('   ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-ScrotExit-')],
@@ -658,6 +672,22 @@ while True:
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
+
+
+    #保存を確定が押されたとき
+    if event == '-SaveScrot-':
+        scr_path = values['-InputScrot-']
+        #sg.popup(scr_path)
+        
+        if not scr_path:
+            sg.popup('保存するフォルダが選択されていないよ...', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        else:
+            scr_path_2 = str(scr_path) + '\screenshot_' + str(time_scr) + '.png'
+            scr_popup = '画像は' + str(scr_path_2) + 'に保存されたよ。'
+            sg.popup(scr_popup, font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+            #「scr_path」にスクショを保存
+            croped_screenshot.save(scr_path_2, quality = 90)
 
 
     if event == '-ScrotExit-':
