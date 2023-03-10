@@ -234,9 +234,9 @@ def make_sub5():
     ]
     # ------------ サブ５ウィンドウ作成 ------------
     col5 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10')), 
-                sg.Text('(デフォルトの値は上限が4、下限が2だよ)', font=('Arial, 10'))],
+                sg.Text('(デフォルトの値は上限が3、下限が2だよ)', font=('Arial, 10'))],
                 [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
-                [sg.Multiline('4', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
+                [sg.Multiline('3', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-jog_5-'), 
                 sg.Multiline('2', font=('Arial', 9), text_color='#191970', size=(12, 2), key='-kag_5-')], 
     ]  
     sub5_layout = [ 
@@ -669,6 +669,7 @@ while True:
         
         Origin_window_scr = window
         time.sleep(0.3)
+        
         make_scr = [
             [sg.Text('保存先を決めて画像を保存できるよ。', font=('Helvetica', 15), text_color='#191970')],
             [sg.Text('', size=(10, 1))],
@@ -708,7 +709,7 @@ while True:
             window['-ScrPathAnswer-'].update(scr_path_2)
 
 
-    #戻るボタンが押されたとき
+    #「戻る」が押されたとき
     if event == '-ScrotExit-':
         window.close()
         window = Origin_window_scr
