@@ -668,7 +668,7 @@ while True:
         engine.runAndWait()
         
         Origin_window_scr = window
-        time.sleep(0.3)
+        time.sleep(0.2)
         
         make_scr = [
             [sg.Text('保存先を決めて画像を保存できるよ。', font=('Helvetica', 15), text_color='#191970')],
