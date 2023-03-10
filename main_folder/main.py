@@ -662,10 +662,13 @@ while True:
         time_scr = int(time.time())
         #sg.popup(time_scr)
         
-        
+        #----スクショ音声を読み上げる----
+        engine = pyttsx3.init()
+        engine.say('カシャっ')
+        engine.runAndWait()
         
         Origin_window_scr = window
-        time.sleep(1)
+        time.sleep(0.3)
         make_scr = [
             [sg.Text('保存先を決めて画像を保存できるよ。', font=('Helvetica', 15), text_color='#191970')],
             [sg.Text('', size=(10, 1))],
