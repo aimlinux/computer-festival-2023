@@ -3,7 +3,7 @@
 
 # -*- coding: utf-8 -*-
 
-#----[pip install pysimplegui]----[
+#----[pip install pysimplegui]----
 #----[pip install pyttsx3]----
 #----[pip install pyautogui]----
 #----[pip install screeninfo]----
@@ -11,6 +11,7 @@
 #----[pip install pandas]----
 #----[pip install pickle]----
 #----[pip install scikit-learn]----
+
 
 import os
 import PySimpleGUI as sg
@@ -37,7 +38,7 @@ from sklearn import svm
 
 warnings.simplefilter('ignore')
 #ファイル読み込み
-df = pd.read_csv('main_folder/namelist.csv',sep=",")
+df = pd.read_csv('namelist.csv',sep=",")#Githubとメイン環境は共通
 
 
 
@@ -285,7 +286,8 @@ def make_sub5():
 #--------画像表示の定義--------
 def img_1():
     img_1_layout = [
-        [sg.Image(filename='main_folder/img/img_1.png')]
+        #[sg.Image(filename='img/img_1.png')]#メイン環境
+        [sg.Image(filename='main_folder/img/img_1.png')]#GitHub環境
     ]
     return sg.Window('img_1', img_1_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
@@ -294,7 +296,8 @@ def img_1():
 
 def img_2():
     img_2_layout = [
-        [sg.Image(filename='main_folder/img/img_2.png')]
+        #[sg.Image(filename='img/img_2.png')]#メイン環境
+        [sg.Image(filename='main_folder/img/img_2.png')]#GitHub環境
     ]
     return sg.Window('img_2', img_2_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
@@ -303,7 +306,8 @@ def img_2():
 
 def img_3():
     img_3_layout = [
-    [sg.Image(filename='main_folder/img/img_3.png')]
+        #[sg.Image(filename='img/img_3.png')]#メイン環境
+        [sg.Image(filename='main_folder/img/img_3.png')]#GitHub環境
     ]
     return sg.Window('img_3', img_3_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
@@ -312,7 +316,8 @@ def img_3():
     
 def img_4():
     img_4_layout = [
-        [sg.Image(filename='main_folder/img/img_4.png')]
+        #[sg.Image(filename='img/img_4.png')]#メイン環境
+        [sg.Image(filename='main_folder/img/img_4.png')]#GitHub環境
     ]
     return sg.Window('img_4', img_4_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
@@ -321,7 +326,8 @@ def img_4():
     
 def img_5():
     img_5_layout = [
-        [sg.Image(filename='main_folder/img/img_5.png')]
+        #[sg.Image(filename='img/img_5.png')]#メイン環境
+        [sg.Image(filename='main_folder/img/img_5.png')]#GitHub環境
     ]
     return sg.Window('img_5', img_5_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
@@ -363,6 +369,7 @@ window.close()
 
 
 time.sleep(0.1)
+
 
 
 # 各解の初期化
@@ -843,7 +850,8 @@ while True:
         kagen_sub2 = int(values['-kag_2-'])#
         jogen_sub2 = int(values['-jog_2-'])#
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub2=open("main_folder/hira.bin","rb")
+        #f_sub2=open("hira2.bin","rb")#メイン環境
+        f_sub2=open("main_folder\hira2.bin","rb")#Github環境
         sum_sub2=[0]*85
         a_sub2=[]
         for i_sub2 in range(85):
@@ -907,7 +915,8 @@ while True:
         kagen_sub3 = int(values['-kag_3-'])#
         jogen_sub3 = int(values['-jog_3-'])#
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub3=open("main_folder/kata.bin","rb")
+        #f_sub3=open("kata.bin","rb")#メイン環境
+        f_sub3=open("main_folder\kata.bin","rb")#Github環境
         sum_sub3=[0]*93
         a_sub3=[]
         for i_sub3 in range(93):
@@ -971,7 +980,8 @@ while True:
         kagen_sub4 = int(values['-kag_4-'])#
         jogen_sub4 = int(values['-jog_4-'])#
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub4=open("main_folder/alp.bin","rb")
+        #f_sub4=open("alp.bin","rb")#メイン環境
+        f_sub4=open("main_folder/alp.bin","rb")#Github環境
         sum_sub4=[0]*27
         a_sub4=[]
         for i_sub4 in range(27):
@@ -1044,7 +1054,8 @@ while True:
         jogen_sub5 = int(values['-jog_5-'])
     
         #--------各環境で相対パスを変更しよう！！--------
-        f_sub5=open("main_folder/human.bin","rb")
+        #f_sub5=open("human.bin","rb")#メイン環境
+        f_sub5=open("main_folder\human.bin","rb")#Github環境
         sum_sub5=[0]*85
         a_sub5=[]
         for i_sub5 in range(85):
@@ -1155,9 +1166,12 @@ while True:
         
                 s = test_df["predict"][4998]
         
-                chance = (test_df['proba_female'][4998])
+                chance = (test_df['proba_male'][4998])
+                
+                #if chance != 0:
+                    #return chance
                 #print(float(chance))
-                #sg.popup(test_df)
+                #sg.popup_ok(test_df)
 
                 if s==1:
                     fcount= fcount+1
@@ -1167,9 +1181,11 @@ while True:
                 return 1
             if mcount >= 3:
                 return 0
-        
+            
+            
                 
-            if fcount+mcount<5:train_and_test(classifier, df, mlb,target)
+            if fcount+mcount<5:
+                train_and_test(classifier, df, mlb,target)
             
             with open('model.pickle', mode='wb') as f:
                 pickle.dump(classifier,f)

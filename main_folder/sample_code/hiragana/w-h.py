@@ -1,6 +1,6 @@
 a=[[0 for i in range(85)] for j in range(85)]#e38181-e38294 a[x][y]でx->y,x=0が最初の文字、y=0が単語の終わり
 #--------各環境で相対パスを変更しよう！！--------
-f=open("GUI/pysimplegui/main_3/sample_code/Data_Rand/hiragana/hiragana.txt","r",encoding="utf-8")
+f=open("sample_code\hiragana\hiragana2.txt","r",encoding="utf-8")
 word=f.readline()   #一行読み込み
 while len(word)>0:
     #print(len(word))
@@ -19,7 +19,7 @@ f.close
 
 #ファイル出力
 #--------各環境で相対パスを変更しよう！！--------
-fout=open("hira.bin","wb")
+fout=open("hira2.bin","wb")
 for i in range(85):
     for j in range(85):
         fout.write(bytes([int(a[i][j]/256),a[i][j]%256]))
