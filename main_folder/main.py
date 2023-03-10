@@ -8,6 +8,9 @@
 #----[pip install pyautogui]----
 #----[pip install screeninfo]----
 #----[pip install pillow]----
+#----[pip install pandas]----
+#----[pip install pickle]----
+#----[pip install scikit-learn]----
 
 import os
 import PySimpleGUI as sg
