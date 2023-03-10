@@ -434,7 +434,8 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub1-')], 
-            [sg.Button('ファイルに最新の出力されたテキストを書き込む', key='-WriteTxt_sub1-')], 
+            [sg.Button('テキストを書き込む', key='-WriteTxt_sub1-')], 
+            [sg.Text('', size=(10, 1))],
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub1-')]
@@ -465,7 +466,8 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub2-')], 
-            [sg.Button('ファイルに最新の出力されたテキストを書き込む', key='-WriteTxt_sub2-')], 
+            [sg.Button('テキストを書き込む', key='-WriteTxt_sub2-')], 
+            [sg.Text('', size=(10, 1))],
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub2-')]
@@ -496,7 +498,8 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub3-')], 
-            [sg.Button('ファイルに最新の出力されたテキストを書き込む', key='-WriteTxt_sub3-')], 
+            [sg.Button('テキストを書き込む', key='-WriteTxt_sub3-')], 
+            [sg.Text('', size=(10, 1))],
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub3-')]
@@ -527,7 +530,8 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub4-')], 
-            [sg.Button('ファイルに最新の出力されたテキストを書き込む', key='-WriteTxt_sub4-')], 
+            [sg.Button('テキストを書き込む', key='-WriteTxt_sub4-')], 
+            [sg.Text('', size=(10, 1))],
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub4-')]
@@ -558,7 +562,8 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FileBrowse('.txtファイル'),
             sg.InputText(key='-InputTxt_sub5-')], 
-            [sg.Button('ファイルに最新の出力されたテキストを書き込む', key='-WriteTxt_sub5-')], 
+            [sg.Button('テキストを書き込む', key='-WriteTxt_sub5-')], 
+            [sg.Text('', size=(10, 1))],
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub5-')]
@@ -643,19 +648,22 @@ while True:
 
 
 
-#--------画面スクショ---------
+
+#--------Topオプションの画面スクショ---------
     if event == '-Scrot-':
+        
         # 元のウィンドウを取得してスクショ
         handle = win32gui.GetForegroundWindow()
         rect = win32gui.GetWindowRect(handle)
         screenshot = ImageGrab.grab()
         croped_screenshot = screenshot = screenshot.crop(rect)
         
-        #整数でスクショした時刻を取得
+        #スクショした時刻をint型で取得
         time_scr = int(time.time())
         #sg.popup(time_scr)
         
-
+        
+        
         Origin_window_scr = window
         time.sleep(1)
         make_scr = [
@@ -663,7 +671,11 @@ while True:
             [sg.Text('', size=(10, 1))],
             [sg.FolderBrowse('保存先フォルダ'),
             sg.InputText(key='-InputScrot-')], 
-            [sg.Button('保存を確定する', key='-SaveScrot-')], 
+            [sg.Button('確定する', key='-SaveScrot-')], 
+            [sg.Text('', size=(10, 1))],
+            [sg.Text('Path :', font=('Arial', 12), text_color='#ff1493'), 
+            sg.Text('なし', font=('Arial', 12), text_color='#ff1493', key='-ScrPathAnswer-'), 
+            sg.Text('', font=('Arial', 12), text_color='#ff1493')], 
             [sg.Text('※必ず戻るボタンを押して戻ってね。')],
             [sg.Text('   ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-ScrotExit-')],
@@ -682,14 +694,18 @@ while True:
         if not scr_path:
             sg.popup('保存するフォルダが選択されていないよ...', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
         else:
-            scr_path_2 = str(scr_path) + '\screenshot_' + str(time_scr) + '.png'
-            scr_popup = '画像は' + str(scr_path_2) + 'に保存されたよ。'
-            sg.popup(scr_popup, font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+            scr_path_2 = str(scr_path) + '/screenshot_' + str(time_scr) + '.png'
+            scr_popup = '画像は 「' + str(scr_path_2) + '」 に保存されたよ。'
+            sg.popup(scr_popup, font=('Arial', 12), keep_on_top=True)
         
-            #「scr_path」にスクショを保存
+            #「scr_path_2」にスクショを保存
             croped_screenshot.save(scr_path_2, quality = 90)
+            
+            #「Path : なし」をアップデート（書き換え）
+            window['-ScrPathAnswer-'].update(scr_path_2)
 
 
+    #戻るボタンが押されたとき
     if event == '-ScrotExit-':
         window.close()
         window = Origin_window_scr
