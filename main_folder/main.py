@@ -1375,7 +1375,7 @@ while True:
             #sg.popup('男性に多い名前です')
             window['-JudgeAnswer-'].update('男性に多い名前です。')
                 
-            
+                
     # window右上のx印を押して閉じたとき
     if event == sg.WIN_CLOSED: 
         break
