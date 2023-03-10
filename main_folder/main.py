@@ -388,7 +388,11 @@ def openning(canvas):
     openning = [
         [canvas]
                 ]
-    return sg.Window("openning", openning,size=(1300,920),relative_location=(0, -75), border_depth=2,resizable=False,finalize=True)
+    return sg.Window("openning", openning,size=(1300,920),relative_location=(0, -75),
+                    border_depth=2, resizable=False, finalize=True, 
+                    right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False, keep_on_top=True)
 
 window = openning(canvas)
 
@@ -530,7 +534,6 @@ time.sleep(2)
 
 window.close()
 
-time.sleep(0.2)
 
 # 各解の初期化
 cc_sub1 = 'NULL'
@@ -902,7 +905,7 @@ while True:
         #sg.popup('アプリケーションを続行します。')
         
     #if end_popup == 'OK':
-    
+
     
     
     #--------エンディング--------
@@ -913,7 +916,11 @@ while True:
             ending = [
                 [canvas]
                         ]
-            return sg.Window("ending", ending, size=(1300,920), relative_location=(0, -75), border_depth=2, resizable=False, finalize=True)
+            return sg.Window("ending", ending, size=(1300,920), relative_location=(0, -75), border_depth=2,
+                            resizable=False, finalize=True, 
+                            right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                            right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                            right_click_menu_tearoff=False, keep_on_top=True)
 
         window = ending(canvas)
 
@@ -923,7 +930,7 @@ while True:
             im = ImageTk.PhotoImage(image=read_image)
             canvas.tk_canvas.create_image(650,460,image=im)
             canvas.tk_canvas.update()
-            canvas.tk_canvas.after(500)
+            canvas.tk_canvas.after(1000)
             read_image = Image.open('main_folder/img/img_4.png')#Github環境
             #read_image = Image.open('img/img_4.png')#メイン環境
             im = ImageTk.PhotoImage(image=read_image)
@@ -947,7 +954,7 @@ while True:
             im = ImageTk.PhotoImage(image=read_image)
             canvas.tk_canvas.create_image(650,460,image=im)
             canvas.tk_canvas.update()
-            canvas.tk_canvas.after(500)
+            canvas.tk_canvas.after(1000)
 
         end(canvas)
 
