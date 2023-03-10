@@ -13,8 +13,8 @@ import threading
 import pandas as pd
 # import tkinter as tk
 
-voc = pd.read_csv("./voc.csv")
-tex = pd.read_csv("./test1.csv")
+voc = pd.read_csv("voc.csv")
+tex = pd.read_csv("test1.csv")
 
 
 voc = voc.sample(frac=1, ignore_index=True)
@@ -141,16 +141,16 @@ def kou():
 
 
     for i in range(35):
-         canvas.tk_canvas.delete("text","k")
-         canvas.tk_canvas.create_text(280+i*7,400,fill="red",text="アプリ君",font=("Arial",24+i),tag="text")
-         canvas.tk_canvas.create_line(450+375/35*i,211+140/35*i,450+375/35*i,527-114/35*i,fill="black",width=38-0.8*i,tag="k")
-         canvas.tk_canvas.create_line(450+375/35*i,230+126/35*i,850+51/35*i,230+126/35*i,fill="black",width=38-0.8*i,tag="k")
-         canvas.tk_canvas.create_line(850+51/35*i,211+140/35*i,850+51/35*i,527-114/35*i,fill="black",width=38-0.8*i,tag="k")
-         canvas.tk_canvas.create_line(450+375/35*i,360+21/35*i,850+51/35*i,360+21/35*i,fill="black",width=38-0.8*i,tag="k")
-         canvas.tk_canvas.create_line(450+375/35*i,500-94/35*i,850+51/35*i,500-94/35*i,fill="black",width=38-0.8*i,tag="k")
-         canvas.tk_canvas.create_line(650+212/35*i,211+145/35*i,650+212/35*i,700-256/35*i,fill="black",width=38-0.8*i,tag="k") 
-         canvas.tk_canvas.after(22)
-         canvas.tk_canvas.update() 
+        canvas.tk_canvas.delete("text","k")
+        canvas.tk_canvas.create_text(280+i*7,400,fill="red",text="アプリ君",font=("Arial",24+i),tag="text")
+        canvas.tk_canvas.create_line(450+375/35*i,211+140/35*i,450+375/35*i,527-114/35*i,fill="black",width=38-0.8*i,tag="k")
+        canvas.tk_canvas.create_line(450+375/35*i,230+126/35*i,850+51/35*i,230+126/35*i,fill="black",width=38-0.8*i,tag="k")
+        canvas.tk_canvas.create_line(850+51/35*i,211+140/35*i,850+51/35*i,527-114/35*i,fill="black",width=38-0.8*i,tag="k")
+        canvas.tk_canvas.create_line(450+375/35*i,360+21/35*i,850+51/35*i,360+21/35*i,fill="black",width=38-0.8*i,tag="k")
+        canvas.tk_canvas.create_line(450+375/35*i,500-94/35*i,850+51/35*i,500-94/35*i,fill="black",width=38-0.8*i,tag="k")
+        canvas.tk_canvas.create_line(650+212/35*i,211+145/35*i,650+212/35*i,700-256/35*i,fill="black",width=38-0.8*i,tag="k") 
+        canvas.tk_canvas.after(22)
+        canvas.tk_canvas.update() 
 
 
 
