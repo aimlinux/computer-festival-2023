@@ -70,13 +70,13 @@ time.sleep(0.2)
 
 #--------各ウィンドウのオブジェクト定義--------
 def make_main():
+    # ------------ メインウィンドウ作成 ------------
     top_col = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
                 sg.Button('〓テキスト保存', key='-TopPreservation_main-'), 
                 sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
-    # ------------ メインウィンドウ作成 ------------
     main_layout = [ 
                 [sg.Column(top_col)], 
                 [sg.Text('', size=(70, 1))], 
@@ -85,10 +85,11 @@ def make_main():
                 [sg.Text('・モードを選択してください', font=('Noto Serif CJK JP', 20),
                 text_color='#191970', size=(45, 2))], 
                 [sg.Button('入力された文字からユニークな新単語を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub1-')],
-                [sg.Button('ひらがなでランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub2-')],
-                [sg.Button('カタカナでランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub3-')],
-                [sg.Button('ローマ字でランダムに文字を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub4-')],
+                [sg.Button('ひらがなでランダムに単語を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub2-')],
+                [sg.Button('カタカナでランダムに単語を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub3-')],
+                [sg.Button('ローマ字でランダムに単語を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub4-')],
                 [sg.Button('ひらがなで名前をランダムに生成するモード', font=('Arial', 11), size=(50, 2), key='-sub5-')],
+                [sg.Button('二つの単語から省略された新しい単語を生成するモード', font=('Arial', 11), size=(50, 2), key='-sub6-')],
                 [sg.Text('', size=(70, 1))],
                 #[sg.Checkbox('音声OFF', default=None, font=('Arial', 16), key='-volume-')],
                 [sg.Text('', size=(70, 1))],
@@ -101,13 +102,13 @@ def make_main():
 
 
 def make_sub1():
+    # ------------ サブ１ウィンドウ作成 ------------
     top_col_sub1 = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
                 sg.Button('〓テキスト保存', key='-TopPreservation_sub1-'), 
                 sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
-    # ------------ サブ１ウィンドウ作成 ------------
     sub1_layout = [ 
                 [sg.Column(top_col_sub1)], 
                 #[sg.Text('', size=(80, 1))],  
@@ -130,15 +131,14 @@ def make_sub1():
                     right_click_menu_tearoff=False)
 
 
-
 def make_sub2():
+    # ------------ サブ２ウィンドウ作成 ------------
     top_col_sub2 = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
                 sg.Button('〓テキスト保存', key='-TopPreservation_sub2-'), 
                 sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
-    # ------------ サブ２ウィンドウ作成 ------------
     col2 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10')), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
                 [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
@@ -165,13 +165,13 @@ def make_sub2():
 
 
 def make_sub3():
+    # ------------ サブ３ウィンドウ作成 ------------
     top_col_sub3 = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
                 sg.Button('〓テキスト保存', key='-TopPreservation_sub3-'), 
                 sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
-    # ------------ サブ３ウィンドウ作成 ------------
     col3 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10')), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
                 [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
@@ -198,13 +198,13 @@ def make_sub3():
 
 
 def make_sub4():
+    # ------------ サブ４ウィンドウ作成 ------------
     top_col_sub4 = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
                 sg.Button('〓テキスト保存', key='-TopPreservation_sub4-'), 
                 sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
-    # ------------ サブ４ウィンドウ作成 ------------
     col4 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10')), 
                 sg.Text('(デフォルトの値は上限が5、下限が2だよ)', font=('Arial, 10'))],
                 [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
@@ -231,13 +231,13 @@ def make_sub4():
 
 
 def make_sub5():
+    # ------------ サブ５ウィンドウ作成 ------------
     top_col_sub5 = [
                 [sg.Button('〓メニュー', key='-TopMenu-'), 
                 sg.Button('〓テキスト保存', key='-TopPreservation_sub5-'), 
                 sg.Button('〓画面スクショ', key='-Scrot-'),
                 sg.Button('〓音声オプション', key='-TopVoice-')], 
     ]
-    # ------------ サブ５ウィンドウ作成 ------------
     col5 = [    [sg.Text('文字数の上限と下限を入力してね', font=('Arial, 10')), 
                 sg.Text('(デフォルトの値は上限が3、下限が2だよ)', font=('Arial, 10'))],
                 [sg.Text('※何も値が入っていない時や、ありえないような値が入っているとアプリが落ちる事があるよ。', font=('Arial', 10))],
@@ -267,6 +267,41 @@ def make_sub5():
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
+
+
+def make_sub6():
+    # ------------ サブ６ウィンドウ作成 ------------
+    top_col_sub6 = [
+                [sg.Button('〓メニュー', key='-TopMenu-'), 
+                sg.Button('〓テキスト保存', key='-TopPreservation_sub6-'), 
+                sg.Button('〓画面スクショ', key='-Scrot-'),
+                sg.Button('〓音声オプション', key='-TopVoice-')], 
+    ]
+    sub6_layout = [ 
+                [sg.Column(top_col_sub6)],
+                [sg.Text('二つの単語をいい感じに組み合わせるよ！！', font=('Arial', 18), text_color='#191970')],
+                [sg.Text('', size=(80, 1))],  
+                [sg.Text('・二つの単語を入力してね', font=('Helvetica', 14))], 
+                [sg.Text('１文字目 : ', font=('Arial', 12)), 
+                sg.Multiline('', font=('Arial', 10), text_color='#191970', size=(40, 2), key='-FirstItem-')], 
+                [sg.Text('２文字目 : ', font=('Arial', 12)), 
+                sg.Multiline('', font=('Arial', 10), text_color='#191970', size=(40, 2), key='-SecondItem-')], 
+                [sg.Text('', size=(80, 1))],
+                [sg.Button('新単語生成', font=('Arial', 13), key='-generate_6-')],
+                [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_6-')],
+                [sg.Output(size=(70, 12), font=('Arial', 13), text_color='#9400d3')],
+                [sg.Text('', size=(80, 1))],
+                [sg.Text('', size=(80, 1))],
+                [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
+    ]           
+    return sg.Window('sub6_layout', sub6_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False)
+
+
+
+
 
 
 #--------機械学習の詳細を表示するウィンドウ（sub5）
@@ -553,6 +588,7 @@ engine.setProperty('voices_woman', voices[1].id)
 
 
 
+
 # ----------------最初に表示するウィンドウを指定する----------------
 window = make_main()
 
@@ -757,7 +793,41 @@ while True:
         window.close()
         window = Origin_window_sub5
 
+
+    '''
+#--------サブ6ウィンドウ--------
+    if event == '-TopPreservation_sub6-':
+        Origin_window_sub6 = window
+        TxtFile_sub6 = 0
+        open_file_sub6 = [
+            [sg.Text('出力されたテキストをtxtファイルに保存するよ。', font=('Helvetica', 15), text_color='#191970')],
+            [sg.Text('', size=(10, 1))],
+            [sg.FileBrowse('.txtファイル'),
+            sg.InputText(key='-InputTxt_sub6-')], 
+            [sg.Button('テキストを書き込む', key='-WriteTxt_sub6-')], 
+            [sg.Text('', size=(10, 1))],
+            [sg.Text('※必ず戻るボタンを押して戻ってね。')],
+            [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
+            [sg.Button('戻る', key='-FileExit_sub6-')]
+        ]   
+        window = sg.Window('open_file_sub6', open_file_sub6, relative_location=(0,0), border_depth=2, 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                    right_click_menu_tearoff=False, keep_on_top=True)
+        
+    if event == '-WriteTxt_sub6-':
+        TxtFile_sub6 = values['-InputTxt_sub6-']
+        f_txt = open(TxtFile_sub6, 'a', encoding='UTF-8')
+        f_txt.write(cc_sub6)
+        f_txt.write('\n')
+        f_txt.close()
     
+    if event == '-FileExit_sub6-':
+        window.close()
+        window = Origin_window_sub6
+    '''
+
+
     
 #-------TopOptionのボイス設定--------
     if event == '-TopVoice-':
@@ -1386,6 +1456,81 @@ while True:
     # window右上のx印を押して閉じたとき
     if event == sg.WIN_CLOSED: 
         break
+    
+    
+    
+#--------sub6ボタンが押された場合--------
+    if event == '-sub6-':
+        # メインウィンドウを閉じて、サブ6ウィンドウを作成して表示する
+        window.close()
+        window = make_sub6()
+
+#--------サブ6のウィンドウについての設定-------- 
+    if event == '-generate_6-':
+        c1 = values['-FirstItem-']
+        c2 = values['-SecondItem-']
+
+        if len(c1)>1:
+            r=int(rand.randint(4,9-(len(c1)<3))/3)#1/6で3,3/6で2,2/6で1になる、c1からとる文字数
+            cf=c1[:r]
+        cf=c1
+        l=len(c2)
+        if l==1:
+            c = cf + c2
+    
+        r=rand.randint(0,7)#0-3なら後ろから,4-7なら前からとる
+        if r<4:
+            f=open("hrkt.bin","rb")#つながりのファイル
+            a=[]
+            sum=[]
+            for i in range(189):
+                aa=[]
+                su=0
+                for j in range(189):
+                    b=f.read(2)
+                    aaa=b[0]*256+b[1]
+                    aa=aa+[aaa]
+                    su=su+aaa
+                a=a+[aa]
+                sum=sum+[su]
+            f.close
+            front=cf[-1].encode("utf-8")
+            nf=front[2]-128+(front[1]-129)*64
+            b=[2,3,1]#1,2,3文字になる確率の比
+            abc=3-(l==2)
+            aa=[0]*abc
+            su=0
+            for i in range(abc):
+                back=c2[-i-1].encode("utf-8")
+                nb=back[2]-128+(back[1]-129)*64
+                aa[i]=a[nf][nb]*b[i]
+                su=su+aa[i]
+            if su:#su=0(つながらない)のときは前からとる
+                r=rand.randint(1,su)
+                i=-1
+                count=0
+                while count<r:
+                    i=i+1
+                    count=count+aa[i]
+                c=cf+c2[-i-1:]
+        r=int(rand.randint(4,9-(l==2))/3)#1/6で3,3/6で2,2/6で1になる、c2からとる文字数
+        c=cf+c2[:r]
+        
+        print(c)
+
+        #----新単語を読み上げる----
+        engine = pyttsx3.init()
+        engine.say(c)
+        engine.runAndWait()
+        
+    # --ボタンを押したら繰り返し再生--
+    if event == '-speak_6-':
+        engine = pyttsx3.init()
+        engine.say(c) 
+        engine.runAndWait()
+
+
+
 
 
 

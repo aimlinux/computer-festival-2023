@@ -1,4 +1,4 @@
-import random
+import random as rand
 
 def gose(c1,c2,mode=0):
     if mode==0:#単純連結
@@ -11,7 +11,7 @@ def gose(c1,c2,mode=0):
                 if c1[i+1]==c2[j]:
                     count=count+[i+1,j]
         if len(count):
-            r=random.randint(0,len(count)-1)
+            r=rand.randint(0,len(count)-1)
             c=c1[:count[0]]+c2[count[1]:]
         else:
             c="qqqqq"#同じ文字がない場合
@@ -21,7 +21,7 @@ def gose(c1,c2,mode=0):
         back=c2[0].encode("utf-8")
         nf=front[2]-160+(front[1]==131)*64
         nb=back[2]-160+(back[1]==131)*64
-        f=open("hrkt.bin","rb")#つながりのファイル
+        f=open("main_folder/hrkt.bin","rb")#つながりのファイル
         a=[]
         sum=[]
         for i in range(189):
@@ -43,9 +43,9 @@ def gose(c1,c2,mode=0):
             su=su+aa[j]
         count=0
         i=0
-        r=random.randint(0,5)#0のとき複数文字挟む
+        r=rand.randint(0,5)#0のとき複数文字挟む
         if su>0 and r>0:
-            r=random.randint(1,su)
+            r=rand.randint(1,su)
             while count<r:
                 count=count+aa[i]
                 i=i+1
@@ -54,7 +54,7 @@ def gose(c1,c2,mode=0):
             c=c1+cc+c2
             return c
         else:
-            r=random.randint(1+a[nf][0],sum[nf])
+            r=rand.randint(1+a[nf][0],sum[nf])
             while count<r:
                 count=count+a[nf][i]
                 i=i+1
@@ -65,15 +65,15 @@ def gose(c1,c2,mode=0):
             return gose(c,c2,2)#再帰
     if mode==3:#略す
         if len(c1)>1:
-            r=int(random.randint(4,9-(len(c1)<3))/3)#1/6で3,3/6で2,2/6で1になる、c1からとる文字数
+            r=int(rand.randint(4,9-(len(c1)<3))/3)#1/6で3,3/6で2,2/6で1になる、c1からとる文字数
             cf=c1[:r]
         cf=c1
         l=len(c2)
         if l==1:
             return cf+c2
-        r=random.randint(0,7)#0-3なら後ろから,4-7なら前からとる
+        r=rand.randint(0,7)#0-3なら後ろから,4-7なら前からとる
         if r<4:
-            f=open("hrkt.bin","rb")#つながりのファイル
+            f=open("main_folder/hrkt.bin","rb")#つながりのファイル
             a=[]
             sum=[]
             for i in range(189):
@@ -99,7 +99,7 @@ def gose(c1,c2,mode=0):
                 aa[i]=a[nf][nb]*b[i]
                 su=su+aa[i]
             if su:#su=0(つながらない)のときは前からとる
-                r=random.randint(1,su)
+                r=rand.randint(1,su)
                 i=-1
                 count=0
                 while count<r:
@@ -107,7 +107,7 @@ def gose(c1,c2,mode=0):
                     count=count+aa[i]
                 c=cf+c2[-i-1:]
                 return c
-        r=int(random.randint(4,9-(l==2))/3)#1/6で3,3/6で2,2/6で1になる、c2からとる文字数
+        r=int(rand.randint(4,9-(l==2))/3)#1/6で3,3/6で2,2/6で1になる、c2からとる文字数
         c=cf+c2[:r]
         return c
 
