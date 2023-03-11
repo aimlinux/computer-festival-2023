@@ -114,8 +114,10 @@ def make_sub1():
                 #[sg.Text('', size=(80, 1))],  
                 [sg.Text('入力された文字からユニークな新単語を生成するよ！！', text_color='#191970', font=('Arial', 18))],
                 [sg.Text('', size=(80, 1))],
+                [sg.Text('・文字を入力してね', font=('Helvetica', 14))],
                 # 文章入力欄を設置
-                [sg.Multiline('文字を入力してください', font=('Arial', 13), text_color='#191970', size=(60, 6), key='-sentence_1-')],
+                [sg.Multiline('', font=('Arial', 13), text_color='#191970', size=(60, 4), key='-sentence_1-')],
+                [sg.Text('', size=(80, 1))],
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_1-')], 
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_1-')],
                 [sg.Output(size=(70, 10), font=('Arial', 13), text_color='#9400d3')], 
@@ -289,7 +291,7 @@ def make_sub6():
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('新単語生成', font=('Arial', 13), key='-generate_6-')],
                 [sg.Button('新単語を読み上げる', font=('Arial', 13), key='-speak_6-')],
-                [sg.Output(size=(70, 12), font=('Arial', 13), text_color='#9400d3')],
+                [sg.Output(size=(70, 10), font=('Arial', 13), text_color='#9400d3')],
                 [sg.Text('', size=(80, 1))],
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
@@ -1466,10 +1468,19 @@ while True:
         window = make_sub6()
 
 #--------サブ6のウィンドウについての設定-------- 
-    if event == '-generate_6-':
+    if event == '-generate_6-' and not values['-FirstItem-'] and not values['-SecondItem-']:
+        sg.popup_ok('１文字目と２文字目が入力されていないよ。', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+
+    elif event == '-generate_6-' and not values['-FirstItem-']:
+        sg.popup_ok('１文字目が入力されていないよ。', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+
+    elif event == '-generate_6-' and not values['-SecondItem-']:
+        sg.popup_ok('２文字目が入力されていないよ。', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-generate_6-':
         c1 = values['-FirstItem-']
         c2 = values['-SecondItem-']
-
+        
         if len(c1)>1:
             r=int(rand.randint(4,9-(len(c1)<3))/3)#1/6で3,3/6で2,2/6で1になる、c1からとる文字数
             cf=c1[:r]
@@ -1477,7 +1488,8 @@ while True:
         l=len(c2)
         if l==1:
             c = cf + c2
-    
+            print(c)
+        
         r=rand.randint(0,7)#0-3なら後ろから,4-7なら前からとる
         if r<4:
             f=open("hrkt.bin","rb")#つながりのファイル
