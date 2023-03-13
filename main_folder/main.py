@@ -52,7 +52,7 @@ window_size = (monitor.width, monitor.height)
 
 
 #--------ウィンドウのテーマ--------
-sg.theme('python')
+#sg.theme('python')
 sg.theme('LightBlue3')
 #ランダムにテーマを変える : sg.theme('SystemDefault8')
 #メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
@@ -95,7 +95,7 @@ def make_main():
                 [sg.Text('', size=(70, 1))],
                 [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
-    return sg.Window("main_layout", main_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2,
+    return sg.Window("アプリ君・甲", main_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2,
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -127,7 +127,7 @@ def make_sub1():
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
-    return sg.Window("sub1_layout", sub1_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
+    return sg.Window("アプリ君・甲", sub1_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -160,7 +160,7 @@ def make_sub2():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub2_layout', sub2_layout, finalize=True, size=(1300,920), relative_location=(0, -75), border_depth=2, 
+    return sg.Window('アプリ君・甲', sub2_layout, finalize=True, size=(1300,920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -193,7 +193,7 @@ def make_sub3():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub3_layout', sub3_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
+    return sg.Window('アプリ君・甲', sub3_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -226,7 +226,7 @@ def make_sub4():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub4_layout', sub4_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
+    return sg.Window('アプリ君・甲', sub4_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)     
@@ -265,7 +265,7 @@ def make_sub5():
                 [sg.Button('モード選択画面に戻る', font=('Arial', 13), size=(60, 1), key='-back-')],
                 [sg.Text('', size=(80, 1))],
     ]    
-    return sg.Window('sub5_layout', sub5_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
+    return sg.Window('アプリ君・甲', sub5_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -296,7 +296,7 @@ def make_sub6():
                 [sg.Text('', size=(80, 1))],
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]           
-    return sg.Window('sub6_layout', sub6_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
+    return sg.Window('アプリ君・甲', sub6_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -327,7 +327,7 @@ def img_1():
         #[sg.Image(filename='img/img_1.png')]#メイン環境
         [sg.Image(filename='main_folder/img/img_1.png')]#GitHub環境
     ]
-    return sg.Window('img_1', img_1_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
+    return sg.Window('アプリ君・甲', img_1_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -337,7 +337,7 @@ def img_2():
         #[sg.Image(filename='img/img_2.png')]#メイン環境
         [sg.Image(filename='main_folder/img/img_2.png')]#GitHub環境
     ]
-    return sg.Window('img_2', img_2_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
+    return sg.Window('アプリ君・甲', img_2_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -347,7 +347,7 @@ def img_3():
         #[sg.Image(filename='img/img_3.png')]#メイン環境
         [sg.Image(filename='main_folder/img/img_3.png')]#GitHub環境
     ]
-    return sg.Window('img_3', img_3_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
+    return sg.Window('アプリ君・甲', img_3_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -357,7 +357,7 @@ def img_4():
         #[sg.Image(filename='img/img_4.png')]#メイン環境
         [sg.Image(filename='main_folder/img/img_4.png')]#GitHub環境
     ]
-    return sg.Window('img_4', img_4_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
+    return sg.Window('アプリ君・甲', img_4_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -367,7 +367,7 @@ def img_5():
         #[sg.Image(filename='img/img_5.png')]#メイン環境
         [sg.Image(filename='main_folder/img/img_5.png')]#GitHub環境
     ]
-    return sg.Window('img_5', img_5_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
+    return sg.Window('アプリ君・甲', img_5_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
@@ -425,7 +425,7 @@ def openning(canvas):
     openning = [
         [canvas]
                 ]
-    return sg.Window("openning", openning,size=(1300,920),relative_location=(0, -75),
+    return sg.Window("アプリ君・甲", openning,size=(1300,920),relative_location=(0, -75),
                     border_depth=2, resizable=False, finalize=True, 
                     right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
@@ -578,6 +578,8 @@ cc_sub2 = 'NULL'
 cc_sub3 = 'NULL'
 cc_sub4 = 'NULL'
 cc_sub5 = 'NULL'
+cc_sub6 = 'NULL'
+
 
 # 各デフォルト値を定義
 default_voice_slider = 5
@@ -604,9 +606,11 @@ while True:
     if event == 'Click':
         pg.click(button='left')
         
+        
     if event == 'Menu':
         window.close()
         window = make_main()
+        
         
     if event == 'Restart':
         sg.popup_ok_cancel('アプリケーションを再起動します。', font=('Arial', 12), text_color='#ff1493')
@@ -615,6 +619,7 @@ while True:
         time.sleep(0.2)
         window = make_main()
         continue
+    
     
     if event == 'Force Quit':
         window.close()
@@ -651,12 +656,15 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub1-')]
         ]   
-        window = sg.Window('open_file_sub1', open_file_sub1, relative_location=(0,0), border_depth=2, 
+        window = sg.Window('アプリ君・甲', open_file_sub1, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
 
-    if event == '-WriteTxt_sub1-':
+    if event == '-WriteTxt_sub1-' and not values['-InputTxt_sub1-']:
+        sg.popup_ok('txtファイルが選択されていないよ...', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+    
+    elif event == '-WriteTxt_sub1-':
         TxtFile_sub1 = values['-InputTxt_sub1-']
         f_txt = open(TxtFile_sub1, 'a', encoding='UTF-8')
         f_txt.write(cc_sub1)
@@ -683,12 +691,15 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub2-')]
         ]   
-        window = sg.Window('open_file_sub2', open_file_sub2, relative_location=(0,0), border_depth=2, 
+        window = sg.Window('アプリ君・甲', open_file_sub2, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
         
-    if event == '-WriteTxt_sub2-':
+    if event == '-WriteTxt_sub2-' and not values['-InputTxt_sub2-']:
+        sg.popup_ok('txtファイルが選択されていないよ...', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-WriteTxt_sub2-':
         TxtFile_sub2 = values['-InputTxt_sub2-']
         f_txt = open(TxtFile_sub2, 'a', encoding='UTF-8')
         f_txt.write(cc_sub2)
@@ -715,12 +726,15 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub3-')]
         ]   
-        window = sg.Window('open_file_sub3', open_file_sub3, relative_location=(0,0), border_depth=2, 
+        window = sg.Window('アプリ君・甲', open_file_sub3, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
         
-    if event == '-WriteTxt_sub3-':
+    if event == '-WriteTxt_sub3-' and not values['-InputTxt_sub3-']:
+        sg.popup_ok('txtファイルが選択されていないよ...', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-WriteTxt_sub3-':
         TxtFile_sub3 = values['-InputTxt_sub3-']
         f_txt = open(TxtFile_sub3, 'a', encoding='UTF-8')
         f_txt.write(cc_sub3)
@@ -747,12 +761,15 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub4-')]
         ]   
-        window = sg.Window('open_file_sub4', open_file_sub4, relative_location=(0,0), border_depth=2, 
+        window = sg.Window('アプリ君・甲', open_file_sub4, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
         
-    if event == '-WriteTxt_sub4-':
+    if event == '-WriteTxt_sub4-' and not values['-InputTxt_sub4-']:
+        sg.popup_ok('txtファイルが選択されていないよ...', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-WriteTxt_sub4-':
         TxtFile_sub4 = values['-InputTxt_sub4-']
         f_txt = open(TxtFile_sub4, 'a', encoding='UTF-8')
         f_txt.write(cc_sub4)
@@ -779,12 +796,15 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub5-')]
         ]   
-        window = sg.Window('open_file_sub5', open_file_sub5, relative_location=(0,0), border_depth=2, 
+        window = sg.Window('アプリ君・甲', open_file_sub5, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
         
-    if event == '-WriteTxt_sub5-':
+    if event == '-WriteTxt_sub5-' and not values['-InputTxt_sub5-']:
+        sg.popup_ok('txtファイルが選択されていないよ...', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-WriteTxt_sub5-':
         TxtFile_sub5 = values['-InputTxt_sub5-']
         f_txt = open(TxtFile_sub5, 'a', encoding='UTF-8')
         f_txt.write(cc_sub5)
@@ -796,7 +816,7 @@ while True:
         window = Origin_window_sub5
 
 
-    '''
+    
 #--------サブ6ウィンドウ--------
     if event == '-TopPreservation_sub6-':
         Origin_window_sub6 = window
@@ -812,12 +832,15 @@ while True:
             [sg.Text('    ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-FileExit_sub6-')]
         ]   
-        window = sg.Window('open_file_sub6', open_file_sub6, relative_location=(0,0), border_depth=2, 
+        window = sg.Window('アプリ君・甲', open_file_sub6, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
         
-    if event == '-WriteTxt_sub6-':
+    if event == '-WriteTxt_sub6-' and not values['-InputTxt_sub6-']:
+        sg.popup_ok('txtファイルが選択されていないよ...', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-WriteTxt_sub6-':
         TxtFile_sub6 = values['-InputTxt_sub6-']
         f_txt = open(TxtFile_sub6, 'a', encoding='UTF-8')
         f_txt.write(cc_sub6)
@@ -827,7 +850,7 @@ while True:
     if event == '-FileExit_sub6-':
         window.close()
         window = Origin_window_sub6
-    '''
+    
 
 
     
@@ -855,7 +878,7 @@ while True:
             #ウィンドウを閉じる
             [sg.Button('戻る', key='-VoiceExit-')],
         ]
-        window = sg.Window('voice_option', voice_option, size=(700, 500), relative_location=(0,0), border_depth=2, 
+        window = sg.Window('アプリ君・甲', voice_option, size=(700, 500), relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
@@ -929,7 +952,7 @@ while True:
             [sg.Text('   ここでは右上の×ボタンは押さないでね。')],
             [sg.Button('戻る', key='-ScrotExit-')],
         ]   
-        window = sg.Window('make_scr', make_scr, relative_location=(0,0), border_depth=2, 
+        window = sg.Window('アプリ君・甲', make_scr, relative_location=(0,0), border_depth=2, 
                     use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
@@ -988,7 +1011,7 @@ while True:
             ending = [
                 [canvas]
                         ]
-            return sg.Window("ending", ending, size=(1300,920), relative_location=(0, -75), border_depth=2,
+            return sg.Window("アプリ君・甲", ending, size=(1300,920), relative_location=(0, -75), border_depth=2,
                             resizable=False, finalize=True, 
                             right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                             right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
@@ -1527,6 +1550,7 @@ while True:
                 c=cf+c2[-i-1:]
         r=int(rand.randint(4,9-(l==2))/3)#1/6で3,3/6で2,2/6で1になる、c2からとる文字数
         c=cf+c2[:r]
+        cc_sub6 = c #
         
         print(c)
 
