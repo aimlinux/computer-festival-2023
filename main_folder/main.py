@@ -1550,7 +1550,7 @@ while True:
                 c=cf+c2[-i-1:]
         r=int(rand.randint(4,9-(l==2))/3)#1/6で3,3/6で2,2/6で1になる、c2からとる文字数
         c=cf+c2[:r]
-        cc_sub6 = c #
+        cc_sub6 = c  #txtファイルへの保存のため...
         
         print(c)
 
