@@ -67,7 +67,8 @@ def gose(c1,c2,mode=0):
         if len(c1)>1:
             r=int(rand.randint(4,9-(len(c1)<3))/3)#1/6で3,3/6で2,2/6で1になる、c1からとる文字数
             cf=c1[:r]
-        cf=c1
+        else:
+            cf=c1
         l=len(c2)
         if l==1:
             return cf+c2

@@ -52,7 +52,7 @@ window_size = (monitor.width, monitor.height)
 
 
 #--------ウィンドウのテーマ--------
-#sg.theme('python')
+sg.theme('Material2')
 #sg.theme('LightBlue3')
 #ランダムにテーマを変える : sg.theme('SystemDefault8')
 #メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
@@ -1507,7 +1507,8 @@ while True:
         if len(c1)>1:
             r=int(rand.randint(4,9-(len(c1)<3))/3)#1/6で3,3/6で2,2/6で1になる、c1からとる文字数
             cf=c1[:r]
-        cf=c1
+        else:
+            cf=c1
         l=len(c2)
         if l==1:
             c = cf + c2
