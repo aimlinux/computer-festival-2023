@@ -52,14 +52,21 @@ window_size = (monitor.width, monitor.height)
 
 
 #--------ウィンドウのテーマ--------
-sg.theme('Material2')
-#sg.theme('LightBlue3')
+#sg.theme('Material1')
+sg.theme('LightBlue3')
 #ランダムにテーマを変える : sg.theme('SystemDefault8')
 #メインテーマ候補 : [LightGreen2, DarkTeal5, LightBlue3]
 
 #--------タイトルバーのアイコンの画像指定（use_custom_titlebar=Trueが指定されている場合のみ有効）--------
 #icon_image = 'main_folder/img/icon_img.ico'
 
+
+a111 = 0
+b111 = 0
+c111 = 0
+d111 = 0
+e111 = 0
+f111 = 0
 
 #time.sleep(0.1)
 sg.popup_ok('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
@@ -373,42 +380,6 @@ def img_5():
                     right_click_menu_tearoff=False)
 
 
-'''
-#--------起動時アニメーション（仮）--------
-window = img_1()
-while True:
-    event, values = window.read(500)
-    break
-window.close()
-
-window = img_2()
-while True:
-    event, values = window.read(300)
-    break
-window.close()
-
-window = img_3()
-while True:
-    event, values = window.read(300)
-    break
-window.close()
-
-window = img_4()
-while True:
-    event, values = window.read(300)
-    break
-window.close()
-
-window = img_5()
-while True:
-    event, values = window.read(800)
-    break
-window.close()
-'''
-
-
-
-
 # --------起動時アニメーション（本物）--------
 
 #voc = pd.read_csv("voc.csv")#メイン環境
@@ -433,57 +404,6 @@ def openning(canvas):
 
 window = openning(canvas)
 
-# canvas.tk_canvas.create_line(450,211,450,527,fill="black",width=38,tag="k1")
-# canvas.tk_canvas.create_line(450,230,850,230,fill="black",width=38,tag="k2")
-# canvas.tk_canvas.create_line(850,211,850,527,fill="black",width=38,tag="k3")
-# canvas.tk_canvas.create_line(450,360,850,360,fill="black",width=38,tag="k4")
-# canvas.tk_canvas.create_line(450,500,850,500,fill="black",width=38,tag="k5")
-# canvas.tk_canvas.create_line(650,230,650,700,fill="black",width=38,tag="k6")
-
-# def kou():
-#     j = 0
-#     for i in range(32):
-#         canvas.tk_canvas.delete("k1")
-#         canvas.tk_canvas.create_line(450,-316+i*17,450,0+i*17,fill="black",width=38,tag="k1")
-#         jimaku(voc,tex,j)
-#         canvas.tk_canvas.after(22)
-#         canvas.tk_canvas.update()
-#     #     j += 1
-#     # for i in range(51):
-#     #     canvas.tk_canvas.delete("k2")
-#     #     canvas.tk_canvas.create_line(0+i*17,230,-400+i*17,230,fill="black",width=38,tag="k2")
-#     #     jimaku(voc,tex,j)
-#     #     canvas.tk_canvas.after(22)
-#     #     canvas.tk_canvas.update()
-#     #     j += 1
-#     # for i in range(32):
-#     #     canvas.tk_canvas.delete("k3")
-#     #     canvas.tk_canvas.create_line(850,-316+i*17,850,0+i*17,fill="black",width=38,tag="k3")
-#     #     jimaku(voc,tex,j)
-#     #     canvas.tk_canvas.after(22)
-#     #     canvas.tk_canvas.update()
-#     #     j += 1
-#     # for i in range(51):
-#     #     canvas.tk_canvas.delete("k4")
-#     #     canvas.tk_canvas.create_line(0+i*17,360,-400+i*17,360,fill="black",width=38,tag="k4")
-#     #     jimaku(voc,tex,j)
-#     #     canvas.tk_canvas.after(22)
-#     #     canvas.tk_canvas.update()
-#     #     j += 1
-#     # for i in range(51):
-#     #     canvas.tk_canvas.delete("k5")
-#     #     canvas.tk_canvas.create_line(0+i*17,500,-400+i*17,500,fill="black",width=38,tag="k5")
-#     #     jimaku(voc,tex,j)
-#     #     canvas.tk_canvas.after(22)
-#     #     canvas.tk_canvas.update()
-#     #     j += 1
-#     # for i in range(42):
-#     #     canvas.tk_canvas.delete("k6")
-#     #     canvas.tk_canvas.create_line(650,0+i*17,650,-470+i*17,fill="black",width=38,tag="k6") 
-#     #     jimaku(voc,tex,j)
-#     #     canvas.tk_canvas.after(22)
-#     #     canvas.tk_canvas.update()
-#     #     j += 1
 def kou():
     j=0
     for i in range(185):
@@ -988,7 +908,7 @@ while True:
 
 
 #-------ウィンドウが閉じたとき or Exit（右クリックオプション）が押されたとき--------
-    if event == sg.WIN_CLOSED or event == 'Exit':
+    if event == sg.WIN_CLOSED or event == 'Exit' and a111 == 0 and b111 == 0 and c111 == 0 and d111 == 0 and e111 == 0 and f111 == 0:
         window.close()  
         Origin_window_end = window
         end_popup = sg.popup_ok('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
@@ -1001,59 +921,142 @@ while True:
         
     #if end_popup == 'OK':
 
-    
-    
     #--------エンディング--------
     # --------エンディングアニメーションの準備--------
-        canvas = sg.Canvas(size=(1300,920),pad=((0,0),(0,0)))
+        #voc = pd.read_csv("voc.csv")#メイン環境
+        voc = pd.read_csv("main_folder/voc.csv")#Github環境
+        #tex = pd.read_csv("test1.csv")#メイン環境
+        tex = pd.read_csv("main_folder/test1.csv")#Github環境
 
-        def ending(canvas):
-            ending = [
+        voc = voc.sample(frac=1, ignore_index=True)
+
+        canvas = sg.Canvas(size=(1300,920),pad=((0,0),(0,0)))
+    
+        def ending_1(canvas):
+            ending_1 = [
                 [canvas]
                         ]
-            return sg.Window("アプリ君・甲", ending, size=(1300,920), relative_location=(0, -75), border_depth=2,
-                            resizable=False, finalize=True, 
+            return sg.Window("アプリ君・甲", ending_1,size=(1300,920),relative_location=(0, -75),
+                            border_depth=2, resizable=False, finalize=True, 
                             right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                             right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                             right_click_menu_tearoff=False, keep_on_top=True)
 
-        window = ending(canvas)
 
-        def end(canvas):
-            read_image = Image.open('main_folder/img/img_5.png')#Github環境
-            #read_image = Image.open('img/img_5.png')#メイン環境
-            im = ImageTk.PhotoImage(image=read_image)
-            canvas.tk_canvas.create_image(650,460,image=im)
-            canvas.tk_canvas.update()
-            canvas.tk_canvas.after(1000)
-            read_image = Image.open('main_folder/img/img_4.png')#Github環境
-            #read_image = Image.open('img/img_4.png')#メイン環境
-            im = ImageTk.PhotoImage(image=read_image)
-            canvas.tk_canvas.create_image(650,460,image=im)
-            canvas.tk_canvas.update()
-            canvas.tk_canvas.after(500)
-            read_image = Image.open('main_folder/img/img_3.png')#Github環境
-            #read_image = Image.open('img/img_3.png')#メイン環境
-            im = ImageTk.PhotoImage(image=read_image)
-            canvas.tk_canvas.create_image(650,460,image=im)
-            canvas.tk_canvas.update()
-            canvas.tk_canvas.after(500)
-            read_image = Image.open('main_folder/img/img_2.png')#Github環境
-            #read_image = Image.open('img/img_2.png')#メイン環境
-            im = ImageTk.PhotoImage(image=read_image)
-            canvas.tk_canvas.create_image(650,460,image=im)
-            canvas.tk_canvas.update()
-            canvas.tk_canvas.after(500)
-            read_image = Image.open('main_folder/img/img_1.png')#Github環境
-            #read_image = Image.open('img/img_1.png')#メイン環境
-            im = ImageTk.PhotoImage(image=read_image)
-            canvas.tk_canvas.create_image(650,460,image=im)
-            canvas.tk_canvas.update()
-            canvas.tk_canvas.after(1000)
+        window = ending_1(canvas)
 
-        end(canvas)
+        def kou():
+            j=0
+    
+            for i in range(185):
+        
+                jimaku(voc,tex,i)
+                j += 1
+                canvas.tk_canvas.after(22)
+                canvas.tk_canvas.update()
+        
+            for j in range(185):
+                j = j + 185
+                jimaku(voc,tex,j)
+                canvas.tk_canvas.after(22)
+                canvas.tk_canvas.update()
+
+            for i in range(35):
+                canvas.tk_canvas.delete("text","k")
+                canvas.tk_canvas.create_text(280+i*7,400,fill="red",text="おわり..",font=("Arial",24+i),tag="text")
+                canvas.tk_canvas.after(22)
+                canvas.tk_canvas.update() 
+
+        #  ↑ 5.768s
+        def jimaku(voc,tex,i):
+                canvas.tk_canvas.delete("text")
+                if i < 186:
+                    canvas.tk_canvas.create_text(3240-i*16,400,fill="#ffffff",text="おわり",font=("Arial",24),tag="text")
+                else:
+                    canvas.tk_canvas.create_text(280,400,fill="#ffffff",text="おわり",font=("Arial",24),tag="text")
+                for j in range(len(tex)):
+                    x = tex["x"][j]-i*tex["speed"][j]
+                    if x > -100 :
+                        canvas.tk_canvas.create_text(x,int(tex["y"][j]),text=voc["voc"][j%100],fill="white",font=("Arial",10+int(tex["size"][j])*4),tag="text")
+
+        kou()
+
+        time.sleep(2)
 
         window.close()
+        break
+
+
+
+    elif event == sg.WIN_CLOSED or event == 'Exit' and a111 == 1 and b111 == 1 and c111 == 1 and d111 == 1 and e111 == 1 and f111 == 1:      
+        window.close()  
+        end_popup = sg.popup_ok('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
+        
+
+#--------パーフェクトエンディング--------
+    # --------パーフェクトエンディングアニメーションの準備--------
+        #voc = pd.read_csv("voc.csv")#メイン環境
+        voc = pd.read_csv("main_folder/voc.csv")#Github環境
+        #tex = pd.read_csv("test1.csv")#メイン環境
+        tex = pd.read_csv("main_folder/test1.csv")#Github環境
+
+        voc = voc.sample(frac=1, ignore_index=True)
+
+        canvas = sg.Canvas(size=(1300,920),pad=((0,0),(0,0)))
+    
+        def ending_1(canvas):
+            ending_1 = [
+                [canvas]
+                        ]
+            return sg.Window("アプリ君・甲", ending_1,size=(1300,920),relative_location=(0, -75),
+                            border_depth=2, resizable=False, finalize=True, 
+                            right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                            right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
+                            right_click_menu_tearoff=False, keep_on_top=True)
+
+
+        window = ending_1(canvas)
+
+        def kou():
+            j=0
+    
+            for i in range(185):
+        
+                jimaku(voc,tex,i)
+                j += 1
+                canvas.tk_canvas.after(22)
+                canvas.tk_canvas.update()
+        
+            for j in range(185):
+                j = j + 185
+                jimaku(voc,tex,j)
+                canvas.tk_canvas.after(22)
+                canvas.tk_canvas.update()
+
+            for i in range(35):
+                canvas.tk_canvas.delete("text","k")
+                canvas.tk_canvas.create_text(280+i*7,400,fill="red",text="パーフェクト",font=("Arial",24+i),tag="text")
+                canvas.tk_canvas.after(22)
+                canvas.tk_canvas.update() 
+
+        #  ↑ 5.768s
+        def jimaku(voc,tex,i):
+                canvas.tk_canvas.delete("text")
+                if i < 186:
+                    canvas.tk_canvas.create_text(3240-i*16,400,fill="#ffffff",text="パーフェクト",font=("Arial",24),tag="text")
+                else:
+                    canvas.tk_canvas.create_text(280,400,fill="#ffffff",text="パーフェクト",font=("Arial",24),tag="text")
+                for j in range(len(tex)):
+                    x = tex["x"][j]-i*tex["speed"][j]
+                    if x > -100 :
+                        canvas.tk_canvas.create_text(x,int(tex["y"][j]),text=voc["voc"][j%100],fill="white",font=("Arial",10+int(tex["size"][j])*4),tag="text")
+
+        kou()
+
+        time.sleep(2)
+
+        window.close()
+        end_popup = sg.popup_ok('全モードコンプリートおめでとう！！', font=('Arial', 12), text_color='#ff1493')
         break
     
     
@@ -1065,9 +1068,9 @@ while True:
         window.close()
         window = make_sub1()
         
-        
 #--------サブ１のウィンドウについての設定--------    
     if event == '-generate_1-':
+        a111 = 1
         c_sub1 = list (values['-sentence_1-'])
         #入力されたリストをランダムに並べ替える
         c_sub1 = rand.sample(c_sub1, len(c_sub1))
@@ -1099,7 +1102,10 @@ while True:
         engine.runAndWait()
 
     # --ボタンを押したら繰り返し再生--
-    if event == '-speak_1-':
+    #if event == '-speak_1-' and cc_sub1 == 'NULL':
+        #sg.popup_ok('新単語が生成されていません。', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-speak_1-':
         engine = pyttsx3.init()
         engine.say(cc_sub1) 
         engine.runAndWait()
@@ -1119,6 +1125,7 @@ while True:
     
 #--------サブ２のウィンドウについての設定--------    
     if event == '-generate_2-':
+        b111 = 1
         #03.01修正箇所は最後にコメント
         kagen_sub2 = int(values['-kag_2-'])#
         jogen_sub2 = int(values['-jog_2-'])#
@@ -1165,7 +1172,10 @@ while True:
         engine.runAndWait()
         
     # --ボタンを押したら繰り返し再生--
-    if event == '-speak_2-':
+    #if event == '-speak_2-' and cc_sub1 == 'NULL':
+        #sg.popup_ok('新単語が生成されていません。', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-speak_2-':
         engine = pyttsx3.init()
         engine.say(cc_sub2) 
         engine.runAndWait()
@@ -1185,6 +1195,7 @@ while True:
 
 #--------サブ３のウィンドウについての設定--------    
     if event == '-generate_3-':
+        c111 = 1
         kagen_sub3 = int(values['-kag_3-'])#
         jogen_sub3 = int(values['-jog_3-'])#
         #--------各環境で相対パスを変更しよう！！--------
@@ -1230,7 +1241,10 @@ while True:
         engine.runAndWait()
         
     # --ボタンを押したら繰り返し再生--
-    if event == '-speak_3-':
+    # if event == '-speak_3-' and cc_sub1 == 'NULL':
+        #sg.popup_ok('新単語が生成されていません。', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-speak_3-':
         engine = pyttsx3.init()
         engine.say(cc_sub3) 
         engine.runAndWait()
@@ -1250,6 +1264,7 @@ while True:
         
 #--------サブ４のウィンドウについての設定--------    
     if event == '-generate_4-':
+        d111 = 1
         kagen_sub4 = int(values['-kag_4-'])#
         jogen_sub4 = int(values['-jog_4-'])#
         #--------各環境で相対パスを変更しよう！！--------
@@ -1295,7 +1310,10 @@ while True:
         engine.runAndWait()
         
     # --ボタンを押したら繰り返し再生--
-    if event == '-speak_4-':
+    #if event == '-speak_4-' and cc_sub4 == 'NULL:
+        #sg.popup_ok('新単語が生成されていません。', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-speak_4-':
         engine = pyttsx3.init()
         engine.say(cc_sub4) 
         engine.runAndWait()
@@ -1308,6 +1326,7 @@ while True:
         
 #--------sub5ボタンが押された場合--------
     elif event == '-sub5-':
+        e111 = 1
         # メインウィンドウを閉じて、サブ５ウィンドウを作成して表示する
         window.close()
         window = make_sub5()
@@ -1317,12 +1336,11 @@ while True:
     if event == '-generate_5' and int(values['-jog_5-']) > 81:
         #kagen_sub5 = int(values['-kag_5-'])
         #jogen_sub5 = int(values['-jog_5-'])
-        print('上限の値が大きすぎるよ。')
         sg.popup_ok('上限の値が大きすぎるよ。')
         
 
 #--------サブ5のウィンドウについての設定--------    
-    if event == '-generate_5-' and int(values['-jog_5-']) < 80:
+    elif event == '-generate_5-' and int(values['-jog_5-']) < 80:
         kagen_sub5 = int(values['-kag_5-'])
         jogen_sub5 = int(values['-jog_5-'])
     
@@ -1331,7 +1349,7 @@ while True:
         f_sub5=open("main_folder\human.bin","rb")#Github環境
         sum_sub5=[0]*85
         a_sub5=[]
-        for i_sub5 in range(85):
+        for i_sub5 in range(85): 
             aa_sub5=[]
             for j_sub5 in range(85):
                 b_sub5=f_sub5.read(2)
@@ -1369,6 +1387,9 @@ while True:
         engine.runAndWait()
         
     # --ボタンを押したら繰り返し再生--
+    #if event == '-speak_5-' and cc_sub1 == 'NULL':
+        #sg.popup_ok('新単語が生成されていません。', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
     if event == '-speak_5-':
         engine = pyttsx3.init()
         engine.say(cc_sub5) 
@@ -1501,6 +1522,7 @@ while True:
         sg.popup_ok('２文字目が入力されていないよ。', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
         
     elif event == '-generate_6-':
+        f111 = 1
         c1 = values['-FirstItem-']
         c2 = values['-SecondItem-']
         
@@ -1561,7 +1583,10 @@ while True:
         engine.runAndWait()
         
     # --ボタンを押したら繰り返し再生--
-    if event == '-speak_6-':
+    #if event == '-speak_6-' and cc_sub1 == 'NULL':
+        #sg.popup_ok('新単語が生成されていません。', font=('Arial', 12), text_color='#ff1493', keep_on_top=True)
+        
+    elif event == '-speak_6-':
         engine = pyttsx3.init()
         engine.say(c) 
         engine.runAndWait()
