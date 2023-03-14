@@ -103,7 +103,7 @@ def make_main():
                 [sg.Button('アプリケーションを終了する', font=('Arial, 13'), size=(40, 2), key='-exit-')]
     ]
     return sg.Window("アプリ君・甲", main_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2,
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
@@ -135,7 +135,7 @@ def make_sub1():
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]    
     return sg.Window("アプリ君・甲", sub1_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
@@ -168,7 +168,7 @@ def make_sub2():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('アプリ君・甲', sub2_layout, finalize=True, size=(1300,920), relative_location=(0, -75), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
@@ -201,7 +201,7 @@ def make_sub3():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('アプリ君・甲', sub3_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
@@ -234,7 +234,7 @@ def make_sub4():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('アプリ君・甲', sub4_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)     
 
@@ -273,7 +273,7 @@ def make_sub5():
                 [sg.Text('', size=(80, 1))],
     ]    
     return sg.Window('アプリ君・甲', sub5_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
@@ -304,28 +304,10 @@ def make_sub6():
                 [sg.Button('モード選択画面に戻る',  font=('Arial', 13), size=(60, 1), key='-back-')],
     ]           
     return sg.Window('アプリ君・甲', sub6_layout, finalize=True, size=(1300, 920), relative_location=(0, -75), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False)
 
-
-
-
-
-
-#--------機械学習の詳細を表示するウィンドウ（sub5）
-#def make_judge_details():
-    judge_details = [
-        [sg.Text('機械学習の結果の詳細を確認します。', font=('Arial', 15), text_color='#9400d3')],
-        [sg.Button('最新の結果の詳細を表示', font=('Arial', 12), key='-JudgeDetailsDisplay-')],
-        [sg.Output(size=(60, 12), font=('Helvetica', 12), text_color='#9400d3')],
-        [sg.Button('戻る', font=('Arial', 13), key='-JudgeDetailsBack-')],
-        ]
-    return sg.Window('judge_details', judge_details, relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
-                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False, keep_on_top=True)
-    
 
 
 # --------起動時アニメーション（本物）--------
@@ -346,7 +328,7 @@ def openning(canvas):
                 ]
     return sg.Window("アプリ君・甲", openning,size=(1300,920),relative_location=(0, -75),
                     border_depth=2, resizable=False, finalize=True, 
-                    right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
 
@@ -356,38 +338,38 @@ def kou():
     j=0
     for i in range(185):
         canvas.tk_canvas.delete("k")
-        canvas.tk_canvas.create_line(0+i*17,110,-400+i*17,110,fill="black",width=38,tag="k")
+        canvas.tk_canvas.create_line(0+i*17,110,-400+i*17,110,fill="#191970",width=38,tag="k")
         if i < 57:
-            canvas.tk_canvas.create_line(-102+i*17,230,-502+i*17,230,fill="black",width=38,tag="k")
+            canvas.tk_canvas.create_line(-102+i*17,230,-502+i*17,230,fill="#191970",width=38,tag="k")
         else:
-            canvas.tk_canvas.create_line(450,230,850,230,fill="black",width=38,tag="k")
+            canvas.tk_canvas.create_line(450,230,850,230,fill="#191970",width=38,tag="k")
         if i < 63:
-            canvas.tk_canvas.create_line(-204+i*17,360,-604+i*17,360,fill="black",width=38,tag="k")
+            canvas.tk_canvas.create_line(-204+i*17,360,-604+i*17,360,fill="#191970",width=38,tag="k")
         else:
-            canvas.tk_canvas.create_line(450,360,850,360,fill="black",width=38,tag="k")
+            canvas.tk_canvas.create_line(450,360,850,360,fill="#191970",width=38,tag="k")
         if i < 69:
-            canvas.tk_canvas.create_line(-306+i*17,500,-706+i*17,500,fill="black",width=38,tag="k")
+            canvas.tk_canvas.create_line(-306+i*17,500,-706+i*17,500,fill="#191970",width=38,tag="k")
         else:
-            canvas.tk_canvas.create_line(450,500,850,500,fill="black",width=38,tag="k")
-        canvas.tk_canvas.create_line(-408+i*17,650,-808+i*17,650,fill="black",width=38,tag="k")
-        canvas.tk_canvas.create_line(-510+i*17,810,-910+i*17,810,fill="black",width=38,tag="k")
+            canvas.tk_canvas.create_line(450,500,850,500,fill="#191970",width=38,tag="k")
+        canvas.tk_canvas.create_line(-408+i*17,650,-808+i*17,650,fill="#191970",width=38,tag="k")
+        canvas.tk_canvas.create_line(-510+i*17,810,-910+i*17,810,fill="#191970",width=38,tag="k")
 
-        canvas.tk_canvas.create_line(50,2201-i*17,50,2517-i*17,fill="black",width=38,tag="k")  
-        canvas.tk_canvas.create_line(250,-1003+i*17,250,-1319+i*17,fill="black",width=38,tag="k")
+        canvas.tk_canvas.create_line(50,2201-i*17,50,2517-i*17,fill="#191970",width=38,tag="k")  
+        canvas.tk_canvas.create_line(250,-1003+i*17,250,-1319+i*17,fill="#191970",width=38,tag="k")
         if i <  130:
-            canvas.tk_canvas.create_line(450,2405-i*17,450,2721-i*17,fill="black",width=38,tag="k") 
+            canvas.tk_canvas.create_line(450,2405-i*17,450,2721-i*17,fill="#191970",width=38,tag="k") 
         else:
-            canvas.tk_canvas.create_line(450,211,450,527,fill="black",width=38,tag="k")
+            canvas.tk_canvas.create_line(450,211,450,527,fill="#191970",width=38,tag="k")
         if i < 114:
-            canvas.tk_canvas.create_line(650,-1207+i*17,650,-1696+i*17,fill="black",width=38,tag="k") 
+            canvas.tk_canvas.create_line(650,-1207+i*17,650,-1696+i*17,fill="#191970",width=38,tag="k") 
         else:
-            canvas.tk_canvas.create_line(650,211,650,700,fill="black",width=38,tag="k")
+            canvas.tk_canvas.create_line(650,211,650,700,fill="#191970",width=38,tag="k")
         if i < 142:
-            canvas.tk_canvas.create_line(850,2607-i*17,850,2923-i*17,fill="black",width=38,tag="k") 
+            canvas.tk_canvas.create_line(850,2607-i*17,850,2923-i*17,fill="#191970",width=38,tag="k") 
         else:
-            canvas.tk_canvas.create_line(850,211,850,527,fill="black",width=38,tag="k")
-        canvas.tk_canvas.create_line(1050,-1411+i*17,1050,-1727+i*17,fill="black",width=38,tag="k") 
-        canvas.tk_canvas.create_line(1250,2811-i*17,1250,3127-i*17,fill="black",width=38,tag="k") 
+            canvas.tk_canvas.create_line(850,211,850,527,fill="#191970",width=38,tag="k")
+        canvas.tk_canvas.create_line(1050,-1411+i*17,1050,-1727+i*17,fill="#191970",width=38,tag="k") 
+        canvas.tk_canvas.create_line(1250,2811-i*17,1250,3127-i*17,fill="#191970",width=38,tag="k") 
 
         jimaku(voc,tex,i)
     
@@ -403,13 +385,13 @@ def kou():
 
     for i in range(35):
         canvas.tk_canvas.delete("text","k")
-        canvas.tk_canvas.create_text(280+i*7,400,fill="red",text="アプリ君",font=("Arial",24+i),tag="text")
-        canvas.tk_canvas.create_line(450+375/35*i,211+140/35*i,450+375/35*i,527-114/35*i,fill="black",width=38-0.8*i,tag="k")
-        canvas.tk_canvas.create_line(450+375/35*i,230+126/35*i,850+51/35*i,230+126/35*i,fill="black",width=38-0.8*i,tag="k")
-        canvas.tk_canvas.create_line(850+51/35*i,211+140/35*i,850+51/35*i,527-114/35*i,fill="black",width=38-0.8*i,tag="k")
-        canvas.tk_canvas.create_line(450+375/35*i,360+21/35*i,850+51/35*i,360+21/35*i,fill="black",width=38-0.8*i,tag="k")
-        canvas.tk_canvas.create_line(450+375/35*i,500-94/35*i,850+51/35*i,500-94/35*i,fill="black",width=38-0.8*i,tag="k")
-        canvas.tk_canvas.create_line(650+212/35*i,211+145/35*i,650+212/35*i,700-256/35*i,fill="black",width=38-0.8*i,tag="k") 
+        canvas.tk_canvas.create_text(280+i*7,400,fill="#c71585",text="アプリ君",font=("Arial",24+i),tag="text")
+        canvas.tk_canvas.create_line(450+375/35*i,211+140/35*i,450+375/35*i,527-114/35*i,fill="#191970",width=38-0.8*i,tag="k")
+        canvas.tk_canvas.create_line(450+375/35*i,230+126/35*i,850+51/35*i,230+126/35*i,fill="#191970",width=38-0.8*i,tag="k")
+        canvas.tk_canvas.create_line(850+51/35*i,211+140/35*i,850+51/35*i,527-114/35*i,fill="#191970",width=38-0.8*i,tag="k")
+        canvas.tk_canvas.create_line(450+375/35*i,360+21/35*i,850+51/35*i,360+21/35*i,fill="#191970",width=38-0.8*i,tag="k")
+        canvas.tk_canvas.create_line(450+375/35*i,500-94/35*i,850+51/35*i,500-94/35*i,fill="#191970",width=38-0.8*i,tag="k")
+        canvas.tk_canvas.create_line(650+212/35*i,211+145/35*i,650+212/35*i,700-256/35*i,fill="#191970",width=38-0.8*i,tag="k") 
         canvas.tk_canvas.after(22)
         canvas.tk_canvas.update() 
 
@@ -417,21 +399,14 @@ def kou():
 def jimaku(voc,tex,i):
         canvas.tk_canvas.delete("text")
         if i < 186:
-            canvas.tk_canvas.create_text(3240-i*16,400,fill="red",text="アプリ君",font=("Arial",24),tag="text")
+            canvas.tk_canvas.create_text(3240-i*16,400,fill="#ffffff",text="アプリ君",font=("Arial",24),tag="text")
         else:
-            canvas.tk_canvas.create_text(280,400,fill="red",text="アプリ君",font=("Arial",24),tag="text")
+            canvas.tk_canvas.create_text(280,400,fill="#ffffff",text="アプリ君",font=("Arial",24),tag="text")
         for j in range(len(tex)):
             x = tex["x"][j]-i*tex["speed"][j]
             if x > -100 :
-                canvas.tk_canvas.create_text(x,int(tex["y"][j]),text=voc["voc"][j%352],fill="white",font=("Arial",12+int(tex["size"][j])*4),tag="text")
+                canvas.tk_canvas.create_text(x,int(tex["y"][j]),text=voc["voc"][j%352],fill="#ffffff",font=("Arial",12+int(tex["size"][j])*4),tag="text")
 
-    
-# for i in range(100):
-#     canvas.tk_canvas.delete("text")
-#     for j in range(46):
-#         canvas.tk_canvas.create_text(1300-i*15,5+j*23,text=j,fill="black",font=("Arial",20),tag="text")
-#     canvas.tk_canvas.update()
-#     canvas.tk_canvas.after(20)
 
 kou()
 
@@ -475,7 +450,7 @@ while True:
         pg.click(button='left')
         
         
-    if event == 'Menu':
+    if event == 'Home':
         window.close()
         window = make_main()
         
@@ -525,7 +500,7 @@ while True:
             [sg.Button('戻る', key='-FileExit_sub1-')]
         ]   
         window = sg.Window('アプリ君・甲', open_file_sub1, relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
 
@@ -560,7 +535,7 @@ while True:
             [sg.Button('戻る', key='-FileExit_sub2-')]
         ]   
         window = sg.Window('アプリ君・甲', open_file_sub2, relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
         
@@ -595,7 +570,7 @@ while True:
             [sg.Button('戻る', key='-FileExit_sub3-')]
         ]   
         window = sg.Window('アプリ君・甲', open_file_sub3, relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
         
@@ -630,7 +605,7 @@ while True:
             [sg.Button('戻る', key='-FileExit_sub4-')]
         ]   
         window = sg.Window('アプリ君・甲', open_file_sub4, relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
         
@@ -665,7 +640,7 @@ while True:
             [sg.Button('戻る', key='-FileExit_sub5-')]
         ]   
         window = sg.Window('アプリ君・甲', open_file_sub5, relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
         
@@ -701,7 +676,7 @@ while True:
             [sg.Button('戻る', key='-FileExit_sub6-')]
         ]   
         window = sg.Window('アプリ君・甲', open_file_sub6, relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
         
@@ -747,7 +722,7 @@ while True:
             [sg.Button('戻る', key='-VoiceExit-')],
         ]
         window = sg.Window('アプリ君・甲', voice_option, size=(700, 500), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
 
@@ -821,7 +796,7 @@ while True:
             [sg.Button('戻る', key='-ScrotExit-')],
         ]   
         window = sg.Window('アプリ君・甲', make_scr, relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
 
@@ -886,7 +861,7 @@ while True:
                         ]
             return sg.Window("アプリ君・甲", ending_1,size=(1300,920),relative_location=(0, -75),
                             border_depth=2, resizable=False, finalize=True, 
-                            right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                            right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                             right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                             right_click_menu_tearoff=False, keep_on_top=True)
 
@@ -909,9 +884,9 @@ while True:
                 canvas.tk_canvas.after(22)
                 canvas.tk_canvas.update()
 
-            for i in range(35):
+            for i in range(53):
                 canvas.tk_canvas.delete("text","k")
-                canvas.tk_canvas.create_text(280+i*7,400,fill="red",text="おわり..",font=("Arial",24+i),tag="text")
+                canvas.tk_canvas.create_text(280+i*7,400,fill="#c71585",text="おわり..",font=("Arial",24+i),tag="text")
                 canvas.tk_canvas.after(22)
                 canvas.tk_canvas.update() 
 
@@ -919,13 +894,13 @@ while True:
         def jimaku(voc,tex,i):
                 canvas.tk_canvas.delete("text")
                 if i < 186:
-                    canvas.tk_canvas.create_text(3240-i*16,400,fill="#ffffff",text="おわり",font=("Arial",24),tag="text")
+                    canvas.tk_canvas.create_text(3240-i*16,400,fill="#c71585",text="おわり",font=("Arial",24),tag="text")
                 else:
-                    canvas.tk_canvas.create_text(280,400,fill="#ffffff",text="おわり",font=("Arial",24),tag="text")
+                    canvas.tk_canvas.create_text(280,400,fill="#c71585",text="おわり",font=("Arial",24),tag="text")
                 for j in range(len(tex)):
                     x = tex["x"][j]-i*tex["speed"][j]
                     if x > -100 :
-                        canvas.tk_canvas.create_text(x,int(tex["y"][j]),text=voc["voc"][j%100],fill="white",font=("Arial",10+int(tex["size"][j])*4),tag="text")
+                        canvas.tk_canvas.create_text(x,int(tex["y"][j]),text=voc["voc"][j%100],fill="#c71585",font=("Arial",10+int(tex["size"][j])*4),tag="text")
 
         kou()
 
@@ -958,7 +933,7 @@ while True:
                         ]
             return sg.Window("アプリ君・甲", ending_1,size=(1300,920),relative_location=(0, -75),
                             border_depth=2, resizable=False, finalize=True, 
-                            right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
+                            right_click_menu=['Unused', ['Click', 'Home', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
                             right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                             right_click_menu_tearoff=False, keep_on_top=True)
 
@@ -981,9 +956,9 @@ while True:
                 canvas.tk_canvas.after(22)
                 canvas.tk_canvas.update()
 
-            for i in range(35):
+            for i in range(53):
                 canvas.tk_canvas.delete("text","k")
-                canvas.tk_canvas.create_text(280+i*7,400,fill="red",text="パーフェクト",font=("Arial",24+i),tag="text")
+                canvas.tk_canvas.create_text(280+i*7,400,fill="#c71585",text="パーフェクト",font=("Arial",24+i),tag="text")
                 canvas.tk_canvas.after(22)
                 canvas.tk_canvas.update() 
 
@@ -991,13 +966,13 @@ while True:
         def jimaku(voc,tex,i):
                 canvas.tk_canvas.delete("text")
                 if i < 186:
-                    canvas.tk_canvas.create_text(3240-i*16,400,fill="#ffffff",text="パーフェクト",font=("Arial",24),tag="text")
+                    canvas.tk_canvas.create_text(3240-i*16,400,fill="#c71585",text="パーフェクト",font=("Arial",24),tag="text")
                 else:
-                    canvas.tk_canvas.create_text(280,400,fill="#ffffff",text="パーフェクト",font=("Arial",24),tag="text")
+                    canvas.tk_canvas.create_text(280,400,fill="#c71585",text="パーフェクト",font=("Arial",24),tag="text")
                 for j in range(len(tex)):
                     x = tex["x"][j]-i*tex["speed"][j]
                     if x > -100 :
-                        canvas.tk_canvas.create_text(x,int(tex["y"][j]),text=voc["voc"][j%100],fill="white",font=("Arial",10+int(tex["size"][j])*4),tag="text")
+                        canvas.tk_canvas.create_text(x,int(tex["y"][j]),text=voc["voc"][j%100],fill="#c71585",font=("Arial",10+int(tex["size"][j])*4),tag="text")
 
         kou()
 
