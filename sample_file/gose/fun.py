@@ -21,7 +21,7 @@ def gose(c1,c2,mode=0):
         back=c2[0].encode("utf-8")
         nf=front[2]-160+(front[1]==131)*64
         nb=back[2]-160+(back[1]==131)*64
-        f=open("main_folder/hrkt.bin","rb")#つながりのファイル
+        f=open("hrkt.bin","rb")#つながりのファイル
         a=[]
         sum=[]
         for i in range(189):
@@ -71,9 +71,10 @@ def gose(c1,c2,mode=0):
         l=len(c2)
         if l==1:
             return cf+c2
+        
         r=rand.randint(0,7)#0-3なら後ろから,4-7なら前からとる
         if r<4:
-            f=open("main_folder/hrkt.bin","rb")#つながりのファイル
+            f=open("hrkt.bin","rb")#つながりのファイル
             a=[]
             sum=[]
             for i in range(189):
@@ -107,6 +108,7 @@ def gose(c1,c2,mode=0):
                     count=count+aa[i]
                 c=cf+c2[-i-1:]
                 return c
+            
         r=int(rand.randint(4,9-(l==2))/3)#1/6で3,3/6で2,2/6で1になる、c2からとる文字数
         c=cf+c2[:r]
         return c
