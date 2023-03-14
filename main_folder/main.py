@@ -69,7 +69,7 @@ e111 = 0
 f111 = 0
 
 #time.sleep(0.1)
-sg.popup_ok('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
+#sg.popup_ok('アプリケーションを起動します。', font=('Arial', 12), text_color='#ff1493')
 #pg.confirm('本当に起動しますか？')
 time.sleep(0.2)
 
@@ -326,58 +326,6 @@ def make_sub6():
                     right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
                     right_click_menu_tearoff=False, keep_on_top=True)
     
-    
-    
-#--------画像表示の定義--------
-def img_1():
-    img_1_layout = [
-        #[sg.Image(filename='img/img_1.png')]#メイン環境
-        [sg.Image(filename='main_folder/img/img_1.png')]#GitHub環境
-    ]
-    return sg.Window('アプリ君・甲', img_1_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
-                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
-
-def img_2():
-    img_2_layout = [
-        #[sg.Image(filename='img/img_2.png')]#メイン環境
-        [sg.Image(filename='main_folder/img/img_2.png')]#GitHub環境
-    ]
-    return sg.Window('アプリ君・甲', img_2_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
-                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
-
-def img_3():
-    img_3_layout = [
-        #[sg.Image(filename='img/img_3.png')]#メイン環境
-        [sg.Image(filename='main_folder/img/img_3.png')]#GitHub環境
-    ]
-    return sg.Window('アプリ君・甲', img_3_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
-                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
-    
-def img_4():
-    img_4_layout = [
-        #[sg.Image(filename='img/img_4.png')]#メイン環境
-        [sg.Image(filename='main_folder/img/img_4.png')]#GitHub環境
-    ]
-    return sg.Window('アプリ君・甲', img_4_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
-                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
-    
-def img_5():
-    img_5_layout = [
-        #[sg.Image(filename='img/img_5.png')]#メイン環境
-        [sg.Image(filename='main_folder/img/img_5.png')]#GitHub環境
-    ]
-    return sg.Window('アプリ君・甲', img_5_layout, size=(640, 320), relative_location=(0,0), border_depth=2, 
-                    use_default_focus=True, resizable=True, right_click_menu=['Unused', ['Click', 'Menu', 'Restart', 'Properties', 'Force Quit', 'Exit']], 
-                    right_click_menu_font='Helvetica', right_click_menu_text_color='#000000', right_click_menu_selected_colors='#da70d6',
-                    right_click_menu_tearoff=False)
 
 
 # --------起動時アニメーション（本物）--------
@@ -852,7 +800,7 @@ while True:
         
         #----スクショ音声を読み上げる----
         engine = pyttsx3.init()
-        engine.say('カシャっ')
+        engine.say('カシャっカシャっカシャっ')
         engine.runAndWait()
         
         Origin_window_scr = window
@@ -911,7 +859,7 @@ while True:
     if event == sg.WIN_CLOSED or event == 'Exit' and a111 == 0 and b111 == 0 and c111 == 0 and d111 == 0 and e111 == 0 and f111 == 0:
         window.close()  
         Origin_window_end = window
-        end_popup = sg.popup_ok('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
+        #end_popup = sg.popup_ok('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
         
 
     #if end_popup == 'Cancel':
@@ -990,7 +938,7 @@ while True:
 
     elif event == sg.WIN_CLOSED or event == 'Exit' and a111 == 1 and b111 == 1 and c111 == 1 and d111 == 1 and e111 == 1 and f111 == 1:      
         window.close()  
-        end_popup = sg.popup_ok('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
+        #end_popup = sg.popup_ok('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
         
 
 #--------パーフェクトエンディング--------
@@ -1158,6 +1106,8 @@ while True:
             #print(i_sub2)
             if i_sub2==0:
                 break
+            if n_sub2 == jogen_sub2-1 and a_sub2[i_sub2][0] == 0:
+                continue
             #c_sub2=c_sub2+[i_sub2+(227*256+130)*256+160+(i_sub2>32)*192]
             c_sub2=c_sub2+[227,129+(i_sub2>63),i_sub2+128-(i_sub2>63)*64]
             front_sub2=i_sub2
@@ -1227,6 +1177,8 @@ while True:
             #print(i_sub3)
             if i_sub3==0:
                 break
+            if n_sub3 == jogen_sub3-1 and a_sub3[i_sub3][0] == 0:
+                continue
             #c_sub3=c_sub3+[i_sub3+(227*256+130)*256+160+(i_sub3>32)*192]
             c_sub3=c_sub3+[227,130+(i_sub3>31),i_sub3+160-(i_sub3>31)*64]
             front_sub3=i_sub3
@@ -1296,6 +1248,8 @@ while True:
             #print(i_sub4)
             if i_sub4==0:
                 break
+            if n_sub4 == jogen_sub4-1 and a_sub4[i_sub4][0] == 0:
+                continue
             #c_sub4=c_sub4+[i_sub4+(227*256+130)*256+160+(i_sub4>32)*192]
             c_sub4=c_sub4+[i_sub4+96]
             front_sub4=i_sub4
@@ -1402,7 +1356,7 @@ while True:
     
 #--------サブ5について機械学習を用いて判定--------
     if event == '-JudgeButton-' and cc_sub5 != 'NULL':
-        window['-JudgeAnswer-'].update('※※ジャッジ中...※※')
+        window['-JudgeAnswer-'].update('タツノオトシゴに多い名前です（レア）')
         
         text = cc_sub5
         #sg.popup_ok(cc_sub5)
@@ -1477,13 +1431,14 @@ while True:
                 return 0
             
             
-                
+            '''    
             if fcount+mcount<5:
                 train_and_test(classifier, df, mlb,target)
             
             with open('model.pickle', mode='wb') as f:
                 pickle.dump(classifier,f)
-                
+            '''
+            
         # svm
         classifier = svm.SVC(probability=True, C=0.1)
         s = train_and_test(classifier, df, mlb,target)
