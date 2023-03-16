@@ -911,7 +911,7 @@ while True:
 
 
 
-    elif event == sg.WIN_CLOSED or event == 'Exit' and a111 == 1 and b111 == 1 and c111 == 1 and d111 == 1 and e111 == 1 and f111 == 1:      
+    if event == sg.WIN_CLOSED or event == 'Exit' and a111 == 1 and b111 == 1 and c111 == 1 and d111 == 1 and e111 == 1 and f111 == 1:      
         window.close()  
         #end_popup = sg.popup_ok('アプリケーションを終了します。', font=('Arial', 12), text_color='#ff1493')
         
@@ -1270,6 +1270,7 @@ while True:
 
 #--------サブ5のウィンドウについての設定--------    
     elif event == '-generate_5-' and int(values['-jog_5-']) < 80:
+        
         kagen_sub5 = int(values['-kag_5-'])
         jogen_sub5 = int(values['-jog_5-'])
     
